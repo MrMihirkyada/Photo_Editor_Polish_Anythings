@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".Draw_Activity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/imgback"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_weight="1"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
+            android:src="@drawable/right" />
+    </RelativeLayout>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imgDrawSelectImage"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp" />-->
+
+    <com.example.photoeditorpolishanything.DrawingView
+        android:id="@+id/drawing_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginVertical="@dimen/_25sdp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:background="@drawable/box10"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20sdp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/lnrColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/box3"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/colorPreview"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/color"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civWhite"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="@color/white"
+                    tools:ignore="OnClick" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civGrey"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="#7F7F7F"
+                    tools:ignore="OnClick" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civDarkGrey"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="#2E2E2E"
+                    tools:ignore="OnClick" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civBlack"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="@color/black"
+                    tools:ignore="OnClick" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civBrown"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="#331F1F"
+                    tools:ignore="OnClick" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civDarkBrown"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="#401616"
+                    tools:ignore="OnClick" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civLightBrown"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="#4E2727"
+                    tools:ignore="OnClick" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civRed"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="#590404"
+                    tools:ignore="OnClick" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civBlue"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:clickable="true"
+                    android:onClick="onColorSelected"
+                    android:padding="5dp"
+                    android:src="@color/blue"
+                    tools:ignore="OnClick" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:background="@drawable/box3"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:src="@drawable/drawing" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnrEraser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/box3"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:src="@drawable/eraser"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_20sdp">
+
+                <SeekBar
+                    android:id="@+id/skbEraser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:maxHeight="@dimen/_3sdp"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/custom_seekbar"
+                    android:thumb="@drawable/custom_thumb"/>
+
+                <TextView
+                    android:id="@+id/txtProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

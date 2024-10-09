@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/i_collage"
+        android:icon="@drawable/collage_2"
+        android:title="Collage"/>
+
+    <item
+        android:id="@+id/i_template"
+        android:icon="@drawable/template"
+        android:title="Templates" />
+
+    <item
+        android:id="@+id/i_gallery"
+        android:title=""/>
+    <item
+        android:id="@+id/i_beautify"
+        android:icon="@drawable/beautify"
+        android:title="Beautify" />
+
+    <item
+        android:id="@+id/i_camera"
+        android:icon="@drawable/camera"
+        android:title="Camera" />
+</menu>

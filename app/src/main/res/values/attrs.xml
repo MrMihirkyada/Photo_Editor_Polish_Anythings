@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomNavItem">
+        <attr name="itemVerticalOffsetIcon" format="dimension"/>
+        <attr name="itemVerticalOffsetText" format="dimension"/>
+    </declare-styleable>
+</resources>

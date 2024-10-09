@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Polér</string>
+    <string name="Setting">Indstilling</string>
+    <string name="General">Generelt</string>
+    <string name="Resolution">Opløsning</string>
+    <string name="Language">Sprog</string>
+    <string name="Feedback">Feedback</string>
+    <string name="SavePath">Gem Sti</string>
+    <string name="Share">Del</string>
+    <string name="RemoveAds">Fjern Annoncer</string>
+    <string name="RestorePurchase">Gendan Køb</string>
+    <string name="ManageSubscription">Administrer Abonnement</string>
+    <string name="FollowUs">Følg Os</string>
+    <string name="Instagram">Instagram</string>
+    <string name="About">Om</string>
+    <string name="PrivacyPolicy">Privatlivspolitik</string>
+    <string name="TermsofUse">Brugsbetingelser</string>
+    <string name="GridArt221151">GridArt 2.21.151</string>
+
+    <!-- ______________________Dashboard________________________-->
+
+    <string name="Explore">Udforsk</string>
+    <string name="GridArt">Grid\nArt</string>
+    <string name="Pro">Pro</string>
+    <string name="Collage">Collage</string>
+    <string name="Template">Skabeloner</string>
+    <string name="Beautify">Forskøn</string>
+    <string name="Camera">Kamera</string>
+
+    <!-- ______________________Camera________________________-->
+
+    <string name="ThisappcanonlyaccessPhotoSelected">Denne app kan kun få adgang til de billeder, du vælger</string>
+    <string name="Photos">Fotos</string>
+    <string name="Albums">Albums</string>
+    <string name="Recent">Seneste</string>
+
+    <!-- ______________________Camera________________________-->
+
+    <!-- ______________________Dashboard________________________-->
+
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+    <string name="Restore">Gendan</string>
+    <string name="JoinFullExperience">Deltag i fuld oplevelse.</string>
+    <string name="AccessAllfeatures">Adgang til alle funktioner.</string>
+    <string name="Newfiltersandeffectaddedweekly">Nye filtre &amp; effekter tilføjes hver uge.</string>
+    <string name="Noadsevermore">Ingen annoncer nogensinde.</string>
+    <string name="AccesstoAllFeaturesNoAds">Adgang til alle funktioner.\nIngen annoncer.</string>
+    <string name="sevenDayFreeTrial">7-dages gratis prøveperiode</string>
+    <string name="ThanOneThousandYear">Mindre end ₹1.000,00 / år</string>
+    <string name="ThenTwoThousandFiftyOneTimePurchase">Derefter ₹2.050,00 engangsbetaling</string>
+    <string name="Caption">Dette abonnement giver dig ubegrænset adgang til vores app-indholdsbibliotek.\nHvis du ikke annullerer inden prøveperioden slutter, bliver du automatisk\nopkrævet ₹1.000,00 hvert år, indtil du annullerer. Vilkår &amp; Betingelser</string>
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+
+    <!-- ______________________EditActivity________________________-->
+    <string name="Open">Åben</string>
+    <string name="More">Mere</string>
+    <string name="Original">Original</string>
+    <string name="Bright">Lys</string>
+    <string name="Story">Historie</string>
+    <string name="Natural">Naturlig</string>
+    <string name="Warm">Varm</string>
+    <string name="Dew">Dug</string>
+    <string name="Gold">Guld</string>
+    <string name="Lomo">Lomo</string>
+    <string name="Pink">Lyserød</string>
+    <string name="Styles">Stilarter</string>
+    <string name="Tools">Værktøjer</string>
+    <string name="Export">Eksport</string>
+
+
+    <!--    bottom sheet -->
+    <string name="Sticker">Klistermærke</string>
+    <string name="Draw">Tegn</string>
+    <string name="Layout">Layout</string>
+    <string name="Templates">Skabeloner</string>
+    <string name="Filter">Filter</string>
+    <string name="Adjust">Justér</string>
+    <string name="Background">Baggrund</string>
+    <string name="Text">Tekst</string>
+    <string name="Crop">Beskær</string>
+    <!--    bottom sheet -->
+    <!-- ______________________EditActivity________________________-->
+
+    <!-- ______________________Layout Activity tab________________________-->
+
+        <string name="tab_ratio">Forhold</string>
+        <string name="tab_layout">Layout</string>
+        <string name="tab_margin">Margin</string>
+        <string name="tab_border">Kant</string>
+
+
+    <!--    Ratio Fragment -->
+    <string name="Custom">Brugerdefineret</string>
+    <string name="lG11">lG 1 : 1</string>
+    <string name="lG45">lG 4 : 5</string>
+    <string name="A4">A4</string>
+    <string name="Cover">Cover</string>
+    <string name="Device">Enhed</string>
+    <string name="Post">Opslag</string>
+    <string name="Header">Overskrift</string>
+    <!--    Ratio Fragment -->
+
+    <!-- ______________________Layout Activity tab________________________-->
+
+    <!-- ______________________Adjust Activity________________________-->
+    <string name="Brightness">Lysstyrke</string>
+    <string name="Contrast">Kontrast</string>
+    <string name="Warmth">Varmt</string>
+    <string name="Saturation">Mætning</string>
+    <string name="Fade">Udtoning</string>
+    <string name="Highlight">Fremhævning</string>
+    <string name="Shadow">Skygge</string>
+    <string name="Tint">Nuance</string>
+    <string name="Hue">Farve</string>
+    <string name="Grain">Korn</string>
+
+    <!-- ______________________Adjust Activity________________________-->
+
+
+    <!-- ______________________Background Activity________________________-->
+    <string name="Blurbg">Slør baggrund</string>
+    <string name="Png">Png</string>
+    <string name="White">Hvid</string>
+    <!-- ______________________Background Activity________________________-->
+
+    <!-- ______________________Text Activity________________________-->
+    <string name="Keyboard">Tastatur</string>
+    <string name="Font">Skrifttype</string>
+    <string name="Style">Stil</string>
+    <string name="Preset">Forudindstilling</string>
+    <string name="Add">Tilføj</string>
+
+    <!-- ______________________Text Activity________________________-->
+
+    <!-- ______________________Crop Activity________________________-->
+    <string name="Rotate">Rotere</string>
+    <string name="Perspective">Perspektiv</string>
+    <string name="Left90">Venstre 90</string>
+    <string name="Right90">Højre 90</string>
+    <string name="Horizontal">Horisontal</string>
+    <string name="Vertical">Vertikal</string>
+    <!-- ______________________Crop Activity________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+    <string name="Saved">Gemt</string>
+    <string name="MakeAnother">Lav en anden</string>
+    <string name="WhatsApp">WhatsApp</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Messenger">Messenger</string>
+    <string name="Twitter">Twitter</string>
+    <string name="Print">Udskriv</string>
+    <string name="Email">E-mail</string>
+
+    <!-- ______________________Dialog________________________-->
+    <string name="AreYouEditing">Er du tilfreds med\n redigeringsresultaterne?</string>
+    <string name="Good">Godt</string>
+    <string name="NotReally">Ikke rigtig</string>
+    <!-- ______________________Dialog________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+
+    <!-- ______________________Templates Activity________________________-->
+    <string name="All">Alle</string>
+    <string name="birthday">fødselsdag</string>
+    <string name="Calendar">Kalender</string>
+    <string name="Christmas">Jul</string>
+    <string name="Family">Familie</string>
+    <string name="Frame">Ramme</string>
+    <string name="Graduation">Graduering</string>
+    <string name="Love">Kærlighed</string>
+    <string name="Motherday">Mors dag</string>
+    <string name="Newyear">Nytår</string>
+    <string name="Pride">Stolthed</string>
+    <string name="Schoollife">Skoleliv</string>
+    <string name="Summer">Sommer</string>
+    <string name="Travel">Rejse</string>
+    <string name="Winter">Vinter</string>
+    <!-- ______________________Templates Activity________________________-->
+
+
+    <!-- ______________________Beautify Activity________________________-->
+    <!-- ______________________Main Layout________________________-->
+    <string name="Face">Ansigt</string>
+    <string name="Retouch">Retouchering</string>
+    <string name="Makeup">Makeup</string>
+    <string name="Blemish">Blemish</string>
+    <string name="Wrinkle">Rynke</string>
+    <string name="DarkCircles">Mørke\nCirkler</string>
+    <string name="Reshape">Omskabelse</string>
+
+    <!-- Main to Face Layout -->
+    <string name="Thin">Tynd</string>
+    <string name="Width">Bredde</string>
+    <string name="Height">Højde</string>
+    <string name="Jaw">Kæbe</string>
+    <string name="Forehead">Pande</string>
+    <string name="Distance">Afstand</string>
+    <string name="Tilt">Hældning</string>
+    <string name="Size">Størrelse</string>
+    <string name="Thickness">Tykkelse</string>
+    <string name="Tip">Tip</string>
+    <string name="Lift">Løft</string>
+
+    <!-- Main to Retouch Layout -->
+    <string name="Smooth">Glathud</string>
+    <string name="Brighten">Lysne</string>
+    <string name="Sharpen">Skærpe</string>
+
+    <!-- Main to Makeup Main View Layout -->
+    <string name="Sets">Sæt</string>
+    <string name="LipColor">Læbefarve</string>
+    <string name="Blush">Rødme</string>
+    <string name="Contour">Kontur</string>
+
+    <!-- Main to Makeup Lip View Layout -->
+    <string name="Ma01">Ma01</string>
+    <string name="Ma02">Ma02</string>
+    <string name="Ma03">Ma03</string>
+    <string name="Ma04">Ma04</string>
+    <string name="Ma05">Ma05</string>
+    <string name="Ma06">Ma06</string>
+    <string name="Ma07">Ma07</string>
+    <string name="Ma08">Ma08</string>
+    <string name="Ma09">Ma09</string>
+
+    <!-- Main to Makeup Setting View Layout -->
+    <string name="Flush">Skylle</string>
+    <string name="Square">Firkant</string>
+    <string name="Pear">Pære</string>
+    <string name="Oval">Oval</string>
+    <string name="Sunburn">Solskoldning</string>
+    <string name="Angled">Vinklet</string>
+    <string name="Normal">Normal</string>
+    <string name="Apple">Æble</string>
+    <string name="Full">Fuldt</string>
+
+    <!-- Main to Blemishes Activity -->
+    <string name="Tapareastoremoveblemishes">Tryk på områder for at fjerne pletter</string>
+
+    <!-- Main to Wrinkle & Dark Circles Activity -->
+    <string name="Manual">Manuel</string>
+    <string name="Eraser">Viskelæder</string>
+
+    <!-- Main to Makeup Activity -->
+    <string name="Detail">Detalje</string>
+    <string name="Resize">Tilpas størrelse</string>
+    <!-- ________Main to MakeUp Activity________-->
+
+
+    <!-- ______________________Main Layout________________________-->
+
+    <!-- ______________________Beautify Activity________________________-->
+
+
+    <!-- ______________________Subscriptions Activity________________________-->
+    <string name="Subscriptions">Abonnementer</string>
+    <string name="Discoversubscriptions">Oplev abonnementer</string>
+    <string name="subscriptionsCaption">Du kan tilmelde dig abonnementer i dine yndlings \napps og spil og administrere dem i Google Play</string>
+    <!-- ______________________Subscriptions Activity________________________-->
+
+
+    <!-- ______________________Resoluction Dialog________________________-->
+    <string name="HighResolution">Høj opløsning</string>
+    <string name="HighResolutionCaption">Op til 4096px. Det afhænger også af den oprindelige opløsning og telefonens hukommelse.</string>
+    <string name="RegularResolution">Regelmæssig opløsning</string>
+    <string name="RegularResolutionCaption">Op til 1920px. God til deling på \nsociale netværk.</string>
+    <!-- ______________________Resoluction Dialog________________________-->
+
+    <!-- ______________________FeedBack Dialog________________________-->
+    <string name="FeedbackCaption">Vil du give os noget tilbagemelding?</string>
+    <string name="Nothanks">Nej, tak</string>
+    <string name="sendFeedback">Send feedback</string>
+    <!-- ______________________FeedBack Dialog________________________-->
+
+
+</resources>

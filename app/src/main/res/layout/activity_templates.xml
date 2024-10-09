@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".TemplatesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgback"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:text="Templates"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp" />
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginVertical="@dimen/_15sdp"
+        android:background="@color/black"
+        android:scrollIndicators="right"
+        app:tabBackground="@drawable/tabs_background_selector"
+        app:tabGravity="start"
+        app:tabIndicator="@drawable/tabs_indicator"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorColor="@color/tab_selected_color"
+        app:tabInlineLabel="true"
+        app:tabMode="scrollable"
+        app:tabPaddingEnd="@dimen/_15sdp"
+        app:tabPaddingStart="@dimen/_15sdp"
+        app:tabRippleColor="@color/lightgrey"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextAppearance="@style/CustomTabTextStyle"
+        app:tabTextColor="@color/white"
+        app:tabUnboundedRipple="true" />
+
+    <!--        <HorizontalScrollView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/_15sdp"-->
+    <!--            android:scrollbars="none">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:orientation="horizontal">-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:text="All"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrBirthday"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:text="Birthday"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrLove"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:text="Love"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrChildhood"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:text="Childhood"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrSchool"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:text="School"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrIG_Story"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:text="IG Story"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrSelfie"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:text="Selfie"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrPrideMonth"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:text="PrideMonth"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrSummer"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:text="Summer"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:id="@+id/lnrFrame"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+    <!--                    android:background="@drawable/box4"-->
+    <!--                    android:backgroundTint="#292929"-->
+    <!--                    android:gravity="center">-->
+
+    <!--                    <TextView-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginHorizontal="@dimen/_15sdp"-->
+    <!--                        android:text="Frame"-->
+    <!--                        android:textSize="@dimen/_11ssp"-->
+    <!--                        android:layout_marginVertical="@dimen/_5sdp"-->
+    <!--                        android:textColor="@color/white"-->
+    <!--                        android:textStyle="bold" />-->
+    <!--                </LinearLayout>-->
+
+    <!--            </LinearLayout>-->
+    <!--        </HorizontalScrollView>-->
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/recyclerView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_marginHorizontal="@dimen/_5sdp"-->
+    <!--        android:layout_height="match_parent" />-->
+
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:scrollbars="none">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/textView"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textColor="@color/white" />-->
+    <!--    </ScrollView>-->
+</LinearLayout>

@@ -61,7 +61,8 @@
                     android:text="Photos"
                     android:layout_marginVertical="@dimen/_5sdp"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_8ssp" />
+                    android:textSize="@dimen/_8ssp"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -86,10 +87,11 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_width="@dimen/_15sdp"
-            android:layout_height="@dimen/_15sdp"
+            android:id="@+id/imgNext"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_gravity="center"
-            android:src="@drawable/more" />
+            android:src="@drawable/right_to_next" />
     </LinearLayout>
 
 

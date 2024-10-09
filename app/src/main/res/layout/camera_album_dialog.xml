@@ -27,6 +27,7 @@
         tools:ignore="HardcodedText"/>
 
     <LinearLayout
+        android:id="@+id/imgNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_10sdp"
@@ -89,7 +90,7 @@
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_15sdp"
             android:layout_gravity="center"
-            android:src="@drawable/more" />
+            android:src="@drawable/right_to_next" />
     </LinearLayout>
 
     <LinearLayout
@@ -111,13 +112,14 @@
 
     </LinearLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAlbum"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_weight="1"
-        app:fastScrollEnabled="true"
-        android:nestedScrollingEnabled="false"/>
+        android:nestedScrollingEnabled="false"
+        app:fastScrollEnabled="true"/>
 
 </LinearLayout>

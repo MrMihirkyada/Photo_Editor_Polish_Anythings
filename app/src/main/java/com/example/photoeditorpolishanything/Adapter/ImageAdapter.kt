@@ -1,3 +1,4 @@
+
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +13,11 @@ import com.example.photoeditorpolishanything.R
 
 class ImageAdapter(private val imageList: List<ImageItem>, private val onImageClick: (Uri) -> Unit) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
 
+    private var selectedPosition: Int = RecyclerView.NO_POSITION
+
     inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
-
         init
         {
             itemView.setOnClickListener {

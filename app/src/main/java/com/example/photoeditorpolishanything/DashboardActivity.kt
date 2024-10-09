@@ -464,7 +464,6 @@ class DashboardActivity : BaseActivity() {
         }
     }
 
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -485,7 +484,8 @@ class DashboardActivity : BaseActivity() {
 
 
     @SuppressLint("CutPasteId")
-    fun showBottomSheet() {
+    fun showBottomSheet()
+    {
         val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetStyle)
         val view = layoutInflater.inflate(R.layout.camera_dialog, null)
 
@@ -498,11 +498,31 @@ class DashboardActivity : BaseActivity() {
                 // Instead of directly removing from selectedImages, call the adapter's removeItem method
                 adapter.removeItem(position)
                 updateSelectedImagesCount(txtSelectedImagesCount, selectedImages.size)
+            }
+            else
+            {
+                Log.e("SelectedImagesAdapter", "Attempted to remove an item at an invalid index: $position")
+            }
+        }
+
+
+        view.findViewById<ImageView>(R.id.imgNext).setOnClickListener {
+            // Check if there are any selected images
+            if (selectedImages.isNotEmpty()) {
+                // For this example, let's take the first image
+                val selectedImageUri = selectedImages[0] // Modify this line to choose which image you want
+
+                // Prepare the intent to start EditActivity
+                val intent = Intent(this, EditActivity::class.java).apply {
+                    putExtra("selected_image_uri", selectedImageUri.toString()) // Sending the selected image URI as a String
+                }
+
+                // Start EditActivity
+                startActivity(intent)
+                finish() // Optional: finish the current activity if you don't want to return to it
             } else {
-                Log.e(
-                    "SelectedImagesAdapter",
-                    "Attempted to remove an item at an invalid index: $position"
-                )
+                // Handle the case where no images are selected
+                Toast.makeText(this, "No images selected", Toast.LENGTH_SHORT).show()
             }
         }
 

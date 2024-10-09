@@ -21,6 +21,7 @@ import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.FrameLayout
@@ -135,15 +136,19 @@ class EditActivity : BaseActivity()
 
         binding.imgEditSelectImage.setImageDrawable(null)
 
-        val selectedImageUriString = intent.getStringExtra("selected_image_uri")
+//        val selectedImageUriString = intent.getStringExtra("selected_image_uri")
 
         val selectedImageEditUrl = intent.getStringExtra("selected_imageEditUrl")
 
-        val selectedImageUri = Uri.parse(selectedImageUriString)
+//        val selectedImageUri = Uri.parse(selectedImageUriString)
 
         val source = intent.getStringExtra("source")
 
         val imageEditUrl: String? = intent.getStringExtra("selected_imageEditUrl") // Retrieve correctly
+
+        // Get the image URI passed from the previous activity
+        val selectedImageUriString = intent.getStringExtra("selected_image_uri")
+        val selectedImageUri: Uri? = selectedImageUriString?.let { Uri.parse(it) }
 
         if (selectedImageUri != null && imageEditUrl != null)
         {
@@ -154,8 +159,29 @@ class EditActivity : BaseActivity()
             Toast.makeText(this, "Invalid image or template URL", Toast.LENGTH_SHORT).show()
         }
 
+
+
+
+
+
+
+
+        // Use the selectedImageUri as needed
+        if (selectedImageUri != null) {
+            // Load the image using Glide or any other image loading library
+            Glide.with(this).load(selectedImageUri).into(binding.imgEditSelectImage)
+        } else {
+            // Handle the case where the URI is null
+            Log.e("EditActivity", "Image URI is null")
+        }
+
+
+
+
+
+
         // If the source is from the adapter, load the image using Glide
-         if (source == "adapter" && !selectedImageUriString.isNullOrBlank())
+        if (source == "adapter" && !selectedImageUriString.isNullOrBlank())
         {
             // Load image from selected_imageEditUrl using Glide
             Glide.with(this).load(selectedImageEditUrl).into(binding.imgEditSelectImage)
@@ -358,12 +384,12 @@ class EditActivity : BaseActivity()
             binding.templateImageView.visibility = View.VISIBLE
         }
     }
- 
+
     private fun toggleButton(button: LinearLayout?) {
         // Check if the clicked button is already selected
         val selectedImageUriString = intent.getStringExtra("selected_image_uri")
         var selectedImageUri = Uri.parse(selectedImageUriString)
-      
+
 //        loadImage(selectedImageUri)
         if (selectedButton != button)
         {
@@ -494,7 +520,7 @@ class EditActivity : BaseActivity()
                 ContextCompat.getColorStateList(this, R.color.blue)
         }
     }
- 
+
     private class FetchImagesTask(val context: EditActivity, val callback: (List<ImageItem>) -> Unit) : AsyncTask<Void, Void, List<ImageItem>>()
     {
         override fun doInBackground(vararg params: Void?): List<ImageItem> {
@@ -779,7 +805,7 @@ class EditActivity : BaseActivity()
                 {
                     applyMaskToImage(imageUri, maskBitmap)
                 }
-        
+
                 override fun onLoadCleared(placeholder: Drawable?)
                 {
                     // Handle placeholder or clear actions if needed

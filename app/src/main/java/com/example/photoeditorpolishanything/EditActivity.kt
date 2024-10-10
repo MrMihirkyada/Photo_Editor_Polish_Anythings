@@ -376,13 +376,13 @@ class EditActivity : BaseActivity()
 //        var container = binding.templateContainer
 
 
-        templateImageView.setOnClickListener {
-            openImagePickerForTemplate()
-//            createDynamicFrameLayout(dynamicImage, container)
-
-//            binding.templateContainer.visibility = View.VISIBLE
-            binding.templateImageView.visibility = View.VISIBLE
-        }
+//        templateImageView.setOnClickListener {
+//            openImagePickerForTemplate()
+////            createDynamicFrameLayout(dynamicImage, container)
+//
+////            binding.templateContainer.visibility = View.VISIBLE
+//            binding.templateImageView.visibility = View.VISIBLE
+//        }
     }
 
     private fun toggleButton(button: LinearLayout?) {

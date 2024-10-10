@@ -8,6 +8,7 @@ import android.content.ContentUris
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Build
@@ -53,14 +54,15 @@ class DashboardActivity : BaseActivity() {
     private lateinit var viewModel: ImageViewModel
 
     private val REQUEST_CODE_PERMISSIONS = 101
-    private val REQUIRED_PERMISSIONS =
-        arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+    private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
     private val REQUEST_CODE_GALLERY = 102
     private val REQUEST_CODE_CAMERA = 103
     private lateinit var currentPhotoPath: String
     private var bottomSheetDialog: BottomSheetDialog? = null
     private var selectedImageView: ImageView? = null
     private var selectedTextView: TextView? = null
+    private var isPhotosSelected: Boolean = true // Track the currently selected state
+
 
     companion object {
         var context: Context? = null
@@ -114,26 +116,20 @@ class DashboardActivity : BaseActivity() {
         binding.txtCamera.text = resources.getString(R.string.Camera)
 
         val bottomSheetView = bottomSheetDialog?.findViewById<View>(R.id.btnCamera)
-        bottomSheetView?.findViewById<TextView>(R.id.txtThisappcanonlyaccessPhotoSelected)?.text =
-            resources.getString(R.string.ThisappcanonlyaccessPhotoSelected)
-        bottomSheetView?.findViewById<TextView>(R.id.txtPhotos)?.text =
-            resources.getString(R.string.Photos)
-        bottomSheetView?.findViewById<TextView>(R.id.txtAlbums)?.text =
-            resources.getString(R.string.Albums)
-        bottomSheetView?.findViewById<TextView>(R.id.selectedCountTextView)?.text =
-            resources.getString(R.string.Recent)
+        bottomSheetView?.findViewById<TextView>(R.id.txtThisappcanonlyaccessPhotoSelected)?.text = resources.getString(R.string.ThisappcanonlyaccessPhotoSelected)
+        bottomSheetView?.findViewById<TextView>(R.id.txtPhotos)?.text = resources.getString(R.string.Photos)
+        bottomSheetView?.findViewById<TextView>(R.id.txtAlbums)?.text = resources.getString(R.string.Albums)
+        bottomSheetView?.findViewById<TextView>(R.id.selectedCountTextView)?.text = resources.getString(R.string.Recent)
     }
 
     private fun updateBottomSheetTextViews(view: View) {
         val context = LocaleHelper.onAttach(this)
         val resources = context.resources
 
-        view.findViewById<TextView>(R.id.txtThisappcanonlyaccessPhotoSelected).text =
-            resources.getString(R.string.ThisappcanonlyaccessPhotoSelected)
+        view.findViewById<TextView>(R.id.txtThisappcanonlyaccessPhotoSelected).text = resources.getString(R.string.ThisappcanonlyaccessPhotoSelected)
         view.findViewById<TextView>(R.id.txtPhotos).text = resources.getString(R.string.Photos)
         view.findViewById<TextView>(R.id.txtAlbums).text = resources.getString(R.string.Albums)
-        view.findViewById<TextView>(R.id.selectedCountTextView).text =
-            resources.getString(R.string.Recent)
+        view.findViewById<TextView>(R.id.selectedCountTextView).text = resources.getString(R.string.Recent)
     }
 
     private fun initView() {
@@ -339,38 +335,116 @@ class DashboardActivity : BaseActivity() {
     private fun showBottomSheetBeautify() {
         val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetStyle)
         val view = layoutInflater.inflate(R.layout.camera_dialog, null)
-        view.findViewById<ImageView>(R.id.imgCross)?.setOnClickListener {
-            bottomSheetDialog.dismiss()
-        }
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
 
-        updateBottomSheetTextViews(view)
+        // TextView to show selected images count
+        val txtSelectedImagesCount: TextView = view.findViewById(R.id.selectedCountTextView)
 
-        // Set layout manager with 3 columns
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
-
-        FetchBeautifyImagesTask(this) { imageList ->
-            recyclerView.adapter = ImageAdapter(imageList) { selectedImageUri ->
-                bottomSheetDialog.dismiss()
-                val intent = Intent(this, Beautify_Activity::class.java)
-                intent.putExtra("selected_image_uri", selectedImageUri.toString())
-                startActivity(intent)
+        // Initialize the selectedImages list to store only one selected image
+        val selectedImages = mutableListOf<Uri>()
+        adapter = SelectedImagesAdapter(selectedImages) { position ->
+            if (position >= 0 && position < selectedImages.size) {
+                // Instead of directly removing from selectedImages, call the adapter's removeItem method
+                adapter.removeItem(position)
+                updateSelectedImagesCount(txtSelectedImagesCount, selectedImages.size)
+            } else {
+                Log.e("SelectedImagesAdapter", "Attempted to remove an item at an invalid index: $position")
             }
+        }
+
+        view.findViewById<ImageView>(R.id.imgNext).setOnClickListener {
+            // Check if there are any selected images
+            if (selectedImages.isNotEmpty()) {
+                // Take the first image (as only one can be selected)
+                val selectedImageUri = selectedImages[0]
+
+                // Prepare the intent to start EditActivity
+                val intent = Intent(this, EditActivity::class.java).apply {
+                    putExtra("selected_image_uri", selectedImageUri.toString()) // Sending the selected image URI as a String
+                }
+
+                // Start EditActivity
+                startActivity(intent)
+                finish() // Optional: finish the current activity if you don't want to return to it
+            }
+            else
+            {
+                // Handle the case where no images are selected
+                Toast.makeText(this, "No images selected", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Initialize the selected state to Photos
+        setSelectedState(isPhotosSelected)
+
+        // Set click listeners for both layouts
+        findViewById<LinearLayout>(R.id.lnrPhotos)?.setOnClickListener {
+            isPhotosSelected = true
+            setSelectedState(isPhotosSelected) // Update the visual state
+        }
+
+        findViewById<LinearLayout>(R.id.lnrAlbums)?.setOnClickListener {
+            isPhotosSelected = false
+            setSelectedState(isPhotosSelected) // Update the visual state
+        }
+
+        // Initial count update
+        updateSelectedImagesCount(txtSelectedImagesCount, selectedImages.size)
+
+        val selectedImagesRecyclerView: RecyclerView = view.findViewById(R.id.rcvSelected_Image)
+        selectedImagesRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        selectedImagesRecyclerView.adapter = adapter
+        selectedImagesRecyclerView.isNestedScrollingEnabled = false
+
+        view.findViewById<ImageView>(R.id.imgDelete)?.setOnClickListener {
+            val size = selectedImages.size
+            selectedImages.clear()
+            adapter.notifyItemRangeRemoved(0, size)
+            updateSelectedImagesCount(txtSelectedImagesCount, selectedImages.size)
+        }
+
+        val lnrPhotos = view.findViewById<LinearLayout>(R.id.lnrPhotos)
+        val lnrAlbums = view.findViewById<LinearLayout>(R.id.lnrAlbums)
+
+        // Ensure Photos is selected by default
+        lnrPhotos.setBackgroundResource(R.drawable.toggle_selected)
+        lnrAlbums.setBackgroundResource(R.drawable.toggle_unselected)
+
+        // Set visibility for Photos as default
+        view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView)?.visibility = View.VISIBLE
+        view.findViewById<LinearLayout>(R.id.lnrimgDelete)?.visibility = View.VISIBLE
+        view.findViewById<RecyclerView>(R.id.rcvSelected_Image)?.visibility = View.VISIBLE
+        view.findViewById<RecyclerView>(R.id.recyclerView)?.visibility = View.VISIBLE
+        view.findViewById<RecyclerView>(R.id.recyclerViewAlbum)?.visibility = View.GONE
+
+        FetchImagesTask(this) { imageList ->
+            val imageAdapter = ImageAdapter(imageList) { selectedImageUri ->
+                // Ensure only one image can be selected
+                selectedImages.clear() // Clear any previously selected image
+                selectedImages.add(selectedImageUri) // Add the newly selected image
+                adapter.notifyDataSetChanged() // Notify the adapter to refresh the RecyclerView
+                updateSelectedImagesCount(txtSelectedImagesCount, selectedImages.size) // Update the image count
+            }
+
+            val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+            recyclerView.layoutManager = GridLayoutManager(this, 3)
+            recyclerView.adapter = imageAdapter
+            recyclerView.isNestedScrollingEnabled = false
+
             bottomSheetDialog.setContentView(view)
             bottomSheetDialog.setOnShowListener {
+                lnrPhotos.performClick() // Trigger the initial click to ensure Photos is selected
+
+                // Now, change the visibility after dialog is fully shown
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    bottomSheetDialog.window?.navigationBarColor =
-                        ContextCompat.getColor(this, R.color.black)
+                    bottomSheetDialog.window?.navigationBarColor = ContextCompat.getColor(this, R.color.black)
                 }
             }
             bottomSheetDialog.show()
         }.execute()
     }
 
-    private class FetchImagesTask(
-        val context: DashboardActivity,
-        val callback: (List<ImageItem>) -> Unit
-    ) :
+
+    private class FetchImagesTask(val context: DashboardActivity, val callback: (List<ImageItem>) -> Unit) :
         AsyncTask<Void, Void, List<ImageItem>>() {
         override fun doInBackground(vararg params: Void?): List<ImageItem> {
             val images = mutableListOf<ImageItem>()
@@ -464,11 +538,7 @@ class DashboardActivity : BaseActivity() {
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
@@ -479,9 +549,7 @@ class DashboardActivity : BaseActivity() {
         }
     }
 
-
     data class Album(val name: String, val thumbnailUri: Uri, val photoCount: Int)
-
 
     @SuppressLint("CutPasteId")
     fun showBottomSheet()
@@ -505,7 +573,6 @@ class DashboardActivity : BaseActivity() {
             }
         }
 
-
         view.findViewById<ImageView>(R.id.imgNext).setOnClickListener {
             // Check if there are any selected images
             if (selectedImages.isNotEmpty()) {
@@ -520,19 +587,33 @@ class DashboardActivity : BaseActivity() {
                 // Start EditActivity
                 startActivity(intent)
                 finish() // Optional: finish the current activity if you don't want to return to it
-            } else {
+            }
+            else
+            {
                 // Handle the case where no images are selected
                 Toast.makeText(this, "No images selected", Toast.LENGTH_SHORT).show()
             }
         }
 
+        // Initialize the selected state to Photos
+        setSelectedState(isPhotosSelected)
+
+        // Set click listeners for both layouts
+        findViewById<LinearLayout>(R.id.lnrPhotos)?.setOnClickListener {
+            isPhotosSelected = true
+            setSelectedState(isPhotosSelected) // Update the visual state
+        }
+
+        findViewById<LinearLayout>(R.id.lnrAlbums)?.setOnClickListener {
+            isPhotosSelected = false
+            setSelectedState(isPhotosSelected) // Update the visual state
+        }
 
         // Initial count update
         updateSelectedImagesCount(txtSelectedImagesCount, selectedImages.size)
 
         val selectedImagesRecyclerView: RecyclerView = view.findViewById(R.id.rcvSelected_Image)
-        selectedImagesRecyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        selectedImagesRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         selectedImagesRecyclerView.adapter = adapter
         selectedImagesRecyclerView.isNestedScrollingEnabled = false
 
@@ -551,14 +632,11 @@ class DashboardActivity : BaseActivity() {
         lnrAlbums.setBackgroundResource(R.drawable.toggle_unselected)
 
         // Set visibility for Photos as default
-        view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView)
-            ?.let { it.visibility = View.VISIBLE }
+        view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView)?.let { it.visibility = View.VISIBLE }
         view.findViewById<LinearLayout>(R.id.lnrimgDelete)?.let { it.visibility = View.VISIBLE }
-        view.findViewById<RecyclerView>(R.id.rcvSelected_Image)
-            ?.let { it.visibility = View.VISIBLE }
+        view.findViewById<RecyclerView>(R.id.rcvSelected_Image)?.let { it.visibility = View.VISIBLE }
         view.findViewById<RecyclerView>(R.id.recyclerView)?.let { it.visibility = View.VISIBLE }
         view.findViewById<RecyclerView>(R.id.recyclerViewAlbum)?.let { it.visibility = View.GONE }
-
 
         lnrPhotos.setOnClickListener {
             lnrPhotos.setBackgroundResource(R.drawable.toggle_selected)
@@ -682,7 +760,8 @@ class DashboardActivity : BaseActivity() {
 
         FetchImagesTask(this) { imageList ->
             val imageAdapter = ImageAdapter(imageList) { selectedImageUri ->
-                if (selectedImages.size < 100) {
+                if (selectedImages.size < 100)
+                {
                     selectedImages.add(selectedImageUri)
                     adapter.notifyDataSetChanged()
                     updateSelectedImagesCount(txtSelectedImagesCount, selectedImages.size)
@@ -703,59 +782,65 @@ class DashboardActivity : BaseActivity() {
                 lnrPhotos.performClick() // Trigger the initial click to ensure Photos is selected
 
                 // Now, change the visibility after dialog is fully shown
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    bottomSheetDialog.window?.navigationBarColor =
-                        ContextCompat.getColor(this, R.color.black)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                {
+                    bottomSheetDialog.window?.navigationBarColor = ContextCompat.getColor(this, R.color.black)
                 }
             }
             bottomSheetDialog.show()
         }.execute()
     }
 
-    private fun updateSelectedImagesCount(txtSelectedImagesCount: TextView, count: Int) {
+    private fun updateSelectedImagesCount(txtSelectedImagesCount: TextView, count: Int)
+    {
         txtSelectedImagesCount.text = "Select 1 - 100 Photos  ($count)"
     }
 
-    private fun toggleButton(button: LinearLayout?) {
+    private fun toggleButton(button: LinearLayout?)
+    {
         val view = layoutInflater.inflate(R.layout.camera_dialog, null)
-        if (selectedButton != button) {
+        if (selectedButton != button)
+        {
             // Deselect previously selected button
             selectedButton?.let {
                 it.backgroundTintList = ContextCompat.getColorStateList(this, R.color.black)
-                val prevTextView = it.findViewById<TextView>(R.id.txtFilter)
-                    ?: it.findViewById<TextView>(R.id.txtAdjust)
+                val prevTextView = it.findViewById<TextView>(R.id.txtFilter) ?: it.findViewById<TextView>(R.id.txtAdjust)
                 prevTextView?.setTextColor(ContextCompat.getColor(this, R.color.white))
             }
 
             // Toggle the state of the button
             selectedButton = button
             selectedButton?.backgroundTintList = ContextCompat.getColorStateList(this, R.color.blue)
-            val newTextView = button?.findViewById<TextView>(R.id.txtFilter)
-                ?: button?.findViewById<TextView>(R.id.txtAdjust)
+            val newTextView = button?.findViewById<TextView>(R.id.txtFilter) ?: button?.findViewById<TextView>(R.id.txtAdjust)
             newTextView?.setTextColor(ContextCompat.getColor(this, R.color.white))
 
             // Handle actions based on selected button (if needed)
-            when (selectedButton?.id) {
+            when (selectedButton?.id)
+            {
                 R.id.lnrPhotos -> {
-                    view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView).visibility =
-                        View.VISIBLE
+                    view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView).visibility = View.VISIBLE
                     view.findViewById<LinearLayout>(R.id.lnrimgDelete).visibility = View.VISIBLE
-                    view.findViewById<RecyclerView>(R.id.rcvSelected_Image).visibility =
-                        View.VISIBLE
+                    view.findViewById<RecyclerView>(R.id.rcvSelected_Image).visibility = View.VISIBLE
                     view.findViewById<RecyclerView>(R.id.recyclerView).visibility = View.VISIBLE
 
                     view.findViewById<RecyclerView>(R.id.recyclerViewAlbum).visibility = View.GONE
+
+
+
+                    view.findViewById<RecyclerView>(R.id.lnrPhotos).setBackgroundResource(R.drawable.toggle_selected)
+                    view.findViewById<RecyclerView>(R.id.lnrAlbums).setBackgroundResource(R.drawable.toggle_unselected)
                 }
 
                 R.id.lnrAlbums -> {
-                    view.findViewById<RecyclerView>(R.id.recyclerViewAlbum).visibility =
-                        View.VISIBLE
+                    view.findViewById<RecyclerView>(R.id.recyclerViewAlbum).visibility = View.VISIBLE
 
-                    view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView).visibility =
-                        View.GONE
+                    view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView).visibility = View.GONE
                     view.findViewById<LinearLayout>(R.id.lnrimgDelete).visibility = View.GONE
                     view.findViewById<RecyclerView>(R.id.rcvSelected_Image).visibility = View.GONE
                     view.findViewById<RecyclerView>(R.id.recyclerView).visibility = View.GONE
+
+                    view.findViewById<RecyclerView>(R.id.lnrAlbums).setBackgroundResource(R.drawable.toggle_selected)
+                    view.findViewById<RecyclerView>(R.id.lnrPhotos).setBackgroundResource(R.drawable.toggle_unselected)
                 }
             }
         }
@@ -785,4 +870,27 @@ class DashboardActivity : BaseActivity() {
         val lnrPhotos = findViewById<LinearLayout>(R.id.lnrPhotos)
         toggleButton(lnrPhotos)
     }
+
+    private fun setSelectedState(isPhotosSelected: Boolean) {
+        val view = layoutInflater.inflate(R.layout.camera_dialog, null)
+
+        // Set the selected state
+        if (isPhotosSelected)
+        {
+            // Photos selected
+            view.findViewById<LinearLayout>(R.id.lnrPhotos).setBackgroundColor(Color.BLUE) // Change to your desired color
+            view.findViewById<TextView>(R.id.txtPhotos).setTextColor(Color.WHITE)
+            view.findViewById<LinearLayout>(R.id.lnrAlbums).setBackgroundColor(Color.BLACK) // Change to your desired color
+            view.findViewById<TextView>(R.id.txtAlbums).setTextColor(Color.WHITE)
+        }
+        else
+        {
+            // Albums selected
+            view.findViewById<LinearLayout>(R.id.lnrAlbums).setBackgroundColor(Color.BLUE) // Change to your desired color
+            view.findViewById<TextView>(R.id.txtAlbums).setTextColor(Color.WHITE)
+            view.findViewById<LinearLayout>(R.id.lnrPhotos).setBackgroundColor(Color.BLACK) // Change to your desired color
+            view.findViewById<TextView>(R.id.txtPhotos).setTextColor(Color.WHITE)
+        }
+    }
+
 }

@@ -17,12 +17,14 @@ class Sticker_Sub_Image_Adapter(private val subImageUrls: List<String?>) : Recyc
         return SubImageViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: SubImageViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SubImageViewHolder, position: Int)
+    {
         val subImageUrl = subImageUrls[position]
         Glide.with(holder.itemView.context).load(baseUrl + subImageUrl).into(holder.imageView)
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount(): Int
+    {
         return subImageUrls.size
     }
 

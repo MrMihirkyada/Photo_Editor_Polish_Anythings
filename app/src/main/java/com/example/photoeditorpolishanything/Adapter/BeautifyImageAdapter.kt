@@ -1,3 +1,4 @@
+package com.example.photoeditorpolishanything.Adapter
 
 import android.net.Uri
 import android.view.LayoutInflater
@@ -10,7 +11,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.photoeditorpolishanything.Model.ImageItem
 import com.example.photoeditorpolishanything.R
 
-class ImageAdapter(private val imageList: List<ImageItem>, private val onImageClick: (Uri) -> Unit) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
+class BeautifyImageAdapter (private val imageList: List<ImageItem>, private val onImageClick: (Uri) -> Unit) : RecyclerView.Adapter<BeautifyImageAdapter.ImageViewHolder>() {
 
     private var selectedPosition: Int = RecyclerView.NO_POSITION
 

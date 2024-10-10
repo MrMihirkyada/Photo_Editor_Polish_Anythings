@@ -38,7 +38,6 @@ class StickerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         initView()
         setupSearchView()
     }
@@ -75,14 +74,17 @@ class StickerFragment : Fragment() {
         }
     }
 
-    private fun setupSearchView() {
+    private fun setupSearchView()
+    {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
+            override fun onQueryTextSubmit(query: String?): Boolean
+            {
                 // Do nothing here
                 return false
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
+            override fun onQueryTextChange(newText: String?): Boolean
+            {
                 filterGroups(newText ?: "")
                 return true
             }

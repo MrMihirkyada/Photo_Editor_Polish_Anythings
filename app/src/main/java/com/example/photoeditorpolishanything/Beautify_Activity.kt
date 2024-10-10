@@ -112,7 +112,8 @@ class Beautify_Activity : BaseActivity() {
         setContentView(binding.root)
         window.navigationBarColor = ContextCompat.getColor(this, R.color.black)
 
-        if (Build.VERSION.SDK_INT >= 21) {
+        if (Build.VERSION.SDK_INT >= 21)
+        {
             val window = this.window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -258,7 +259,9 @@ class Beautify_Activity : BaseActivity() {
                 mutableBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true)
                 binding.imgEditBeautifySelectImage.setImageBitmap(originalBitmap)
                 detectFaceInImage(originalBitmap)
-            } catch (e: Exception) {
+            }
+            catch (e: Exception)
+            {
                 e.printStackTrace()
                 Toast.makeText(this@Beautify_Activity, "Failed to load image", Toast.LENGTH_SHORT)
                     .show()
@@ -266,18 +269,20 @@ class Beautify_Activity : BaseActivity() {
         }
 
 
-        val getImageLauncher =
-            registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        val getImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
                 uri?.let {
                     val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
                     binding.imgEditBeautifySelectImage.setImageURI(imageUri)
                 }
             }
 
-        if (imageUriString != null) {
+        if (imageUriString != null)
+        {
             val imageUri = Uri.parse(imageUriString)
             loadImageAsync(imageUri)
-        } else {
+        }
+        else
+        {
             logErrorAndFinish("Image URI string is null")
         }
 
@@ -286,7 +291,8 @@ class Beautify_Activity : BaseActivity() {
 
         binding.lnrskbface.setOnSeekBarChangeListener(object :
             CustomSeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(progress: Int) {
+            override fun onProgressChanged(progress: Int)
+            {
 
 //                originalBitmap?.let { bitmap ->
 //                    if (leftEye != null && rightEye != null && noseBase != null && leftMouth != null && rightMouth != null) {
@@ -310,11 +316,12 @@ class Beautify_Activity : BaseActivity() {
                 detectFace(
                     InputImage.fromBitmap(originalBitmap, 0),
                     object : FaceDetectionCallback {
-                        override fun onSuccess(faces: List<Face>) {
-                            if (faces.isNotEmpty()) {
+                        override fun onSuccess(faces: List<Face>)
+                        {
+                            if (faces.isNotEmpty())
+                            {
                                 val face = faces[0] // Assuming only one face for simplicity
-                                val reshapedBitmap =
-                                    reshapeFace(originalBitmap, face, scaleX = scaleFactor)
+                                val reshapedBitmap = reshapeFace(originalBitmap, face, scaleX = scaleFactor)
                                 binding.imgEditBeautifySelectImage.setImageBitmap(reshapedBitmap)
                             }
                         }
@@ -609,7 +616,8 @@ class Beautify_Activity : BaseActivity() {
 
 
         binding.imgEditBeautifySelectImage.setOnTouchListener { v, event ->
-            when (event.action) {
+            when (event.action)
+            {
                 MotionEvent.ACTION_DOWN -> {
                     val x = event.x
                     val y = event.y
@@ -629,8 +637,6 @@ class Beautify_Activity : BaseActivity() {
                 else -> false
             }
         }
-
-
     }
 
     private fun getBitmapCoordinates(viewX: Float, viewY: Float): Pair<Float, Float> {
@@ -803,7 +809,7 @@ class Beautify_Activity : BaseActivity() {
 
 
 
-        private fun removeRing(x: Float, y: Float) {
+    private fun removeRing(x: Float, y: Float) {
         // Recreate the bitmap to "remove" the ring by redrawing the original bitmap
         mutableBitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true)
         val canvas = Canvas(mutableBitmap)
@@ -855,9 +861,10 @@ class Beautify_Activity : BaseActivity() {
 
     fun smoothfilter() {
         binding.skbSmooth.max = 100
-        binding.skbSmooth.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-
+        binding.skbSmooth.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener
+        {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean)
+            {
                 val intensity = progress / 100f
 
                 // Cancel ongoing tasks to avoid redundant processing
@@ -1285,7 +1292,9 @@ class Beautify_Activity : BaseActivity() {
 
                     binding.lnrskbface.isEnabled = true
                     Toast.makeText(this, "Face detected and reshaped", Toast.LENGTH_SHORT).show()
-                } else {
+                }
+                else
+                {
                     detectedFaces = emptyList()
                     Toast.makeText(this, "No face detected", Toast.LENGTH_SHORT).show()
                 }
@@ -1359,11 +1368,7 @@ class Beautify_Activity : BaseActivity() {
         }
     }
 
-    private fun blendImages(
-        originalBitmap: Bitmap,
-        transformedBitmap: Bitmap,
-        alpha: Float
-    ): Bitmap {
+    private fun blendImages(originalBitmap: Bitmap, transformedBitmap: Bitmap, alpha: Float): Bitmap {
         val blendedBitmap = Bitmap.createBitmap(
             originalBitmap.width,
             originalBitmap.height,

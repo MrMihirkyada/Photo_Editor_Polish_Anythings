@@ -446,20 +446,19 @@ class Adjust_Activity : BaseActivity()
 
     private fun toggleButton(button: LinearLayout?)
     {
-        if (selectedButton != button) {
+        if (selectedButton != button)
+        {
             // Deselect previously selected button
             selectedButton?.let {
                 it.backgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
-                val prevTextView = it.findViewById<TextView>(R.id.txtFilter)
-                    ?: it.findViewById<TextView>(R.id.txtAdjust)
+                val prevTextView = it.findViewById<TextView>(R.id.txtFilter) ?: it.findViewById<TextView>(R.id.txtAdjust)
                 prevTextView?.setTextColor(ContextCompat.getColor(this, R.color.black))
             }
 
             // Toggle the state of the button
             selectedButton = button
             selectedButton?.backgroundTintList = ContextCompat.getColorStateList(this, R.color.blue)
-            val newTextView = button?.findViewById<TextView>(R.id.txtFilter)
-                ?: button?.findViewById<TextView>(R.id.txtAdjust)
+            val newTextView = button?.findViewById<TextView>(R.id.txtFilter) ?: button?.findViewById<TextView>(R.id.txtAdjust)
             newTextView?.setTextColor(ContextCompat.getColor(this, R.color.white))
 
             // Handle actions based on selected button (if needed)
@@ -512,7 +511,8 @@ class Adjust_Activity : BaseActivity()
 
             cursor?.use {
                 val idColumn = it.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
-                while (it.moveToNext()) {
+                while (it.moveToNext())
+                {
                     val id = it.getLong(idColumn)
                     val imageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id)
                     images.add(ImageItem(imageUri))
@@ -541,8 +541,8 @@ class Adjust_Activity : BaseActivity()
         val colorFilter = ColorMatrixColorFilter(colorMatrix)
 
         // Apply the color filter to the filtered bitmap
-        val canvas = android.graphics.Canvas(filteredBitmap)
-        val paint = android.graphics.Paint()
+        val canvas = Canvas(filteredBitmap)
+        val paint = Paint()
         paint.colorFilter = colorFilter
         canvas.drawBitmap(originalBitmap, 0f, 0f, paint)
 
@@ -1129,11 +1129,11 @@ class Adjust_Activity : BaseActivity()
         binding.imgAdjustSelectImage.setImageBitmap(filteredBitmap)
     }
 
-    private fun setColor(color: Int, selectedView: View) {
+    private fun setColor(color: Int, selectedView: View)
+    {
         binding.imgAdjustSelectImage.setColorFilter(color)
         resetColorSelection()
         selectedView.setBackgroundResource(R.drawable.ring)
-
     }
 
     private fun resetColorSelection()

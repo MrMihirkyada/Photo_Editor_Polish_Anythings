@@ -61,11 +61,10 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
         const val ARG_DATA = "data"
         private const val ARG_COLOR = "navigation_bar_color"
         private const val ARG_MAIN_IMAGE_URL = "main_image_url"
-        private const val ARG_TEXT_CATEGORY =
-            "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
+        private const val ARG_TEXT_CATEGORY = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
 
         fun newInstance(data: List<String?>?, navigationBarColor: Int, mainImageUrl: String, textCategory: String?)
-        : StickerBottomSheetDialogFragment {
+                : StickerBottomSheetDialogFragment {
             val fragment = StickerBottomSheetDialogFragment()
             val args = Bundle()
             args.putStringArrayList(ARG_DATA, ArrayList(data))
@@ -126,54 +125,69 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
 
         // Update button text to show downloading progress
         txtFreeDownload.text = "Downloading... 0%"
+        Log.d("Download", "Starting download process...")
 
-        // Define directory
-        val downloadDir = File(requireContext().filesDir, "Download/TestFolder")
+        // Define directory (using external storage)
+        val downloadDir = File(requireContext().getExternalFilesDir(null), "Download/TestFolder")
         if (!downloadDir.exists()) {
+            Log.d("Download", "Creating download directory...")
             downloadDir.mkdirs() // Create the directory if it does not exist
         }
 
-        // Create a coroutine to handle the download
         CoroutineScope(Dispatchers.IO).launch {
             val client = OkHttpClient()
-            dataToDownload!!.forEachIndexed { index, url ->
+            var totalImages = dataToDownload!!.size
+            var completedImages = 0
+
+            // Iterate over each image URL
+            dataToDownload.forEachIndexed { index, url ->
                 val encodedUrl = ARG_TEXT_CATEGORY + url!!.replace(" ", "%20")
-                Log.d("Download URL", encodedUrl)  // Log the URL for debugging
+                Log.d("Download", "Downloading URL: $encodedUrl")  // Log the URL for debugging
 
                 val request = Request.Builder().url(encodedUrl).build()
-                client.newCall(request).execute().use { response ->
-                    if (!response.isSuccessful)
-                    {
-                        withContext(Dispatchers.Main) {
-                            Toast.makeText(context, "Download failed: $url, Response code: ${response.code}", Toast.LENGTH_SHORT).show()
+                try {
+                    client.newCall(request).execute().use { response ->
+                        if (!response.isSuccessful) {
+                            Log.e("Download", "Failed to download $encodedUrl, response code: ${response.code}")
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(context, "Failed: $url", Toast.LENGTH_SHORT).show()
+                            }
+                            return@forEachIndexed // Skip to the next URL
                         }
-                        return@forEachIndexed  // Skip to the next URL
+
+                        val inputStream: InputStream? = response.body?.byteStream()
+                        val file = File(downloadDir, "image_${index + 1}.jpg")
+                        val outputStream = FileOutputStream(file)
+
+                        inputStream?.use { input ->
+                            outputStream.use { output ->
+                                input.copyTo(output)
+                            }
+                        }
+
+                        completedImages++
                     }
-
-                    val inputStream : InputStream? = response.body?.byteStream()
-                    val file = File(downloadDir, "image_${index + 1}.jpg")
-                    val outputStream = FileOutputStream(file)
-
-                    inputStream?.copyTo(outputStream)
-                    outputStream.close()
+                } catch (e: Exception) {
+                    Log.e("Download Error", "Error downloading $url: ${e.message}")
                 }
 
                 // Update progress
+                val progress = ((completedImages * 100) / totalImages)
+                Log.d("Download", "Progress: $progress%")
                 withContext(Dispatchers.Main) {
-                    val progress = ((index + 1) * 100) / dataToDownload.size
                     txtFreeDownload.text = "Downloading... $progress%"
                 }
             }
 
-            // Update button text when download is complete
             withContext(Dispatchers.Main) {
                 txtFreeDownload.text = "Download Complete"
             }
         }
     }
 
+
     private fun checkPermissions()
-     {
+    {
         if (ContextCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -214,8 +228,7 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
     {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.setOnShowListener {
-            val bottomSheet =
-                dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet = dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             val behavior = BottomSheetBehavior.from(bottomSheet!!)
             behavior.isHideable = false
             behavior.state = BottomSheetBehavior.STATE_EXPANDED

@@ -11,7 +11,7 @@ import java.io.IOException
 object OkHttpHelpers {
     private val client = OkHttpClient()
 
-    fun fetchSticker(url: String, callback: (StickersApi?) -> Unit) {
+    fun  fetchSticker(url: String, callback: (StickersApi?) -> Unit) {
         val request = Request.Builder()
             .url(url)
             .build()

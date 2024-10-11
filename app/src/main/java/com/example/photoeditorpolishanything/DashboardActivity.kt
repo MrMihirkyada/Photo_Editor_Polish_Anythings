@@ -358,7 +358,7 @@ class DashboardActivity : BaseActivity() {
                 val selectedImageUri = selectedImages[0]
 
                 // Prepare the intent to start EditActivity
-                val intent = Intent(this, EditActivity::class.java).apply {
+                val intent = Intent(this, Beautify_Activity::class.java).apply {
                     putExtra("selected_image_uri", selectedImageUri.toString()) // Sending the selected image URI as a String
                 }
 
@@ -818,6 +818,7 @@ class DashboardActivity : BaseActivity() {
             when (selectedButton?.id)
             {
                 R.id.lnrPhotos -> {
+
                     view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView).visibility = View.VISIBLE
                     view.findViewById<LinearLayout>(R.id.lnrimgDelete).visibility = View.VISIBLE
                     view.findViewById<RecyclerView>(R.id.rcvSelected_Image).visibility = View.VISIBLE
@@ -832,6 +833,7 @@ class DashboardActivity : BaseActivity() {
                 }
 
                 R.id.lnrAlbums -> {
+
                     view.findViewById<RecyclerView>(R.id.recyclerViewAlbum).visibility = View.VISIBLE
 
                     view.findViewById<LinearLayout>(R.id.lnrselectedCountTextView).visibility = View.GONE
@@ -846,10 +848,13 @@ class DashboardActivity : BaseActivity() {
         }
     }
 
-    fun loadMoreImages(recyclerView: RecyclerView) {
-        lifecycleScope.launch(Dispatchers.IO) {
+    fun loadMoreImages(recyclerView: RecyclerView)
+    {
+        lifecycleScope.launch(Dispatchers.IO)
+        {
             val newImages = fetchMoreImages() // Simulate fetching new images
-            withContext(Dispatchers.Main) {
+            withContext(Dispatchers.Main)
+            {
                 (recyclerView.adapter as AlbumImagesAdapter).addImages(newImages)
             }
         }
@@ -877,6 +882,7 @@ class DashboardActivity : BaseActivity() {
         // Set the selected state
         if (isPhotosSelected)
         {
+
             // Photos selected
             view.findViewById<LinearLayout>(R.id.lnrPhotos).setBackgroundColor(Color.BLUE) // Change to your desired color
             view.findViewById<TextView>(R.id.txtPhotos).setTextColor(Color.WHITE)
@@ -885,6 +891,7 @@ class DashboardActivity : BaseActivity() {
         }
         else
         {
+
             // Albums selected
             view.findViewById<LinearLayout>(R.id.lnrAlbums).setBackgroundColor(Color.BLUE) // Change to your desired color
             view.findViewById<TextView>(R.id.txtAlbums).setTextColor(Color.WHITE)

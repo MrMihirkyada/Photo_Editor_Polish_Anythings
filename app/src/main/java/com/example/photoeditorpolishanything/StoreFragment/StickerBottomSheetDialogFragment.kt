@@ -3,8 +3,10 @@ package com.example.photoeditorpolishanything.StoreFragment
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -34,23 +36,20 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 
-
-class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
-{
-
-    private lateinit var recyclerView : RecyclerView
-    private lateinit var imgStickers : ImageView
-    private lateinit var txtName : TextView
-    private lateinit var progressBar : ProgressBar
-    private lateinit var txtFreeDownload : TextView
-    private lateinit var btnFreeDownload : LinearLayout
-    private lateinit var txtNumber : TextView
-    private lateinit var adapter : Sticker_Sub_Image_Adapter
-    private var data : List<String?>? = null
+class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var imgStickers: ImageView
+    private lateinit var txtName: TextView
+    private lateinit var progressBar: ProgressBar
+    private lateinit var txtFreeDownload: TextView
+    private lateinit var btnFreeDownload: LinearLayout
+    private lateinit var txtNumber: TextView
+    private lateinit var adapter: Sticker_Sub_Image_Adapter
+    private var data: List<String?>? = null
     private val imageSizeFetcher = ImageSizeFetcher()
-    private lateinit var datas : String
-    private lateinit var mainImageUrl : String
-    var textCategory : TextView? = null
+    private lateinit var datas: String
+    private lateinit var mainImageUrl: String
+    var textCategory: TextView? = null
     private val downloadedFiles = mutableListOf<File>()
 
     private val REQUEST_WRITE_PERMISSION = 786
@@ -61,10 +60,11 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
         const val ARG_DATA = "data"
         private const val ARG_COLOR = "navigation_bar_color"
         private const val ARG_MAIN_IMAGE_URL = "main_image_url"
-        private const val ARG_TEXT_CATEGORY = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
+        private const val ARG_TEXT_CATEGORY =
+            "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
 
-        fun newInstance(data: List<String?>?, navigationBarColor: Int, mainImageUrl: String, textCategory: String?)
-                : StickerBottomSheetDialogFragment {
+        fun newInstance(data: List<String?>?, navigationBarColor: Int, mainImageUrl: String, textCategory: String?) : StickerBottomSheetDialogFragment
+        {
             val fragment = StickerBottomSheetDialogFragment()
             val args = Bundle()
             args.putStringArrayList(ARG_DATA, ArrayList(data))
@@ -76,7 +76,8 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         data = arguments?.getStringArrayList(ARG_DATA)
         datas = arguments?.getString(ARG_TEXT_CATEGORY)!!
@@ -99,9 +100,9 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
             checkPermissions()
         }
 
-//        setRecyclerViewHeight(recyclerView)
+//      setRecyclerViewHeight(recyclerView)
         Log.e("imgStickers", "onCreateView: " + ARG_TEXT_CATEGORY + mainImageUrl)
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
+        recyclerView.layoutManager = GridLayoutManager(context, 4)
         data = arguments?.getStringArrayList(ARG_DATA)
         adapter = Sticker_Sub_Image_Adapter(data ?: emptyList())
         recyclerView.adapter = adapter
@@ -110,84 +111,198 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
 
         CoroutineScope(Dispatchers.IO).launch {
             val sizeText = imageSizeFetcher.fetchImageSizes(ARG_TEXT_CATEGORY, data)
-            withContext(Dispatchers.Main) {
+            withContext(Dispatchers.Main)
+            {
                 txtNumber.text = "Size :- $sizeText"
             }
         }
 
+//        BottomSheetDialog(savedInstanceState)
         return view
     }
 
-    private fun downloadData() {
+//    // Function to download the data
+//    private fun downloadData()
+//    {
+//        btnFreeDownload = requireView().findViewById(R.id.btnFreeDownload)
+//        txtFreeDownload = requireView().findViewById(R.id.txtFreeDownload)
+//        val dataToDownload = data
+//
+//        txtFreeDownload.text = "Downloading... 0%"
+//        Log.d("Download", "Starting download process...")
+//
+//        // Define the public directory (e.g., Pictures folder for the app's downloaded images)
+//        val downloadFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyAppDownloads")
+//        if (!downloadFolder.exists()) {
+//            downloadFolder.mkdirs() // Create the directory if it doesn't exist
+//        }
+//
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val client = OkHttpClient()
+//            val totalImages = dataToDownload!!.size
+//            var completedImages = 0
+//
+//            dataToDownload.forEachIndexed { index, url ->
+//                val encodedUrl = ARG_TEXT_CATEGORY + url!!.replace(" ", "%20")
+//                Log.d("Download", "Downloading URL: $encodedUrl")
+//
+//                val request = Request.Builder().url(encodedUrl).build()
+//                try
+//                {
+//                    client.newCall(request).execute().use { response ->
+//                        if (!response.isSuccessful)
+//                        {
+//                            Log.e("Download", "Failed to download $encodedUrl, response code: ${response.code}")
+//                            withContext(Dispatchers.Main)
+//                            {
+//                                Toast.makeText(context, "Failed: $url", Toast.LENGTH_SHORT).show()
+//                            }
+//                            return@forEachIndexed // Skip to the next URL
+//                        }
+//
+//                        val inputStream: InputStream? = response.body?.byteStream()
+//                        val file = File(downloadFolder, "image_${System.currentTimeMillis()}_${index + 1}.jpg")  // Ensure unique filename
+//
+//                        // Save the file
+//                        FileOutputStream(file).use { outputStream ->
+//                            val buffer = ByteArray(8192)
+//                            var bytesRead: Int
+//                            while (inputStream?.read(buffer).also { bytesRead = it ?: -1 } != -1) {
+//                                outputStream.write(buffer, 0, bytesRead)
+//                            }
+//                        }
+//
+//                        // Ensure image is scanned by MediaScanner
+//                        MediaScannerConnection.scanFile(requireContext(), arrayOf(file.absolutePath), null) { path, uri ->
+//                            Log.d("Download", "Scanned $path, uri: $uri")
+//                        }
+//
+//                        completedImages++
+//                        val overallProgress = ((completedImages * 100) / totalImages)
+//                        withContext(Dispatchers.Main) {
+//                            txtFreeDownload.text = "Downloading... $overallProgress%"
+//                        }
+//
+//                        // Store the downloaded file path in shared preferences or database
+//                        saveDownloadedImagePath(file.absolutePath)
+//                    }
+//                } catch (e: Exception) {
+//                    Log.e("Download Error", "Error downloading $url: ${e.message}")
+//                }
+//            }
+//
+//            withContext(Dispatchers.Main) {
+//                txtFreeDownload.text = "Download Complete"
+//            }
+//        }
+//    }
+
+    // Function to download the data and save images in a specific folder based on thumbnail name
+    private fun downloadData(thumbnailName: String) {
         btnFreeDownload = requireView().findViewById(R.id.btnFreeDownload)
         txtFreeDownload = requireView().findViewById(R.id.txtFreeDownload)
         val dataToDownload = data
 
-        // Update button text to show downloading progress
         txtFreeDownload.text = "Downloading... 0%"
         Log.d("Download", "Starting download process...")
 
-        // Define directory (using external storage)
-        val downloadDir = File(requireContext().getExternalFilesDir(null), "Download/TestFolder")
-        if (!downloadDir.exists()) {
-            Log.d("Download", "Creating download directory...")
-            downloadDir.mkdirs() // Create the directory if it does not exist
+        // Define the main folder (e.g., Pictures folder for the app's downloaded images)
+        val mainDownloadFolder = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+            "Photo Editor Polish Anything"
+        )
+        if (!mainDownloadFolder.exists()) {
+            mainDownloadFolder.mkdirs() // Create the main directory if it doesn't exist
+        }
+
+        // Create a subfolder inside the main folder with the thumbnail name
+        val subFolder = File(mainDownloadFolder, thumbnailName)
+        if (!subFolder.exists())
+        {
+            subFolder.mkdirs() // Create the subfolder using the thumbnail name if it doesn't exist
         }
 
         CoroutineScope(Dispatchers.IO).launch {
             val client = OkHttpClient()
-            var totalImages = dataToDownload!!.size
+            val totalImages = dataToDownload!!.size
             var completedImages = 0
 
-            // Iterate over each image URL
             dataToDownload.forEachIndexed { index, url ->
                 val encodedUrl = ARG_TEXT_CATEGORY + url!!.replace(" ", "%20")
-                Log.d("Download", "Downloading URL: $encodedUrl")  // Log the URL for debugging
+                Log.d("Download", "Downloading URL: $encodedUrl")
 
                 val request = Request.Builder().url(encodedUrl).build()
-                try {
+                try
+                {
                     client.newCall(request).execute().use { response ->
-                        if (!response.isSuccessful) {
+                        if (!response.isSuccessful)
+                        {
                             Log.e("Download", "Failed to download $encodedUrl, response code: ${response.code}")
-                            withContext(Dispatchers.Main) {
+                            withContext(Dispatchers.Main)
+                            {
                                 Toast.makeText(context, "Failed: $url", Toast.LENGTH_SHORT).show()
                             }
-                            return@forEachIndexed // Skip to the next URL
+                            return@forEachIndexed // Skip to the next URL if download fails
                         }
 
                         val inputStream: InputStream? = response.body?.byteStream()
-                        val file = File(downloadDir, "image_${index + 1}.jpg")
-                        val outputStream = FileOutputStream(file)
 
-                        inputStream?.use { input ->
-                            outputStream.use { output ->
-                                input.copyTo(output)
+                        // Ensure unique filename with timestamp inside the thumbnail subfolder
+                        val file = File(subFolder,  // Save file in the subfolder
+                            "image_${System.currentTimeMillis()}_${index + 1}.jpg"
+                        )
+
+                        // Save the file
+                        FileOutputStream(file).use { outputStream ->
+                            val buffer = ByteArray(8192)
+                            var bytesRead: Int
+                            while (inputStream?.read(buffer).also { bytesRead = it ?: -1 } != -1) {
+                                outputStream.write(buffer, 0, bytesRead)
                             }
                         }
 
                         completedImages++
-                    }
-                } catch (e: Exception) {
-                    Log.e("Download Error", "Error downloading $url: ${e.message}")
-                }
+                        val overallProgress = ((completedImages * 100) / totalImages)
+                        withContext(Dispatchers.Main) {
+                            txtFreeDownload.text = "Downloading... $overallProgress%"
+                        }
 
-                // Update progress
-                val progress = ((completedImages * 100) / totalImages)
-                Log.d("Download", "Progress: $progress%")
-                withContext(Dispatchers.Main) {
-                    txtFreeDownload.text = "Downloading... $progress%"
+                        // Optionally, store the downloaded file path for later use
+                        saveDownloadedImagePath(file.absolutePath)
+                    }
+                }
+                catch (e: Exception)
+                {
+                    Log.e("Download Error", "Error downloading $url: ${e.message}")
                 }
             }
 
             withContext(Dispatchers.Main) {
                 txtFreeDownload.text = "Download Complete"
+                Toast.makeText(requireContext(), "Images saved to folder: $thumbnailName", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
 
-    private fun checkPermissions()
+    private fun saveDownloadedImagePath(imagePath: String)
     {
+        val sharedPref =
+            requireContext().getSharedPreferences("DownloadedImages", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        // Retrieve existing paths
+        val existingPaths = sharedPref.getStringSet("imagePaths", mutableSetOf()) ?: mutableSetOf()
+
+        // Add new image path to the set
+        existingPaths.add(imagePath)
+
+        // Save updated set of paths
+        editor.putStringSet("imagePaths", existingPaths)
+        editor.apply()
+    }
+
+    private fun checkPermissions() {
         if (ContextCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -202,10 +317,40 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
             )
         } else {
             // Call your method to start the download
-//            downloadData(baseUrl + data, data)
-            downloadData()
+//          downloadData(baseUrl + data, data)
+            downloadData(datas)
         }
     }
+
+
+//    private fun BottomSheetDialog(savedInstanceState : Bundle?):Dialog
+//    {
+//        val dialog = super.onCreateDialog(savedInstanceState)
+//
+//        dialog.setOnShowListener {
+//            val bottomSheet =
+//                dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+//            val behavior = BottomSheetBehavior.from(bottomSheet!!)
+//
+//            // Disable swipe-to-dismiss
+//            behavior.isDraggable = false
+//
+//            // Ensure the bottom sheet cannot be hidden
+//            behavior.isHideable = false
+//
+//            // Start in the expanded state
+//            behavior.state = BottomSheetBehavior.STATE_EXPANDED
+//
+//            // Set the bottom sheet to take up the full height
+//            bottomSheet.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
+//            bottomSheet.requestLayout()
+//
+//
+//        }
+//
+//        return dialog
+//    }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -216,7 +361,7 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
         if (requestCode == REQUEST_WRITE_PERMISSION) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 //                downloadData(baseUrl + mainImageUrl, data)
-                downloadData()
+                downloadData(datas)
             } else {
                 // Handle the case when permission is denied
                 Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
@@ -224,26 +369,51 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment()
         }
     }
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog
-    {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+//        val dialog = super.onCreateDialog(savedInstanceState)
+//        dialog.setOnShowListener {
+//            val bottomSheet = dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+//            val behavior = BottomSheetBehavior.from(bottomSheet!!)
+//            behavior.isHideable = false
+//            behavior.state = BottomSheetBehavior.STATE_EXPANDED
+//            bottomSheet.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
+//            bottomSheet.requestLayout()
+//
+//            dialog.window?.navigationBarColor = ContextCompat.getColor(
+//                requireContext(),
+//                arguments?.getInt(ARG_COLOR) ?: R.color.black
+//            )
+//        }
+//        return dialog
+
         val dialog = super.onCreateDialog(savedInstanceState)
+
         dialog.setOnShowListener {
-            val bottomSheet = dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet =
+                dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             val behavior = BottomSheetBehavior.from(bottomSheet!!)
+
+            // Disable swipe-to-dismiss
+            behavior.isDraggable = false
+
+            // Ensure the bottom sheet cannot be hidden
             behavior.isHideable = false
+
+            // Start in the expanded state
             behavior.state = BottomSheetBehavior.STATE_EXPANDED
+
+            // Set the bottom sheet to take up the full height
             bottomSheet.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
             bottomSheet.requestLayout()
-
-            dialog.window?.navigationBarColor = ContextCompat.getColor(
-                requireContext(),
-                arguments?.getInt(ARG_COLOR) ?: R.color.black
-            )
         }
+
+        dialog.window?.navigationBarColor = ContextCompat.getColor(requireContext(), arguments?.getInt(ARG_COLOR) ?: R.color.black)
+
         return dialog
     }
 
-    override fun getTheme(): Int {
+    override fun getTheme() : Int
+    {
         return R.style.CustomBottomSheetDialogTheme
     }
 }

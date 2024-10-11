@@ -11,19 +11,24 @@ import java.io.IOException
 object OkHttpHelpers {
     private val client = OkHttpClient()
 
-    fun  fetchSticker(url: String, callback: (StickersApi?) -> Unit) {
+    fun  fetchSticker(url: String, callback: (StickersApi?) -> Unit)
+    {
         val request = Request.Builder()
             .url(url)
             .build()
 
-        client.newCall(request).enqueue(object : okhttp3.Callback {
-            override fun onFailure(call: okhttp3.Call, e: IOException) {
+        client.newCall(request).enqueue(object : okhttp3.Callback
+        {
+            override fun onFailure(call: okhttp3.Call, e: IOException)
+            {
                 e.printStackTrace()
                 callback(null)
             }
 
-            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
-                if (response.isSuccessful) {
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response)
+            {
+                if (response.isSuccessful)
+                {
                     response.body?.let { responseBody ->
                         val responseString = responseBody.string()
                         Log.e("ApiResponse", "Raw response: $responseString")
@@ -33,7 +38,9 @@ object OkHttpHelpers {
                         val stickerApiResponse: StickersApi = gson.fromJson(responseString, type)
                         callback(stickerApiResponse)
                     } ?: callback(null)
-                } else {
+                }
+                else
+                {
                     callback(null)
                 }
             }

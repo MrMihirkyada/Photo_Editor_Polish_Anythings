@@ -47,8 +47,7 @@ class StickerFragment : Fragment() {
         adapter = StickerAdapter(requireActivity(), filteredGroupsList)
         binding.recyclerView.adapter = adapter
 
-        val url =
-            "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/stickers.json"
+        val url = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/stickers.json"
 
         requireActivity().runOnUiThread {
             binding.progressBar.visibility = View.VISIBLE
@@ -58,7 +57,8 @@ class StickerFragment : Fragment() {
             requireActivity().runOnUiThread {
                 binding.progressBar.visibility = View.GONE
 
-                if (stickerApi != null) {
+                if (stickerApi != null)
+                {
                     Log.e("StoreFragment", "Fetched data: ${stickerApi.data}")
 
                     stickerApi.data?.let {
@@ -91,7 +91,8 @@ class StickerFragment : Fragment() {
         })
     }
 
-    private fun filterGroups(query: String) {
+    private fun filterGroups(query: String)
+    {
         val lowercaseQuery = query.toLowerCase()
         val filteredItems = groupsList.filter { it.textCategory!!.toLowerCase().contains(lowercaseQuery) }
 
@@ -100,7 +101,8 @@ class StickerFragment : Fragment() {
         adapter.notifyDataSetChanged()
     }
 
-    private fun populateGroupsList(data: Dataas) {
+    private fun populateGroupsList(data: Dataas)
+    {
         val items = mutableListOf<Groupas>()
 
         data::class.memberProperties.forEach { property ->

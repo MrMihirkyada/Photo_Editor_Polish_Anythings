@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/imgSubSticker"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
         android:layout_margin="@dimen/_10sdp"
         android:layout_gravity="center"
         android:background="#00FFFFFF" />

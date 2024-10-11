@@ -53,27 +53,26 @@ class GraduationFragment : Fragment() {
                     val groupsList = mutableListOf<Group>()
 
                     it.templates.forEach { template ->
-                        template?.christmas?.let { christmas ->
-                            christmas.group1?.let { groupsList.add(it) }
-                            christmas.group2?.let { groupsList.add(it) }
-                            christmas.group3?.let { groupsList.add(it) }
-                            christmas.group4?.let { groupsList.add(it) }
-                            christmas.group5?.let { groupsList.add(it) }
-                            christmas.group6?.let { groupsList.add(it) }
-                            christmas.group7?.let { groupsList.add(it) }
-                            christmas.group8?.let { groupsList.add(it) }
-                            christmas.group9?.let { groupsList.add(it) }
-                            christmas.group10?.let { groupsList.add(it) }
-                            christmas.group11?.let { groupsList.add(it) }
-                            christmas.group12?.let { groupsList.add(it) }
-                            christmas.group13?.let { groupsList.add(it) }
-                            christmas.group14?.let { groupsList.add(it) }
-                            christmas.group15?.let { groupsList.add(it) }
-                            christmas.group16?.let { groupsList.add(it) }
-                            christmas.group17?.let { groupsList.add(it) }
-                            christmas.group18?.let { groupsList.add(it) }
-                            christmas.group19?.let { groupsList.add(it) }
-//                        christmas.group20?.let { groupsList.add(it) }
+                        template?.graduation?.let { graduation ->
+                            graduation.group1?.let { groupsList.add(it) }
+                            graduation.group2?.let { groupsList.add(it) }
+                            graduation.group3?.let { groupsList.add(it) }
+                            graduation.group4?.let { groupsList.add(it) }
+                            graduation.group5?.let { groupsList.add(it) }
+                            graduation.group6?.let { groupsList.add(it) }
+                            graduation.group7?.let { groupsList.add(it) }
+                            graduation.group8?.let { groupsList.add(it) }
+                            graduation.group9?.let { groupsList.add(it) }
+                            graduation.group10?.let { groupsList.add(it) }
+                            graduation.group11?.let { groupsList.add(it) }
+                            graduation.group12?.let { groupsList.add(it) }
+                            graduation.group13?.let { groupsList.add(it) }
+                            graduation.group14?.let { groupsList.add(it) }
+                            graduation.group15?.let { groupsList.add(it) }
+                            graduation.group16?.let { groupsList.add(it) }
+                            graduation.group17?.let { groupsList.add(it) }
+                            graduation.group18?.let { groupsList.add(it) }
+
                             // Repeat for all groups in the childhood category
 
 

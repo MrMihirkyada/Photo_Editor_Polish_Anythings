@@ -47,27 +47,26 @@ class NewyearFragment : Fragment() {
                     val groupsList = mutableListOf<Group>()
 
                     it.templates.forEach { template ->
-                        template?.motherday?.let { motherday ->
-                            motherday.group1?.let { groupsList.add(it) }
-                            motherday.group2?.let { groupsList.add(it) }
-                            motherday.group3?.let { groupsList.add(it) }
-                            motherday.group4?.let { groupsList.add(it) }
-                            motherday.group5?.let { groupsList.add(it) }
-                            motherday.group6?.let { groupsList.add(it) }
-                            motherday.group7?.let { groupsList.add(it) }
-                            motherday.group8?.let { groupsList.add(it) }
-                            motherday.group9?.let { groupsList.add(it) }
-                            motherday.group10?.let { groupsList.add(it) }
-                            motherday.group11?.let { groupsList.add(it) }
-                            motherday.group12?.let { groupsList.add(it) }
-                            motherday.group13?.let { groupsList.add(it) }
-                            motherday.group14?.let { groupsList.add(it) }
-                            motherday.group15?.let { groupsList.add(it) }
-                            motherday.group16?.let { groupsList.add(it) }
-                            motherday.group17?.let { groupsList.add(it) }
-                            motherday.group18?.let { groupsList.add(it) }
-                            motherday.group19?.let { groupsList.add(it) }
-                            motherday.group20?.let { groupsList.add(it) }
+                        template?.newyear?.let { newyear ->
+                            newyear.group1?.let { groupsList.add(it) }
+                            newyear.group2?.let { groupsList.add(it) }
+                            newyear.group3?.let { groupsList.add(it) }
+                            newyear.group4?.let { groupsList.add(it) }
+                            newyear.group5?.let { groupsList.add(it) }
+                            newyear.group6?.let { groupsList.add(it) }
+                            newyear.group7?.let { groupsList.add(it) }
+                            newyear.group8?.let { groupsList.add(it) }
+                            newyear.group9?.let { groupsList.add(it) }
+                            newyear.group10?.let { groupsList.add(it) }
+                            newyear.group11?.let { groupsList.add(it) }
+                            newyear.group12?.let { groupsList.add(it) }
+                            newyear.group13?.let { groupsList.add(it) }
+                            newyear.group14?.let { groupsList.add(it) }
+                            newyear.group15?.let { groupsList.add(it) }
+                            newyear.group16?.let { groupsList.add(it) }
+                            newyear.group17?.let { groupsList.add(it) }
+                            newyear.group18?.let { groupsList.add(it) }
+                            newyear.group19?.let { groupsList.add(it) }
                             // Repeat for all groups in the love category
                         }
                     }

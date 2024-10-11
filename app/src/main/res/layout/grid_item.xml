@@ -11,15 +11,8 @@
         android:layout_height="@dimen/_90sdp"
         android:background="@drawable/box12"
         android:backgroundTint="#4D4D4D"
-        android:gravity="center">
-
-        <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:src="@drawable/gallery"
-            android:layout_margin="@dimen/_40sdp"/>
-    </LinearLayout>
-
+        android:gravity="center"
+        android:padding="@dimen/_50sdp"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -37,6 +30,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/blue_border"
             android:visibility="invisible"/>
+
     </FrameLayout>
 
 </androidx.cardview.widget.CardView>

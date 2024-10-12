@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
         android:background="@drawable/box7"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
@@ -41,6 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_2sdp"
             tools:ignore="InefficientWeight"/>
 
         <View
@@ -53,6 +56,7 @@
             android:layout_height="@dimen/_15sdp"
             android:src="@drawable/right"
             android:layout_margin="@dimen/_8sdp"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -66,5 +70,4 @@
             android:layout_height="match_parent"/>
 
     </LinearLayout>
-
 </LinearLayout>

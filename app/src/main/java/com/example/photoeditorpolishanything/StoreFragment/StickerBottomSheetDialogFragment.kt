@@ -6,7 +6,6 @@ import android.app.Dialog
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -60,8 +59,7 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
         const val ARG_DATA = "data"
         private const val ARG_COLOR = "navigation_bar_color"
         private const val ARG_MAIN_IMAGE_URL = "main_image_url"
-        private const val ARG_TEXT_CATEGORY =
-            "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
+        private const val ARG_TEXT_CATEGORY = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
 
         fun newInstance(data: List<String?>?, navigationBarColor: Int, mainImageUrl: String, textCategory: String?) : StickerBottomSheetDialogFragment
         {
@@ -121,9 +119,8 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
         return view
     }
 
-//    // Function to download the data
-//    private fun downloadData()
-//    {
+//    // Function to download the data and save images in a specific folder based on thumbnail name
+//    private fun downloadData(thumbnailName: String) {
 //        btnFreeDownload = requireView().findViewById(R.id.btnFreeDownload)
 //        txtFreeDownload = requireView().findViewById(R.id.txtFreeDownload)
 //        val dataToDownload = data
@@ -131,10 +128,20 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
 //        txtFreeDownload.text = "Downloading... 0%"
 //        Log.d("Download", "Starting download process...")
 //
-//        // Define the public directory (e.g., Pictures folder for the app's downloaded images)
-//        val downloadFolder = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyAppDownloads")
-//        if (!downloadFolder.exists()) {
-//            downloadFolder.mkdirs() // Create the directory if it doesn't exist
+//        // Define the main folder (e.g., Pictures folder for the app's downloaded images)
+//        val mainDownloadFolder = File(
+//            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+//            "Photo Editor Polish Anything"
+//        )
+//        if (!mainDownloadFolder.exists()) {
+//            mainDownloadFolder.mkdirs() // Create the main directory if it doesn't exist
+//        }
+//
+//        // Create a subfolder inside the main folder with the thumbnail name
+//        val subFolder = File(mainDownloadFolder, thumbnailName)
+//        if (!subFolder.exists())
+//        {
+//            subFolder.mkdirs() // Create the subfolder using the thumbnail name if it doesn't exist
 //        }
 //
 //        CoroutineScope(Dispatchers.IO).launch {
@@ -157,11 +164,15 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
 //                            {
 //                                Toast.makeText(context, "Failed: $url", Toast.LENGTH_SHORT).show()
 //                            }
-//                            return@forEachIndexed // Skip to the next URL
+//                            return@forEachIndexed // Skip to the next URL if download fails
 //                        }
 //
 //                        val inputStream: InputStream? = response.body?.byteStream()
-//                        val file = File(downloadFolder, "image_${System.currentTimeMillis()}_${index + 1}.jpg")  // Ensure unique filename
+//
+//                        // Ensure unique filename with timestamp inside the thumbnail subfolder
+//                        val file = File(subFolder,  // Save file in the subfolder
+//                            "image_${System.currentTimeMillis()}_${index + 1}.jpg"
+//                        )
 //
 //                        // Save the file
 //                        FileOutputStream(file).use { outputStream ->
@@ -172,30 +183,30 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
 //                            }
 //                        }
 //
-//                        // Ensure image is scanned by MediaScanner
-//                        MediaScannerConnection.scanFile(requireContext(), arrayOf(file.absolutePath), null) { path, uri ->
-//                            Log.d("Download", "Scanned $path, uri: $uri")
-//                        }
-//
 //                        completedImages++
 //                        val overallProgress = ((completedImages * 100) / totalImages)
 //                        withContext(Dispatchers.Main) {
 //                            txtFreeDownload.text = "Downloading... $overallProgress%"
 //                        }
 //
-//                        // Store the downloaded file path in shared preferences or database
+//                        // Optionally, store the downloaded file path for later use
 //                        saveDownloadedImagePath(file.absolutePath)
 //                    }
-//                } catch (e: Exception) {
+//                }
+//                catch (e: Exception)
+//                {
 //                    Log.e("Download Error", "Error downloading $url: ${e.message}")
 //                }
 //            }
 //
-//            withContext(Dispatchers.Main) {
+//            withContext(Dispatchers.Main)
+//            {
 //                txtFreeDownload.text = "Download Complete"
+//                Toast.makeText(requireContext(), "Images saved to folder: $thumbnailName", Toast.LENGTH_SHORT).show()
 //            }
 //        }
 //    }
+
 
     // Function to download the data and save images in a specific folder based on thumbnail name
     private fun downloadData(thumbnailName: String) {
@@ -206,20 +217,13 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
         txtFreeDownload.text = "Downloading... 0%"
         Log.d("Download", "Starting download process...")
 
-        // Define the main folder (e.g., Pictures folder for the app's downloaded images)
-        val mainDownloadFolder = File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-            "Photo Editor Polish Anything"
+        // Define the app-specific folder in external storage (Android/data/(package name)/stickers)
+        val appSpecificFolder = File(
+            requireContext().getExternalFilesDir(null),  // App-specific directory
+            "stickers/$thumbnailName"                    // Subfolder for stickers
         )
-        if (!mainDownloadFolder.exists()) {
-            mainDownloadFolder.mkdirs() // Create the main directory if it doesn't exist
-        }
-
-        // Create a subfolder inside the main folder with the thumbnail name
-        val subFolder = File(mainDownloadFolder, thumbnailName)
-        if (!subFolder.exists())
-        {
-            subFolder.mkdirs() // Create the subfolder using the thumbnail name if it doesn't exist
+        if (!appSpecificFolder.exists()) {
+            appSpecificFolder.mkdirs()  // Create the directory if it doesn't exist
         }
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -232,23 +236,24 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 Log.d("Download", "Downloading URL: $encodedUrl")
 
                 val request = Request.Builder().url(encodedUrl).build()
-                try
-                {
+                try {
                     client.newCall(request).execute().use { response ->
-                        if (!response.isSuccessful)
-                        {
-                            Log.e("Download", "Failed to download $encodedUrl, response code: ${response.code}")
-                            withContext(Dispatchers.Main)
-                            {
+                        if (!response.isSuccessful) {
+                            Log.e(
+                                "Download",
+                                "Failed to download $encodedUrl, response code: ${response.code}"
+                            )
+                            withContext(Dispatchers.Main) {
                                 Toast.makeText(context, "Failed: $url", Toast.LENGTH_SHORT).show()
                             }
-                            return@forEachIndexed // Skip to the next URL if download fails
+                            return@forEachIndexed  // Skip to the next URL if download fails
                         }
 
                         val inputStream: InputStream? = response.body?.byteStream()
 
                         // Ensure unique filename with timestamp inside the thumbnail subfolder
-                        val file = File(subFolder,  // Save file in the subfolder
+                        val file = File(
+                            appSpecificFolder,  // Save file in the app-specific subfolder
                             "image_${System.currentTimeMillis()}_${index + 1}.jpg"
                         )
 
@@ -262,24 +267,26 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
                         }
 
                         completedImages++
-                        val overallProgress = ((completedImages * 100) / totalImages)
+                        val Progress = ((completedImages * 100) / totalImages)
                         withContext(Dispatchers.Main) {
-                            txtFreeDownload.text = "Downloading... $overallProgress%"
+                            txtFreeDownload.text = "Downloading... $Progress%"
                         }
 
                         // Optionally, store the downloaded file path for later use
                         saveDownloadedImagePath(file.absolutePath)
                     }
-                }
-                catch (e: Exception)
-                {
+                } catch (e: Exception) {
                     Log.e("Download Error", "Error downloading $url: ${e.message}")
                 }
             }
 
             withContext(Dispatchers.Main) {
                 txtFreeDownload.text = "Download Complete"
-                Toast.makeText(requireContext(), "Images saved to folder: $thumbnailName", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Images saved to folder: $thumbnailName",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

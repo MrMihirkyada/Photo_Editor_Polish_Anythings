@@ -17,8 +17,8 @@ import com.example.photoeditorpolishanything.databinding.FragmentStickerBinding
 import kotlin.reflect.KProperty1
 import kotlin.reflect.full.memberProperties
 
-class StickerFragment : Fragment() {
-
+class StickerFragment : Fragment()
+{
     private lateinit var binding: FragmentStickerBinding
     private lateinit var adapter: StickerAdapter
 
@@ -27,22 +27,23 @@ class StickerFragment : Fragment() {
 
     private val baseUrl = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    {
         binding = FragmentStickerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     @SuppressLint("RestrictedApi")
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
         super.onViewCreated(view, savedInstanceState)
 
         initView()
         setupSearchView()
     }
 
-    private fun initView() {
+    private fun initView()
+    {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = StickerAdapter(requireActivity(), filteredGroupsList)
         binding.recyclerView.adapter = adapter
@@ -67,7 +68,9 @@ class StickerFragment : Fragment() {
                             adapter.updateData(filteredGroupsList)
                         }
                     } ?: Log.e("StoreFragment", "Data is null")
-                } else {
+                }
+                else
+                {
                     Log.e("StoreFragment", "Failed to fetch data")
                 }
             }
@@ -76,7 +79,8 @@ class StickerFragment : Fragment() {
 
     private fun setupSearchView()
     {
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener
+        {
             override fun onQueryTextSubmit(query: String?): Boolean
             {
                 // Do nothing here
@@ -109,24 +113,25 @@ class StickerFragment : Fragment() {
             val prop = property as? KProperty1<Dataas, *>
             val value = prop?.get(data)
 
-            if (value != null) {
+            if (value != null)
+            {
                 val groupProperty = value::class.memberProperties
                     .firstOrNull { it.returnType.classifier == Groupas::class } as? KProperty1<Any, Groupas>
 
                 val nestedGroup = groupProperty?.get(value)
 
-                if (nestedGroup != null) {
+                if (nestedGroup != null)
+                {
                     val categoryName = property.name.replace("_", " ").capitalizeWords()
 
                     nestedGroup.let {
-                        if (it.subImageUrl != null || it.mainImageUrl != null) {
-                            items.add(
-                                Groupas(
-                                    subImageUrl = it.subImageUrl,
-                                    mainImageUrl = it.mainImageUrl,
-                                    textCategory = categoryName
-                                )
-                            )
+                        if (it.subImageUrl != null || it.mainImageUrl != null)
+                        {
+                            items.add(Groupas(
+                                subImageUrl = it.subImageUrl,
+                                mainImageUrl = it.mainImageUrl,
+                                textCategory = categoryName
+                            ))
                         }
                     }
                 }

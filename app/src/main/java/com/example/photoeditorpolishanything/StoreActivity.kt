@@ -32,7 +32,8 @@ class StoreActivity : AppCompatActivity() {
         initview()
     }
 
-    private fun initview() {
+    private fun initview()
+    {
 
         binding.imgback.setOnClickListener { onBackPressed()}
 
@@ -41,7 +42,6 @@ class StoreActivity : AppCompatActivity() {
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Light FX"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setIcon(R.drawable.aa))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setIcon(R.drawable.store_filter))
-
 
         val Myadapter = StoreTabAdapter(supportFragmentManager)
         binding.viewpager.adapter = Myadapter

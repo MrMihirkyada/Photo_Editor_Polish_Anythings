@@ -472,7 +472,7 @@ data class Groupas(
 	val textCategory: String?,
 
 	@field:SerializedName("subImageUrl")
-	val subImageUrl: List<String?>?,
+	val subImageUrl: List<String>?,
 
 	@field:SerializedName("mainImageUrl")
 	val mainImageUrl: List<String?>?

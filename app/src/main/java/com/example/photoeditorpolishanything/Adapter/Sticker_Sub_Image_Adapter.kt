@@ -8,7 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.photoeditorpolishanything.R
 
-class Sticker_Sub_Image_Adapter(private val subImageUrls: List<String?>) : RecyclerView.Adapter<Sticker_Sub_Image_Adapter.SubImageViewHolder>() {
+class Sticker_Sub_Image_Adapter(private var subImageUrls: List<String?>) : RecyclerView.Adapter<Sticker_Sub_Image_Adapter.SubImageViewHolder>() {
+
+
+    fun updateData(newImages: List<String?>) {
+        this.subImageUrls = newImages
+        notifyDataSetChanged()
+    }
 
     private val baseUrl = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
 

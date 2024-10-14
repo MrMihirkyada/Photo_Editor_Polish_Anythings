@@ -239,10 +239,7 @@ class StickerBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 try {
                     client.newCall(request).execute().use { response ->
                         if (!response.isSuccessful) {
-                            Log.e(
-                                "Download",
-                                "Failed to download $encodedUrl, response code: ${response.code}"
-                            )
+                            Log.e("Download", "Failed to download $encodedUrl, response code: ${response.code}")
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(context, "Failed: $url", Toast.LENGTH_SHORT).show()
                             }

@@ -85,7 +85,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
                 tools:ignore="NotSibling" />
 
-
             <!--            <com.example.photoeditorpolishanything.NonScrollableRecyclerView-->
             <!--                android:id="@+id/recyclerViews"-->
             <!--                android:layout_width="match_parent"-->
@@ -97,7 +96,6 @@
             <!--                app:layout_constraintStart_toStartOf="parent"-->
             <!--                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"-->
             <!--                tools:ignore="NotSibling" />-->
-
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -112,7 +110,6 @@
                 app:layout_constraintTop_toTopOf="@+id/cardView"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
 
 

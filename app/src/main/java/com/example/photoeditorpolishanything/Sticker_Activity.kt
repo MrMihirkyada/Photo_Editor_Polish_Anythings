@@ -198,6 +198,7 @@
 
 package com.example.photoeditorpolishanything
 
+import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -213,6 +214,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.photoeditorpolishanything.Adapter.Sticker_Activity_Adapter
+import com.example.photoeditorpolishanything.Adapter.Sticker_Activity_Adapter.Companion.imageUrlList
+import com.example.photoeditorpolishanything.Adapter.Sticker_Group_Images_Adapter
 import com.example.photoeditorpolishanything.Adapter.Sticker_Sub_Image_Adapter
 import com.example.photoeditorpolishanything.Api.Dataas
 import com.example.photoeditorpolishanything.Api.Groupas
@@ -229,8 +232,9 @@ class Sticker_Activity : AppCompatActivity() {
     //    private lateinit var viewModel: StickerViewModel
     private lateinit var adapter: Sticker_Activity_Adapter
     private lateinit var adapters: Sticker_Sub_Image_Adapter
+    private lateinit var adapteres: Sticker_Group_Images_Adapter
     private val groupsList = mutableListOf<Groupas>()
-    private var data: List<String?>? = null
+    private var data: List<String>? = null
     private lateinit var datas: String
     private lateinit var mainImageUrl: String
 
@@ -242,12 +246,11 @@ class Sticker_Activity : AppCompatActivity() {
         private const val ARG_TEXT_CATEGORY =
             "https://s3.eu-north-1.amazonaws.com/photoeditorbeautycamera.com/photoeditor/sticker/"
 
-        fun newInstance(
-            data: List<String?>?,
-            navigationBarColor: Int,
-            mainImageUrl: String,
-            textCategory: String?
-        ): StickerBottomSheetDialogFragment {
+        var context : Context? = null
+
+        fun newInstance(data: List<String?>?, navigationBarColor: Int, mainImageUrl: String, textCategory: String?) :
+                StickerBottomSheetDialogFragment
+        {
             val fragment = StickerBottomSheetDialogFragment()
             val args = Bundle()
             args.putStringArrayList(ARG_DATA, ArrayList(data))
@@ -259,12 +262,21 @@ class Sticker_Activity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    fun updateStickersList(subImageUrls: List<String?>)
+    {
+        // Update the secondary RecyclerView adapter
+        adapters.updateData(subImageUrls)
+        adapters.notifyDataSetChanged()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         binding = ActivityStickerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (Build.VERSION.SDK_INT >= 21) {
+        if (Build.VERSION.SDK_INT >= 21)
+        {
             val window = this.window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -281,47 +293,60 @@ class Sticker_Activity : AppCompatActivity() {
         initView()
     }
 
-    private fun initializeEmojiCompat() {
+    private fun initializeEmojiCompat()
+    {
         val config = BundledEmojiCompatConfig(this)
         EmojiCompat.init(config)
     }
 
-    private fun initView() {
+    private fun initView()
+    {
         val imageUriString = intent.getStringExtra("selected_image_uri")
-        if (imageUriString != null) {
+        if (imageUriString != null)
+        {
             val imageUri = Uri.parse(imageUriString)
             val imageView = findViewById<ImageView>(R.id.imgEditSelectImagess)
 
-            if (imageView != null) {
-                try {
+            if (imageView != null)
+            {
+                try
+                {
                     Glide.with(this).load(imageUri).into(imageView)
-                } catch (e: Exception) {
+                }
+                catch (e: Exception)
+                {
                     logErrorAndFinish("Glide error: ${e.message}")
                 }
-            } else {
+            }
+            else
+            {
                 logErrorAndFinish("ImageView not found in layout")
             }
-        } else {
+        }
+        else
+        {
             logErrorAndFinish("Image URI string is null")
         }
 
-        val url =
-            "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/stickers.json"
-        var baseurl =
-            "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
+        val url = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/stickers.json"
+        var baseurl = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
+
 
 
         OkHttpHelpers.fetchSticker(url) { stickerApi ->
             runOnUiThread {
 
-                if (stickerApi != null) {
+                if (stickerApi != null)
+                {
                     Log.e("StoreFragment", "Fetched data: ${stickerApi.data}")
 
                     stickerApi.data?.let {
                         populateGroupsList(it)
                         adapter.updateData(groupsList)
                     } ?: Log.e("StoreFragment", "Data is null")
-                } else {
+                }
+                else
+                {
                     Log.e("StoreFragment", "Failed to fetch data")
                 }
             }
@@ -333,23 +358,29 @@ class Sticker_Activity : AppCompatActivity() {
         adapters = Sticker_Sub_Image_Adapter(data ?: emptyList())
         binding.rcvStiker.adapter = adapter
 
-
         val imageUrls = intent.getStringArrayListExtra("imageUrls") ?: arrayListOf()
 
         // Set up the RecyclerView
         binding.rcvStikers.layoutManager = GridLayoutManager(this,4)
-        adapters = Sticker_Sub_Image_Adapter(imageUrls) // Make sure this adapter is set to handle the images
+        adapteres = Sticker_Group_Images_Adapter(imageUrlList) // Make sure this adapter is set to handle the images
         binding.rcvStikers.adapter = adapter
 
 
+        Log.e("imageUrlList", "initView: "+ imageUrlList )
+//        // Set up the RecyclerView
+//        binding.rcvStikers.layoutManager = GridLayoutManager(this,4)
+//        adapteres = Sticker_Group_Images_Adapter(imageUrlList) // Make sure this adapter is set to handle the images
+//        binding.rcvStikers.adapter = adapter
+
 //        adapter = Sticker_Activity_Adapter(this,groupsList)
 //        binding.rcvStikers.layoutManager = LinearLayoutManager(this , LinearLayoutManager.VERTICAL , false)
-//        data = intent.getStringArrayListExtra(StickerBottomSheetDialogFragment.ARG_DATA)
+ //        data = intent.getStringArrayListExtra(StickerBottomSheetDialogFragment.ARG_DATA)
 //        adapters = Sticker_Sub_Image_Adapter(data ?: emptyList())
 //        binding.rcvStikers.adapter = adapter
     }
 
-    private fun populateGroupsList(data: Dataas) {
+    private fun populateGroupsList(data: Dataas)
+    {
         val items = mutableListOf<Groupas>()
 
         // Use Kotlin reflection to iterate over the properties of the Dataas class
@@ -366,11 +397,13 @@ class Sticker_Activity : AppCompatActivity() {
 
                 val nestedGroup = groupProperty?.get(value)
 
-                if (nestedGroup != null) {
+                if (nestedGroup != null)
+                {
                     val categoryName = property.name.replace("_", " ").capitalizeWords()
 
                     nestedGroup.let {
-                        if (it.subImageUrl != null || it.mainImageUrl != null) {
+                        if (it.subImageUrl != null || it.mainImageUrl != null)
+                        {
                             items.add(
                                 Groupas(
                                     subImageUrl = it.subImageUrl,

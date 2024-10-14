@@ -8,20 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.photoeditorpolishanything.Api.Groupas
+import com.example.photoeditorpolishanything.OnStickerClickListener
 import com.example.photoeditorpolishanything.R
 
-class  Sticker_Activity_Adapter(
-    var activity: Activity,
-    var data: MutableList<Groupas>,
+class  Sticker_Activity_Adapter(var activity: Activity, var data: MutableList<Groupas>,
+                                private val listener: OnStickerClickListener // Add the listener here
 ) : RecyclerView.Adapter<Sticker_Activity_Adapter.Sticker_Activity_Adapter>()
 {
 
     private val baseUrl = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
     private var filteredData: MutableList<Groupas> = data // Store the filtered data
 
+    companion object{
+        var imageUrlList = listOf<String>()
+    }
 
     fun updateData(newData: MutableList<Groupas>)
     {
@@ -44,7 +48,7 @@ class  Sticker_Activity_Adapter(
 
         val item = data.getOrNull(position) ?: return
 
-        val imageUrlList = item.subImageUrl
+        imageUrlList = item.subImageUrl!!
         if (imageUrlList.isNullOrEmpty())
         {
             Log.e("StickerAdapter", "No image URLs available for position $position")
@@ -64,33 +68,52 @@ class  Sticker_Activity_Adapter(
                 .into(holder.imageView)
 
 
-                holder.imageView.setOnClickListener {
-    //                // Get the list of sub-image URLs associated with the clicked sticker
-    //                val subImageUrls = stickerUrl.subImageUrl
-    //
-    //                // Check if there are any sub-image URLs
-    //                if (subImageUrls != null && subImageUrls.isNotEmpty()) {
-    //                    // Start the new activity and pass the sub-image URLs to it
-    //                    val intent = Intent(activity, Sticker_Activity::class.java)
-    //                    intent.putStringArrayListExtra("imageUrls", ArrayList(subImageUrls))
-    //                    activity.startActivity(intent)
-    //                } else {
-    //                    Toast.makeText(holder.itemView.context, "No images available", Toast.LENGTH_SHORT).show()
-    //                }
+//                holder.imageView.setOnClickListener {
+//                    // Show the category as a toast
+//                    Toast.makeText(holder.itemView.context, stickerUrl.textCategory, Toast.LENGTH_SHORT).show()
+//
+//                    for(i in 0 until imageUrlList.size)
+//                    {
+////                        Glide.with(holder.imageView.context)
+////                            .load(baseUrl + imageUrlList[i])
+////                            .fitCenter()
+////                            .centerCrop()
+////                            .into(holder.imageView)
+//
+//
+//                        Log.e("onBindViewHolder", "onBindViewHolder: "+baseUrl + imageUrlList[i])
+//                    }
+//                }
 
-                    // Show the category as a toast
-                    Toast.makeText(holder.itemView.context, stickerUrl.textCategory, Toast.LENGTH_SHORT).show()
+            holder.imageView.setOnClickListener {
+                // Show the category as a toast
+                Toast.makeText(holder.itemView.context, stickerUrl.textCategory, Toast.LENGTH_SHORT).show()
+
+                // Get the RecyclerView from your activity or fragment layout
+                val recyclerView = (holder.itemView.context as Activity).findViewById<RecyclerView>(R.id.rcvStikers)
+
+                // Set up the RecyclerView if it's not set already
+                if (recyclerView.adapter == null) {
+                    recyclerView.layoutManager = GridLayoutManager(holder.itemView.context, 3) // 3 columns grid
+                    recyclerView.adapter = Sticker_Group_Images_Adapter(imageUrlList) // Pass your image list
                 }
 
+                // Notify the activity with the image URLs
+                stickerUrl.subImageUrl?.let { urls ->
+                    listener.onStickerClicked(urls) // Send the image URLs to the activity
+                }
+
+                // Make the RecyclerView visible
+                recyclerView.visibility = View.VISIBLE
+
+                // Optionally, you can also hide or collapse it if clicked again
+            }
         }
         else
         {
             // Handle case where imageUrl is null
             Log.e("ImageLoading", "No image URL available for position $position")
         }
-
-//        holder.textView.text = stickerUrl.textCategory
-//        holder.textNumber.text = stickerUrl.subImageUrl!!.size.toString() + " Stickers"
     }
 
     override fun getItemCount(): Int

@@ -10,8 +10,8 @@ import com.example.photoeditorpolishanything.R
 
 class Sticker_Sub_Image_Adapter(private var subImageUrls: List<String?>) : RecyclerView.Adapter<Sticker_Sub_Image_Adapter.SubImageViewHolder>() {
 
-
-    fun updateData(newImages: List<String?>) {
+    fun updateData(newImages: List<String?>)
+    {
         this.subImageUrls = newImages
         notifyDataSetChanged()
     }

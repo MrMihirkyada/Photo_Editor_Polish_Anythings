@@ -78,7 +78,7 @@ class StickerAdapter(var activity: Activity, var data: MutableList<Groupas>) : R
         holder.textNumber.text = stickerUrl.subImageUrl!!.size.toString() + " Stickers"
     }
 
-    override fun getItemCount(): Int
+    override fun getItemCount() : Int
     {
         return data.size
     }

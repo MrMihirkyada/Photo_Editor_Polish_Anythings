@@ -16,7 +16,7 @@ import com.example.photoeditorpolishanything.OnStickerClickListener
 import com.example.photoeditorpolishanything.R
 
 class  Sticker_Activity_Adapter(var activity: Activity, var data: MutableList<Groupas>,
-                                private val listener: OnStickerClickListener // Add the listener here
+                                private val listener: OnStickerClickListener
 ) : RecyclerView.Adapter<Sticker_Activity_Adapter.Sticker_Activity_Adapter>()
 {
 
@@ -68,23 +68,6 @@ class  Sticker_Activity_Adapter(var activity: Activity, var data: MutableList<Gr
                 .into(holder.imageView)
 
 
-//                holder.imageView.setOnClickListener {
-//                    // Show the category as a toast
-//                    Toast.makeText(holder.itemView.context, stickerUrl.textCategory, Toast.LENGTH_SHORT).show()
-//
-//                    for(i in 0 until imageUrlList.size)
-//                    {
-////                        Glide.with(holder.imageView.context)
-////                            .load(baseUrl + imageUrlList[i])
-////                            .fitCenter()
-////                            .centerCrop()
-////                            .into(holder.imageView)
-//
-//
-//                        Log.e("onBindViewHolder", "onBindViewHolder: "+baseUrl + imageUrlList[i])
-//                    }
-//                }
-
             holder.imageView.setOnClickListener {
                 // Show the category as a toast
                 Toast.makeText(holder.itemView.context, stickerUrl.textCategory, Toast.LENGTH_SHORT).show()
@@ -93,8 +76,9 @@ class  Sticker_Activity_Adapter(var activity: Activity, var data: MutableList<Gr
                 val recyclerView = (holder.itemView.context as Activity).findViewById<RecyclerView>(R.id.rcvStikers)
 
                 // Set up the RecyclerView if it's not set already
-                if (recyclerView.adapter == null) {
-                    recyclerView.layoutManager = GridLayoutManager(holder.itemView.context, 3) // 3 columns grid
+                if (recyclerView.adapter == null)
+                {
+                    recyclerView.layoutManager = GridLayoutManager(holder.itemView.context, 4) // 4 columns grid
                     recyclerView.adapter = Sticker_Group_Images_Adapter(imageUrlList) // Pass your image list
                 }
 

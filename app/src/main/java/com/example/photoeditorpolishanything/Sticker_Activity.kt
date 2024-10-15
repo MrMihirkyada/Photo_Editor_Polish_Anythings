@@ -203,6 +203,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
@@ -226,7 +227,7 @@ import kotlin.reflect.KProperty1
 import kotlin.reflect.full.memberProperties
 
 
-class Sticker_Activity : AppCompatActivity() {
+class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , StickerClickListener*/ {
     lateinit var binding: ActivityStickerBinding
 
     //    private lateinit var viewModel: StickerViewModel
@@ -352,7 +353,7 @@ class Sticker_Activity : AppCompatActivity() {
             }
         }
 
-        adapter = Sticker_Activity_Adapter(this, groupsList)
+        adapter = Sticker_Activity_Adapter(this, groupsList,this)
         binding.rcvStiker.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         data = intent.getStringArrayListExtra(StickerBottomSheetDialogFragment.ARG_DATA)
         adapters = Sticker_Sub_Image_Adapter(data ?: emptyList())
@@ -360,11 +361,10 @@ class Sticker_Activity : AppCompatActivity() {
 
         val imageUrls = intent.getStringArrayListExtra("imageUrls") ?: arrayListOf()
 
-        // Set up the RecyclerView
-        binding.rcvStikers.layoutManager = GridLayoutManager(this,4)
-        adapteres = Sticker_Group_Images_Adapter(imageUrlList) // Make sure this adapter is set to handle the images
-        binding.rcvStikers.adapter = adapter
-
+//        // Set up the RecyclerView
+//        binding.rcvStikers.layoutManager = GridLayoutManager(this,4)
+//        adapteres = Sticker_Group_Images_Adapter(imageUrlList) // Make sure this adapter is set to handle the images
+//        binding.rcvStikers.adapter = adapter
 
         Log.e("imageUrlList", "initView: "+ imageUrlList )
 //        // Set up the RecyclerView
@@ -389,7 +389,8 @@ class Sticker_Activity : AppCompatActivity() {
             val value = prop?.get(data)
 
             // Check if the value is an instance of a class containing a Groupas
-            if (value != null) {
+            if (value != null)
+            {
                 // Use reflection to find the Groupas property within the nested class
                 val groupProperty = value::class.memberProperties
                     .firstOrNull { it.returnType.classifier == Groupas::class }
@@ -421,11 +422,39 @@ class Sticker_Activity : AppCompatActivity() {
         groupsList.addAll(items)
     }
 
-    private fun logErrorAndFinish(message: String) {
+    private fun logErrorAndFinish(message: String)
+    {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         finish() // Close the activity or handle it appropriately
     }
 
     private fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize() }
+
+    // This method will be called when an item is clicked in the first RecyclerView
+    override fun onStickerClicked(imageUrls: List<String>)
+    {
+        // Create a new adapter for the second RecyclerView to display the selected group of images
+        val groupAdapter = Sticker_Group_Images_Adapter(imageUrls)
+
+        // Set up the second RecyclerView with a GridLayoutManager (3 columns for images)
+        binding.rcvStikers.layoutManager = GridLayoutManager(this, 4)
+        binding.rcvStikers.adapter = groupAdapter
+
+        // Make the second RecyclerView visible
+        binding.rcvStikers.visibility = View.VISIBLE
+    }
+
+//    override fun onStickerSelected(imageUrls: List<String>) {
+//        // Your code to display the sticker
+//        // Create a new adapter for the RecyclerView to display selected images
+//        val adapter = Sticker_Group_Images_Adapter(imageUrls,this)
+//
+//        // Initialize the RecyclerView to display selected images
+//        binding.rcvStikers.layoutManager = GridLayoutManager(this, 4)
+//        binding.rcvStikers.adapter = adapter
+//
+//        // Make the RecyclerView visible
+//        binding.rcvStikers.visibility = View.VISIBLE
+//    }
 }
 

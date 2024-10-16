@@ -23,7 +23,6 @@ class SplashScreenActivity : AppCompatActivity()
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.statusBarColor = this.resources.getColor(R.color.black)
-
         }
 
         window.navigationBarColor = ContextCompat.getColor(this, R.color.black)

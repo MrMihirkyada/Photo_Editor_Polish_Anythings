@@ -4,8 +4,7 @@ interface OnStickerClickListener {
     fun onStickerClicked(imageUrls: List<String>)
 }
 
+interface StickerClickListener {
+    fun onStickerSelected(imageUrl: String)
+}
 
-//// Assuming you have an interface
-//interface StickerClickListener {
-//    fun onStickerSelected(imageUrls: List<String>)
-//}

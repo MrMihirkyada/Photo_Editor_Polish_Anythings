@@ -14,11 +14,11 @@ import com.bumptech.glide.Glide
 import com.example.photoeditorpolishanything.Api.Groupas
 import com.example.photoeditorpolishanything.OnStickerClickListener
 import com.example.photoeditorpolishanything.R
+import com.example.photoeditorpolishanything.StickerClickListener
 
-class  Sticker_Activity_Adapter(var activity: Activity, var data: MutableList<Groupas>,
-                                private val listener: OnStickerClickListener
-) : RecyclerView.Adapter<Sticker_Activity_Adapter.Sticker_Activity_Adapter>()
-{
+class  Sticker_Activity_Adapter(var activity: Activity, var data: MutableList<Groupas>, private val listener: OnStickerClickListener,
+                                var listeners : StickerClickListener
+) : RecyclerView.Adapter<Sticker_Activity_Adapter.Sticker_Activity_Adapter>() {
 
     private val baseUrl = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
     private var filteredData: MutableList<Groupas> = data // Store the filtered data
@@ -79,7 +79,7 @@ class  Sticker_Activity_Adapter(var activity: Activity, var data: MutableList<Gr
                 if (recyclerView.adapter == null)
                 {
                     recyclerView.layoutManager = GridLayoutManager(holder.itemView.context, 4) // 4 columns grid
-                    recyclerView.adapter = Sticker_Group_Images_Adapter(imageUrlList) // Pass your image list
+                    recyclerView.adapter = Sticker_Group_Images_Adapter(imageUrlList,listeners) // Pass your image list
                 }
 
                 // Notify the activity with the image URLs

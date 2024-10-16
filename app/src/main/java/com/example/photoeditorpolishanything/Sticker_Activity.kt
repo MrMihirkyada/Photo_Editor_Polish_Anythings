@@ -205,6 +205,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -221,13 +222,14 @@ import com.example.photoeditorpolishanything.Adapter.Sticker_Sub_Image_Adapter
 import com.example.photoeditorpolishanything.Api.Dataas
 import com.example.photoeditorpolishanything.Api.Groupas
 import com.example.photoeditorpolishanything.Api.OkHttpHelpers
+import com.example.photoeditorpolishanything.StickerView.CustomStickerView
 import com.example.photoeditorpolishanything.StoreFragment.StickerBottomSheetDialogFragment
 import com.example.photoeditorpolishanything.databinding.ActivityStickerBinding
 import kotlin.reflect.KProperty1
 import kotlin.reflect.full.memberProperties
 
 
-class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , StickerClickListener*/ {
+class Sticker_Activity : AppCompatActivity(), OnStickerClickListener , StickerClickListener {
     lateinit var binding: ActivityStickerBinding
 
     //    private lateinit var viewModel: StickerViewModel
@@ -238,6 +240,9 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
     private var data: List<String>? = null
     private lateinit var datas: String
     private lateinit var mainImageUrl: String
+    var stickerLayout: FrameLayout? = null
+    private var currentStickerView: CustomStickerView? =
+        null // Track the currently displayed sticker
 
 
     companion object {
@@ -247,11 +252,15 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
         private const val ARG_TEXT_CATEGORY =
             "https://s3.eu-north-1.amazonaws.com/photoeditorbeautycamera.com/photoeditor/sticker/"
 
-        var context : Context? = null
+        var context: Context? = null
 
-        fun newInstance(data: List<String?>?, navigationBarColor: Int, mainImageUrl: String, textCategory: String?) :
-                StickerBottomSheetDialogFragment
-        {
+        fun newInstance(
+            data: List<String?>?,
+            navigationBarColor: Int,
+            mainImageUrl: String,
+            textCategory: String?
+        ):
+                StickerBottomSheetDialogFragment {
             val fragment = StickerBottomSheetDialogFragment()
             val args = Bundle()
             args.putStringArrayList(ARG_DATA, ArrayList(data))
@@ -263,21 +272,18 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
         }
     }
 
-    fun updateStickersList(subImageUrls: List<String?>)
-    {
+    fun updateStickersList(subImageUrls: List<String?>) {
         // Update the secondary RecyclerView adapter
         adapters.updateData(subImageUrls)
         adapters.notifyDataSetChanged()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStickerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (Build.VERSION.SDK_INT >= 21)
-        {
+        if (Build.VERSION.SDK_INT >= 21) {
             val window = this.window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -294,51 +300,41 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
         initView()
     }
 
-    private fun initializeEmojiCompat()
-    {
+    private fun initializeEmojiCompat() {
         val config = BundledEmojiCompatConfig(this)
         EmojiCompat.init(config)
     }
 
-    private fun initView()
-    {
+    private fun initView() {
         val imageUriString = intent.getStringExtra("selected_image_uri")
-        if (imageUriString != null)
-        {
+        if (imageUriString != null) {
             val imageUri = Uri.parse(imageUriString)
             val imageView = findViewById<ImageView>(R.id.imgEditSelectImagess)
 
-            if (imageView != null)
-            {
-                try
-                {
+            if (imageView != null) {
+                try {
                     Glide.with(this).load(imageUri).into(imageView)
-                }
-                catch (e: Exception)
-                {
+                } catch (e: Exception) {
                     logErrorAndFinish("Glide error: ${e.message}")
                 }
-            }
-            else
-            {
+            } else {
                 logErrorAndFinish("ImageView not found in layout")
             }
-        }
-        else
-        {
+        } else {
             logErrorAndFinish("Image URI string is null")
         }
 
-        val url = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/stickers.json"
-        var baseurl = "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
+        val url =
+            "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/stickers.json"
+        var baseurl =
+            "https://s3.ap-south-1.amazonaws.com/photoeditorbeautycamera.app/photoeditor/sticker/"
 
 
 
         OkHttpHelpers.fetchSticker(url) { stickerApi ->
             runOnUiThread {
 
-                if (stickerApi != null)
-                {
+                if (stickerApi != null) {
                     Log.e("StoreFragment", "Fetched data: ${stickerApi.data}")
 
                     stickerApi.data?.let {
@@ -353,7 +349,7 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
             }
         }
 
-        adapter = Sticker_Activity_Adapter(this, groupsList,this)
+        adapter = Sticker_Activity_Adapter(this,groupsList, this, this)
         binding.rcvStiker.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         data = intent.getStringArrayListExtra(StickerBottomSheetDialogFragment.ARG_DATA)
         adapters = Sticker_Sub_Image_Adapter(data ?: emptyList())
@@ -361,26 +357,10 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
 
         val imageUrls = intent.getStringArrayListExtra("imageUrls") ?: arrayListOf()
 
-//        // Set up the RecyclerView
-//        binding.rcvStikers.layoutManager = GridLayoutManager(this,4)
-//        adapteres = Sticker_Group_Images_Adapter(imageUrlList) // Make sure this adapter is set to handle the images
-//        binding.rcvStikers.adapter = adapter
-
-        Log.e("imageUrlList", "initView: "+ imageUrlList )
-//        // Set up the RecyclerView
-//        binding.rcvStikers.layoutManager = GridLayoutManager(this,4)
-//        adapteres = Sticker_Group_Images_Adapter(imageUrlList) // Make sure this adapter is set to handle the images
-//        binding.rcvStikers.adapter = adapter
-
-//        adapter = Sticker_Activity_Adapter(this,groupsList)
-//        binding.rcvStikers.layoutManager = LinearLayoutManager(this , LinearLayoutManager.VERTICAL , false)
- //        data = intent.getStringArrayListExtra(StickerBottomSheetDialogFragment.ARG_DATA)
-//        adapters = Sticker_Sub_Image_Adapter(data ?: emptyList())
-//        binding.rcvStikers.adapter = adapter
+        Log.e("imageUrlList", "initView: " + imageUrlList)
     }
 
-    private fun populateGroupsList(data: Dataas)
-    {
+    private fun populateGroupsList(data: Dataas) {
         val items = mutableListOf<Groupas>()
 
         // Use Kotlin reflection to iterate over the properties of the Dataas class
@@ -389,8 +369,7 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
             val value = prop?.get(data)
 
             // Check if the value is an instance of a class containing a Groupas
-            if (value != null)
-            {
+            if (value != null) {
                 // Use reflection to find the Groupas property within the nested class
                 val groupProperty = value::class.memberProperties
                     .firstOrNull { it.returnType.classifier == Groupas::class }
@@ -398,13 +377,11 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
 
                 val nestedGroup = groupProperty?.get(value)
 
-                if (nestedGroup != null)
-                {
+                if (nestedGroup != null) {
                     val categoryName = property.name.replace("_", " ").capitalizeWords()
 
                     nestedGroup.let {
-                        if (it.subImageUrl != null || it.mainImageUrl != null)
-                        {
+                        if (it.subImageUrl != null || it.mainImageUrl != null) {
                             items.add(
                                 Groupas(
                                     subImageUrl = it.subImageUrl,
@@ -422,8 +399,7 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
         groupsList.addAll(items)
     }
 
-    private fun logErrorAndFinish(message: String)
-    {
+    private fun logErrorAndFinish(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         finish() // Close the activity or handle it appropriately
     }
@@ -431,10 +407,9 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
     private fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize() }
 
     // This method will be called when an item is clicked in the first RecyclerView
-    override fun onStickerClicked(imageUrls: List<String>)
-    {
+    override fun onStickerClicked(imageUrls: List<String>) {
         // Create a new adapter for the second RecyclerView to display the selected group of images
-        val groupAdapter = Sticker_Group_Images_Adapter(imageUrls)
+        val groupAdapter = Sticker_Group_Images_Adapter(imageUrls, this)
 
         // Set up the second RecyclerView with a GridLayoutManager (3 columns for images)
         binding.rcvStikers.layoutManager = GridLayoutManager(this, 4)
@@ -444,17 +419,41 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener /* , Sticke
         binding.rcvStikers.visibility = View.VISIBLE
     }
 
-//    override fun onStickerSelected(imageUrls: List<String>) {
-//        // Your code to display the sticker
-//        // Create a new adapter for the RecyclerView to display selected images
-//        val adapter = Sticker_Group_Images_Adapter(imageUrls,this)
-//
-//        // Initialize the RecyclerView to display selected images
-//        binding.rcvStikers.layoutManager = GridLayoutManager(this, 4)
-//        binding.rcvStikers.adapter = adapter
-//
-//        // Make the RecyclerView visible
-//        binding.rcvStikers.visibility = View.VISIBLE
-//    }
-}
 
+    override fun onStickerSelected(imageUrl: String) {
+        // Remove the existing sticker view if it exists
+        currentStickerView?.let {
+            val stickerLayout = findViewById<FrameLayout>(R.id.stickerLayout)
+            stickerLayout.removeView(it)
+        }
+
+        // Create a new instance of your CustomStickerView
+        val newStickerView = CustomStickerView(this)
+
+        // Load the sticker image into the custom view's ImageView
+        Glide.with(this)
+            .load(imageUrl)
+            .into(newStickerView.findViewById(R.id.stickerImageView))  // Assuming your sticker layout has an ImageView with this ID
+
+        // Set the layout parameters for the new sticker view's initial position and size
+        val layoutParams = FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.WRAP_CONTENT,
+            FrameLayout.LayoutParams.WRAP_CONTENT
+        )
+        newStickerView.layoutParams = layoutParams
+
+
+        // Make the CustomStickerView visible if needed
+        binding.stvStickerView.visibility = View.VISIBLE
+
+        // Add the new sticker view to your sticker layout
+        val stickerLayout = findViewById<FrameLayout>(R.id.stickerLayout)
+        stickerLayout.addView(newStickerView)
+
+        // Update the reference to the current sticker view
+        currentStickerView = newStickerView
+    }
+
+
+
+}

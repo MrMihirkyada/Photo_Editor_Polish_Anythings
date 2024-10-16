@@ -459,8 +459,7 @@ class DashboardActivity : BaseActivity() {
                 val idColumn = it.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
                 while (it.moveToNext()) {
                     val id = it.getLong(idColumn)
-                    val imageUri =
-                        ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id)
+                    val imageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id)
                     images.add(ImageItem(imageUri))
                 }
             }
@@ -472,10 +471,8 @@ class DashboardActivity : BaseActivity() {
         }
     }
 
-    private class FetchBeautifyImagesTask(
-        val context: DashboardActivity,
-        val callback: (List<ImageItem>) -> Unit
-    ) : AsyncTask<Void, Void, List<ImageItem>>() {
+    private class FetchBeautifyImagesTask(val context: DashboardActivity, val callback: (List<ImageItem>) -> Unit)
+        : AsyncTask<Void, Void, List<ImageItem>>() {
         override fun doInBackground(vararg params: Void?): List<ImageItem> {
             val images = mutableListOf<ImageItem>()
             val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
@@ -549,7 +546,7 @@ class DashboardActivity : BaseActivity() {
         }
     }
 
-    data class Album(val name: String, val thumbnailUri: Uri, val photoCount: Int)
+    data class Album(val name: String, val thumbnailUri: Uri, var photoCount: Int)
 
     @SuppressLint("CutPasteId")
     fun showBottomSheet()
@@ -687,7 +684,6 @@ class DashboardActivity : BaseActivity() {
                         it.layoutManager = GridLayoutManager(this, 3)
                         it.adapter = Adapter
 
-
                         val preloadSizeProvider = ViewPreloadSizeProvider<Uri>()
                         val preloader = RecyclerViewPreloader(
                             Glide.with(this),
@@ -790,6 +786,7 @@ class DashboardActivity : BaseActivity() {
             bottomSheetDialog.show()
         }.execute()
     }
+
 
     private fun updateSelectedImagesCount(txtSelectedImagesCount: TextView, count: Int)
     {
@@ -899,5 +896,4 @@ class DashboardActivity : BaseActivity() {
             view.findViewById<TextView>(R.id.txtPhotos).setTextColor(Color.WHITE)
         }
     }
-
 }

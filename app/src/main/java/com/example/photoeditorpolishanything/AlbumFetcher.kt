@@ -21,8 +21,7 @@ class AlbumFetcher(val context: Context) {
         val cursor = context.contentResolver.query(uri, projection, selection, null, sortOrder)
 
         cursor?.use {
-            val bucketNameColumn =
-                it.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
+            val bucketNameColumn = it.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
             val photoCountColumn = it.getColumnIndexOrThrow("photo_count")
             val imageIdColumn = it.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
 

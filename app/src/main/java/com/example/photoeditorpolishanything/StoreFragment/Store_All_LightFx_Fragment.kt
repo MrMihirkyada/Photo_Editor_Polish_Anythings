@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.photoeditorpolishanything.Adapter.LightFx_Adapter
 import com.example.photoeditorpolishanything.Api.DataItem
+import com.example.photoeditorpolishanything.Api.DataItems
 import com.example.photoeditorpolishanything.Api.Groupes
 import com.example.photoeditorpolishanything.Api.OkHttpHelperlightfx
 import com.example.photoeditorpolishanything.databinding.FragmentAllLightfxStoreBinding
@@ -92,7 +93,7 @@ class Store_All_LightFx_Fragment: Fragment()
 //        }
 //    }
 
-    private fun populateGroupsList(dataItems: List<DataItem?>?) {
+    private fun populateGroupsList(dataItems: DataItems) {
         val items = mutableListOf<Groupes>()
 
         // Function to add Groups to the list if they contain valid data
@@ -110,50 +111,50 @@ class Store_All_LightFx_Fragment: Fragment()
             }
         }
 
-        dataItems?.forEach { dataItem ->
-            dataItem?.let { item ->
-                addGroupasIfValid(item.autumn?.group, "Autumn")
-                addGroupasIfValid(item.bokeh?.group, "Bokeh")
-                addGroupasIfValid(item.brokenGlass?.group, "Broken Glass")
-                addGroupasIfValid(item.bubble?.group, "Bubble")
-                addGroupasIfValid(item.confetti?.group, "Confetti")
-                addGroupasIfValid(item.diamond?.group, "Diamond")
-                addGroupasIfValid(item.dreamyLight?.group, "Dreamy Light")
-                addGroupasIfValid(item.dustAndScratch?.group, "Dust and Scratch")
-                addGroupasIfValid(item.dustAndSunlight?.group, "Dust and Sunlight")
-                addGroupasIfValid(item.explosion?.group, "Explosion")
-                addGroupasIfValid(item.faceShadow?.group, "Face Shadow")
-                addGroupasIfValid(item.fantasy?.group, "Fantasy")
-                addGroupasIfValid(item.filmLeak?.group, "Film Leak")
-                addGroupasIfValid(item.fire?.group, "Fire")
-                addGroupasIfValid(item.fireworks?.group, "Fireworks")
-                addGroupasIfValid(item.flurries?.group, "Flurries")
-                addGroupasIfValid(item.fogOverlay?.group, "Fog Overlay")
-                addGroupasIfValid(item.galaxy?.group, "Galaxy")
-                addGroupasIfValid(item.goldenHour?.group, "Golden Hour")
-                addGroupasIfValid(item.lightStroke?.group, "Light Stroke")
-                addGroupasIfValid(item.lightning?.group, "Lightning")
-                addGroupasIfValid(item.love?.group, "Love")
-                addGroupasIfValid(item.moon?.group, "Moon")
-                addGroupasIfValid(item.neon?.group, "Neon")
-                addGroupasIfValid(item.petals?.group, "Petals")
-                addGroupasIfValid(item.prism?.group, "Prism")
-                addGroupasIfValid(item.rain?.group, "Rain")
-                addGroupasIfValid(item.rainbow?.group, "Rainbow")
-                addGroupasIfValid(item.retro?.group, "Retro")
-                addGroupasIfValid(item.ripple?.group, "Ripple")
-                addGroupasIfValid(item.rose?.group, "Rose")
-                addGroupasIfValid(item.scarf?.group, "Scarf")
-                addGroupasIfValid(item.shadow?.group, "Shadow")
-                addGroupasIfValid(item.shutter?.group, "Shutter")
-                addGroupasIfValid(item.smoke?.group, "Smoke")
-                addGroupasIfValid(item.snow?.group, "Snow")
-                addGroupasIfValid(item.star?.group, "Star")
-                addGroupasIfValid(item.sunlight?.group, "Sunlight")
-                addGroupasIfValid(item.texture?.group, "Texture")
-                addGroupasIfValid(item.water?.group, "Water")
-            }
-        }
+//        dataItems?.forEach { dataItem ->
+//            dataItem?.let { item ->
+//                addGroupasIfValid(item.autumn?.group, "Autumn")
+//                addGroupasIfValid(item.bokeh?.group, "Bokeh")
+//                addGroupasIfValid(item.brokenGlass?.group, "Broken Glass")
+//                addGroupasIfValid(item.bubble?.group, "Bubble")
+//                addGroupasIfValid(item.confetti?.group, "Confetti")
+//                addGroupasIfValid(item.diamond?.group, "Diamond")
+//                addGroupasIfValid(item.dreamyLight?.group, "Dreamy Light")
+//                addGroupasIfValid(item.dustAndScratch?.group, "Dust and Scratch")
+//                addGroupasIfValid(item.dustAndSunlight?.group, "Dust and Sunlight")
+//                addGroupasIfValid(item.explosion?.group, "Explosion")
+//                addGroupasIfValid(item.faceShadow?.group, "Face Shadow")
+//                addGroupasIfValid(item.fantasy?.group, "Fantasy")
+//                addGroupasIfValid(item.filmLeak?.group, "Film Leak")
+//                addGroupasIfValid(item.fire?.group, "Fire")
+//                addGroupasIfValid(item.fireworks?.group, "Fireworks")
+//                addGroupasIfValid(item.flurries?.group, "Flurries")
+//                addGroupasIfValid(item.fogOverlay?.group, "Fog Overlay")
+//                addGroupasIfValid(item.galaxy?.group, "Galaxy")
+//                addGroupasIfValid(item.goldenHour?.group, "Golden Hour")
+//                addGroupasIfValid(item.lightStroke?.group, "Light Stroke")
+//                addGroupasIfValid(item.lightning?.group, "Lightning")
+//                addGroupasIfValid(item.love?.group, "Love")
+//                addGroupasIfValid(item.moon?.group, "Moon")
+//                addGroupasIfValid(item.neon?.group, "Neon")
+//                addGroupasIfValid(item.petals?.group, "Petals")
+//                addGroupasIfValid(item.prism?.group, "Prism")
+//                addGroupasIfValid(item.rain?.group, "Rain")
+//                addGroupasIfValid(item.rainbow?.group, "Rainbow")
+//                addGroupasIfValid(item.retro?.group, "Retro")
+//                addGroupasIfValid(item.ripple?.group, "Ripple")
+//                addGroupasIfValid(item.rose?.group, "Rose")
+//                addGroupasIfValid(item.scarf?.group, "Scarf")
+//                addGroupasIfValid(item.shadow?.group, "Shadow")
+//                addGroupasIfValid(item.shutter?.group, "Shutter")
+//                addGroupasIfValid(item.smoke?.group, "Smoke")
+//                addGroupasIfValid(item.snow?.group, "Snow")
+//                addGroupasIfValid(item.star?.group, "Star")
+//                addGroupasIfValid(item.sunlight?.group, "Sunlight")
+//                addGroupasIfValid(item.texture?.group, "Texture")
+//                addGroupasIfValid(item.water?.group, "Water")
+//            }
+//        }
 
         groupsList.clear()
         groupsList.addAll(items)

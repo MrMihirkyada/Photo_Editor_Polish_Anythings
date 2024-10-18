@@ -1,5 +1,6 @@
 package com.example.photoeditorpolishanything.StickerView
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -44,6 +45,7 @@ class Sticker @JvmOverloads constructor(
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupResizeAndRotateListener() {
         resizeButton.setOnTouchListener { _, event ->
             when (event.actionMasked) {
@@ -51,7 +53,7 @@ class Sticker @JvmOverloads constructor(
                     initialTouchX = event.rawX
                     initialTouchY = event.rawY
                 }
-                MotionEvent.ACTION_MOVE -> {
+                MotionEvent.ACTION_MOVE -> {                                             
                     // Calculate new scale
                     val scaleFactor = event.rawX / initialTouchX
                     stickerImageView.scaleX = scaleFactor
@@ -66,6 +68,7 @@ class Sticker @JvmOverloads constructor(
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupStickerDragListener() {
         stickerImageView.setOnTouchListener { v, event ->
             when (event.action) {

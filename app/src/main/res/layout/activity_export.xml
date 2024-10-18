@@ -48,14 +48,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/lnrExport"
+            <LinearLayout
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_200sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_60sdp"
                 android:backgroundTint="@color/white"
-                android:orientation="vertical" />
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/lnrExport"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/white"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/lnrMakeAnother"
@@ -74,11 +83,10 @@
                     android:layout_marginHorizontal="@dimen/_25sdp"
                     android:text="Make Another"
                     android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
-
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -156,8 +164,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_rowWeight="1"
-                        android:layout_marginTop="@dimen/_25sdp"
                         android:layout_columnWeight="1"
+                        android:layout_marginTop="@dimen/_25sdp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -182,8 +190,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_rowWeight="1"
-                        android:layout_marginTop="@dimen/_25sdp"
                         android:layout_columnWeight="1"
+                        android:layout_marginTop="@dimen/_25sdp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -304,7 +312,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:text="E-mail"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10ssp"/>
+                            android:textSize="@dimen/_10ssp" />
                     </LinearLayout>
                 </GridLayout>
 

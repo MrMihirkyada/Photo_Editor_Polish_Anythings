@@ -1,0 +1,22 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape android:shape="ring"
+            android:thickness="20dp"
+            android:useLevel="false"
+            android:innerRadiusRatio="3">
+            <solid android:color="#E0E0E0" /> <!-- Background color -->
+        </shape>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <rotate
+            android:fromDegrees="270"
+            android:toDegrees="270">
+            <shape android:shape="ring"
+                android:thickness="20dp"
+                android:innerRadiusRatio="3">
+                <solid android:color="#3b82f6" /> <!-- Progress bar color -->
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

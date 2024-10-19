@@ -1,0 +1,169 @@
+[versions]
+agp = "8.3.1"
+ambilwarna = "2.0.1"
+ambilwarnaVersion = "2.0.1"
+android_maskable_layout = "v1.2.0"
+androidCropper = "2.2.7"
+androidImageCropper = "4.3.3"
+androidImageCropperVersion = "4.5.0"
+appcompatVersion = "1.6.1"
+boofcvAndroid = "0.37"
+cameraCore = "1.3.4"
+colorpicker = "0.0.13"
+colorpickerVersion = "1.1.6"
+compiler = "4.16.0"
+converterGsonVersion = "2.9.0"
+cropper = "1.0.1"
+emojiVersion = "28.0.0"
+faceDetection = "16.1.6"
+faceDetectionVersion = "17.0.0"
+faceMeshDetection = "16.1.0"
+faceMeshDetectionVersion = "16.0.0-beta3"
+googleCloudVision = "1.100.1"
+googleFaceMeshDetection = "16.0.0-beta1"
+googleMediapipeSolutions = "0.9.0"
+gpuimage = "2.1.0"
+gradle = "8.0.2"
+gradleVersion = "8.3.1"
+gson = "2.10.1"
+kotlin = "1.9.0"
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+appcompat = "1.7.0"
+kotlinReflect = "1.9.20"
+library = "2.2.7"
+lifecycleViewmodelKtx = "2.8.3"
+loggingInterceptorVersion = "4.9.3"
+material = "1.12.0"
+activity = "1.8.0"
+constraintlayout = "2.1.4"
+mediapipe = "0.9.0"
+mediapipeAndroidSolutionFace = "0.8.6"
+mediapipeFormats = "0.8.10"
+mediapipeFramework = "0.8.10"
+mediapipeSolutions = "0.8.10"
+mediapipeSolutionsVersion = "0.11.2"
+mediarouter = "1.7.0"
+emoji = "1.1.0"
+emojiBundled = "1.1.0"
+multidex = "1.0.3"
+okhttp = "4.12.0"
+okhttpVersion = "4.9.1"
+opencvAndroid = "4.5.4"
+opencvAndroidVersion = "4.5.3"
+opencvOpencvAndroid = "4.5.2"
+opencvOpencvAndroidVersion = "4.8.0-dev2"
+orgOpencvOpencvAndroid = "4.5.1"
+orgOpencvOpencvAndroid2 = "4.5.5"
+pagingRuntime = "3.1.1"
+photofilter = "<latest-version>"
+photoManipulator = "1.0.2"
+playServicesMlkitFaceDetection = "17.1.0"
+recyclerviewIntegration = "4.15.1"
+renderscript = "1.2.0"
+renderscriptVersion = "1.3.0"
+smartcolorpicker = "1.0.2"
+recyclerview = "1.3.2"
+entityExtraction = "16.0.0-beta5"
+graphicsShapesAndroid = "1.0.0-beta01"
+sticker = "1.0.2"
+stickerview = "v1.1.0"
+theartofdevAndroidImageCropper = "x.y.z"
+ucrop = "2.2.6"
+cronetEmbedded = "119.6045.31"
+playServicesWearable = "18.2.0"
+emoji2Bundled = "1.4.0"
+playServicesDrive = "17.0.0"
+playServicesVision = "20.1.3"
+uiAndroid = "1.7.1"
+
+[libraries]
+ambilwarna = { module = "yuku.ambilwarna:ambilwarna", version.ref = "ambilwarna" }
+android-cropper = { module = "com.canhub.cropper:android-cropper", version.ref = "androidCropper" }
+android-image-cropper = { module = "com.vanniktech:android-image-cropper", version.ref = "androidImageCropper" }
+android-image-cropper-v450 = { module = "com.vanniktech:android-image-cropper", version.ref = "androidImageCropperVersion" }
+android_maskable_layout = { module = "com.github.christophesmet:android_maskable_layout", version.ref = "android_maskable_layout" }
+androidx-appcompat-v161 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCore" }
+androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraCore" }
+androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "cameraCore" }
+androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "cameraCore" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-emoji-appcompat = { module = "androidx.emoji:emoji-appcompat", version.ref = "emoji" }
+androidx-emoji-v2800 = { module = "androidx.emoji:emoji", version.ref = "emojiVersion" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "pagingRuntime" }
+androidx-renderscript = { module = "androidx.renderscript:renderscript", version.ref = "renderscript" }
+androidx-renderscript-v130 = { module = "androidx.renderscript:renderscript", version.ref = "renderscriptVersion" }
+boofcv-android = { module = "org.boofcv:boofcv-android", version.ref = "boofcvAndroid" }
+build-gradle = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
+colorpicker = { module = "com.github.QuadFlask:colorpicker", version.ref = "colorpicker" }
+com-github-bumptech-glide-glide = { module = "com.github.bumptech.glide:glide", version.ref = "compiler" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
+cropper = { module = "com.edmodo:cropper", version.ref = "cropper" }
+duanhong169-colorpicker = { module = "com.github.duanhong169:colorpicker", version.ref = "colorpickerVersion" }
+edmodo-android-image-cropper = { module = "com.theartofdev.edmodo:android-image-cropper", version.ref = "theartofdevAndroidImageCropper" }
+face-detection = { module = "com.google.mlkit:face-detection", version.ref = "faceDetection" }
+face-detection-v1700 = { module = "com.google.mlkit:face-detection", version.ref = "faceDetectionVersion" }
+face-mesh-detection = { module = "com.google.mlkit:face-mesh-detection", version.ref = "faceMeshDetection" }
+face-mesh-detection-v1600beta1 = { module = "com.google.mlkit:face-mesh-detection", version.ref = "googleFaceMeshDetection" }
+face-mesh-detection-v1600beta3 = { module = "com.google.mlkit:face-mesh-detection", version.ref = "faceMeshDetectionVersion" }
+google-cloud-vision = { module = "com.google.cloud:google-cloud-vision", version.ref = "googleCloudVision" }
+google-mediapipe-formats = { module = "com.google.mediapipe:mediapipe-formats", version.ref = "mediapipeFormats" }
+google-mediapipe-solutions = { module = "com.google.mediapipe:mediapipe-solutions", version.ref = "mediapipeSolutions" }
+gpuimage = { module = "jp.co.cyberagent.android:gpuimage", version.ref = "gpuimage" }
+gradle-v802 = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinReflect" }
+library = { module = "org.hybridsquad.android:library", version.ref = "library" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-mediarouter = { group = "androidx.mediarouter", name = "mediarouter", version.ref = "mediarouter" }
+androidx-emoji = { group = "androidx.emoji", name = "emoji", version.ref = "emoji" }
+androidx-emoji-bundled = { group = "androidx.emoji", name = "emoji-bundled", version.ref = "emojiBundled" }
+mediapipe = { module = "com.google.mediapipe:mediapipe", version.ref = "mediapipe" }
+mediapipe-android-solution-face = { module = "com.google.mediapipe:mediapipe-android-solution-face", version.ref = "mediapipeAndroidSolutionFace" }
+mediapipe-framework = { module = "com.google.mediapipe:mediapipe-framework", version.ref = "mediapipeFramework" }
+mediapipe-solutions-v0112 = { module = "com.google.mediapipe:mediapipe-solutions", version.ref = "mediapipeSolutionsVersion" }
+mediapipe-solutions-v090 = { module = "com.google.mediapipe:mediapipe-solutions", version.ref = "googleMediapipeSolutions" }
+multidex = { module = "com.android.support:multidex", version.ref = "multidex" }
+okhttp-v4120 = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp3-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttpVersion" }
+opencv-android = { module = "org.opencv:opencv-android", version.ref = "opencvAndroid" }
+opencv-android-v453 = { module = "org.opencv:opencv-android", version.ref = "opencvAndroidVersion" }
+opencv-android-v455 = { module = "org.opencv:opencv-android", version.ref = "orgOpencvOpencvAndroid2" }
+opencv-android-v480dev2 = { module = "org.opencv:opencv-android", version.ref = "opencvOpencvAndroidVersion" }
+photo-manipulator = { module = "com.guhungry.android:photo-manipulator", version.ref = "photoManipulator" }
+photofilter = { module = "com.github.mukeshsolanki:photofilter", version.ref = "photofilter" }
+play-services-mlkit-face-detection = { module = "com.google.android.gms:play-services-mlkit-face-detection", version.ref = "playServicesMlkitFaceDetection" }
+recyclerview-integration = { module = "com.github.bumptech.glide:recyclerview-integration", version.ref = "recyclerviewIntegration" }
+retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGsonVersion" }
+squareup-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptorVersion" }
+squareup-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterGsonVersion" }
+sticker = { module = "io.github.nkarasov:sticker", version.ref = "sticker" }
+stickerview = { module = "com.github.wuapnjie:StickerView", version.ref = "stickerview" }
+ucrop = { module = "com.github.yalantis:ucrop", version.ref = "ucrop" }
+yukuku-ambilwarna = { module = "com.github.yukuku:ambilwarna", version.ref = "ambilwarnaVersion" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+entity-extraction = { group = "com.google.mlkit", name = "entity-extraction", version.ref = "entityExtraction" }
+androidx-graphics-shapes-android = { group = "androidx.graphics", name = "graphics-shapes-android", version.ref = "graphicsShapesAndroid" }
+cronet-embedded = { group = "org.chromium.net", name = "cronet-embedded", version.ref = "cronetEmbedded" }
+play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "playServicesWearable" }
+androidx-emoji2-bundled = { group = "androidx.emoji2", name = "emoji2-bundled", version.ref = "emoji2Bundled" }
+play-services-drive = { group = "com.google.android.gms", name = "play-services-drive", version.ref = "playServicesDrive" }
+play-services-vision = { group = "com.google.android.gms", name = "play-services-vision", version.ref = "playServicesVision" }
+androidx-ui-android = { group = "androidx.compose.ui", name = "ui-android", version.ref = "uiAndroid" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+
+

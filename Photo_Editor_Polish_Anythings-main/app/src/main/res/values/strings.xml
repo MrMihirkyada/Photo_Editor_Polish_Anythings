@@ -1,0 +1,291 @@
+<resources>
+    <string name="app_name">Polish</string>
+    <string name="Setting">Setting</string>
+    <string name="General">General</string>
+    <string name="Resolution">Resolution</string>
+    <string name="Language">Language</string>
+    <string name="Feedback">Feedback</string>
+    <string name="SavePath">SavePath</string>
+    <string name="Share">Share</string>
+    <string name="RemoveAds">RemoveAds</string>
+    <string name="RestorePurchase">RestorePurchase</string>
+    <string name="ManageSubscription">ManageSubscription</string>
+    <string name="FollowUs">FollowUs</string>
+    <string name="Instagram">Instagram</string>
+    <string name="About">About</string>
+    <string name="PrivacyPolicy">PrivacyPolicy</string>
+    <string name="TermsofUse">TermsofUse</string>
+    <string name="GridArt221151">GridArt221151</string>
+
+    <!-- ______________________Dashboard________________________-->
+
+    <string name="Explore">Explore</string>
+    <string name="GridArt">GridArt</string>
+    <string name="Pro">Pro</string>
+    <string name="Collage">Collage</string>
+    <string name="Template">Template</string>
+    <string name="Beautify">Beautify</string>
+    <string name="Camera">Camera</string>
+
+    <!-- ______________________Camera________________________-->
+    <string name="ThisappcanonlyaccessPhotoSelected">This app can only access the photos that you select</string>
+    <string name="Photos">Photos</string>
+    <string name="Albums">Albums</string>
+    <string name="Recent">Select 1 - 100 Photos</string>
+
+    <!-- ______________________Camera________________________-->
+
+    <!-- ______________________Dashboard________________________-->
+
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+    <string name="Restore">Restore</string>
+    <string name="JoinFullExperience">Join Full Experience.</string>
+    <string name="AccessAllfeatures">Access to All features.</string>
+    <string name="Newfiltersandeffectaddedweekly">New filters &amp; effect added weekly.</string>
+    <string name="Noadsevermore">No ads evermore.</string>
+    <string name="AccesstoAllFeaturesNoAds">Access to All Features.\nNo Ads.</string>
+    <string name="sevenDayFreeTrial">7-Day Free Trial</string>
+    <string name="ThanOneThousandYear">Than ₹1,000.00 / Year</string>
+    <string name="ThenTwoThousandFiftyOneTimePurchase">Then ₹2,050.00 One Time Purchase</string>
+    <string name="Caption">This subscription gives you unlimited access to our app content library. \n If you don\'t cancel before the trial ends, you will be automatically \n charged 1,000.00 each year until you cancel. Terms &amp; Conditions</string>
+
+
+    <string name="Open">Open</string>
+    <string name="More">More</string>
+    <string name="Original">Original</string>
+    <string name="Bright">Bright</string>
+    <string name="Story">Story</string>
+    <string name="Natural">Natural</string>
+    <string name="Warm">Warm</string>
+    <string name="Dew">Dew</string>
+    <string name="Gold">Gold</string>
+    <string name="Lomo">Lomo</string>
+    <string name="Pink">Pink</string>
+    <string name="Styles">Styles</string>
+    <string name="Tools">Tools</string>
+    <string name="Export">Export</string>
+
+    <!--    bottom sheet -->
+
+    <string name="Sticker">Sticker</string>
+    <string name="Draw">Draw</string>
+    <string name="Layout">Layout</string>
+    <string name="Templates">Templates</string>
+    <string name="Filter">Filter</string>
+    <string name="Adjust">Adjust</string>
+    <string name="Background">Background</string>
+     <string name="Text">Text</string>
+    <string name="Crop">Crop</string>
+
+    <!--    bottom sheet -->
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+
+    <!-- ______________________Layout Activity tab________________________-->
+    <string name="tab_ratio">Ratio</string>
+    <string name="tab_layout">Layout</string>
+    <string name="tab_margin">Margin</string>
+    <string name="tab_border">Border</string>
+
+    <!--    Ratio Fragment -->
+    <string name="Custom">Custom</string>
+    <string name="lG11">lG 1 : 1</string>
+    <string name="lG45">lG 4 : 5</string>
+    <string name="A4">A4</string>
+    <string name="Cover">Cover</string>
+    <string name="Device">Device</string>
+    <string name="Post">Post</string>
+    <string name="Header">Header</string>
+    <!--    Ratio Fragment -->
+
+    <!-- ______________________Layout Activity tab________________________-->
+
+
+    <!-- ______________________Adjust Activity________________________-->
+    <string name="Brightness">Brightness</string>
+    <string name="Contrast">Contrast</string>
+    <string name="Warmth">Warmth</string>
+    <string name="Saturation">Saturation</string>
+    <string name="Fade">Fade</string>
+    <string name="Highlight">Highlight</string>
+    <string name="Shadow">Shadow</string>
+    <string name="Tint">Tint</string>
+    <string name="Hue">Hue</string>
+    <string name="Grain">Grain</string>
+    <!-- ______________________Adjust Activity________________________-->
+
+
+    <!-- ______________________Background Activity________________________-->
+    <string name="Blurbg">Blur bg</string>
+    <string name="Png">Png</string>
+    <string name="White">White</string>
+    <!-- ______________________Background Activity________________________-->
+
+
+    <!-- ______________________Text Activity________________________-->
+    <string name="Keyboard">Keyboard</string>
+    <string name="Font">Font</string>
+    <string name="Style">Style</string>
+    <string name="Preset">Preset</string>
+    <string name="Add">Add</string>
+
+    <!-- ______________________Text Activity________________________-->
+
+
+    <!-- ______________________Crop Activity________________________-->
+    <string name="Rotate">Rotate</string>
+    <string name="Perspective">Perspective</string>
+    <string name="Left90">Left 90</string>
+    <string name="Right90">Right 90</string>
+    <string name="Horizontal">Horizontal</string>
+    <string name="Vertical">Vertical</string>
+    <!-- ______________________Crop Activity________________________-->
+
+
+    <!-- ______________________Export Activity________________________-->
+    <string name="Saved">Saved</string>
+    <string name="MakeAnother">Make Another</string>
+    <string name="WhatsApp">WhatsApp</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Messenger">Messenger</string>
+    <string name="Twitter">Twitter</string>
+    <string name="Print">Print</string>
+    <string name="Email">E-mail</string>
+
+    <!-- ______________________Dialog________________________-->
+    <string name="AreYouEditing">Are you satisfied with the\n editing results?</string>
+    <string name="Good">Good</string>
+    <string name="NotReally">Not really</string>
+    <!-- ______________________Dialog________________________-->
+
+
+    <!-- ______________________Export Activity________________________-->
+
+
+    <!-- ______________________Templates Activity________________________-->
+    <string name="All">All</string>
+    <string name="birthday">birthday</string>
+    <string name="Calendar">Calendar</string>
+    <string name="Christmas">Christmas</string>
+    <string name="Family">Family</string>
+    <string name="Frame">Frame</string>
+    <string name="Graduation">Graduation</string>
+    <string name="Love">Love</string>
+    <string name="Motherday">Motherday</string>
+    <string name="Newyear">Newyear</string>
+    <string name="Pride">Pride</string>
+    <string name="Schoollife">Schoollife</string>
+    <string name="Summer">Summer</string>
+    <string name="Travel">Travel</string>
+    <string name="Winter">Winter</string>
+    <!-- ______________________Templates Activity________________________-->
+
+
+    <!-- ______________________Beautify Activity________________________-->
+    <!-- ______________________Main Layout________________________-->
+    <string name="Face">Face</string>
+    <string name="Retouch">Retouch</string>
+    <string name="Makeup">Makeup</string>
+    <string name="Blemish">Blemish</string>
+    <string name="Wrinkle">Wrinkle</string>
+    <string name="DarkCircles">Dark\nCircles</string>
+    <string name="Reshape">Reshape</string>
+
+    <!-- ______________________Main to Face Layout________________________-->
+    <string name="Thin">Thin</string>
+    <string name="Width">Width</string>
+    <string name="Height">Height</string>
+    <string name="Jaw">Jaw</string>
+    <string name="Forehead">Forehead</string>
+    <string name="Distance">Distance</string>
+    <string name="Tilt">Tilt</string>
+    <string name="Size">Size</string>
+    <string name="Thickness">Thickness</string>
+    <string name="Tip">Tip</string>
+    <string name="Lift">Lift</string>
+    <!-- ______________________Main to Face Layout________________________-->
+
+    <!-- ______________________Main to Retouch Layout________________________-->
+    <string name="Smooth">Smooth</string>
+    <string name="Brighten">Brighten</string>
+    <string name="Sharpen">Sharpen</string>
+    <!-- ______________________Main to Retouch Layout________________________-->
+
+    <!-- ______________________Main to Make up Main View Layout________________________-->
+    <string name="Sets">Sets</string>
+    <string name="LipColor">Lip Color</string>
+    <string name="Blush">Blush</string>
+    <string name="Contour">Contour</string>
+
+    <!-- ________Main to Make up Lip View Layout________-->
+    <string name="Ma01">Ma01</string>
+    <string name="Ma02">Ma02</string>
+    <string name="Ma03">Ma03</string>
+    <string name="Ma04">Ma04</string>
+    <string name="Ma05">Ma05</string>
+    <string name="Ma06">Ma06</string>
+    <string name="Ma07">Ma07</string>
+    <string name="Ma08">Ma08</string>
+    <string name="Ma09">Ma09</string>
+    <!-- ________Main to Make up Setting View Layout________-->
+
+    <!-- ________Main to Make up Lip View Layout________-->
+    <string name="Flush">Flush</string>
+    <string name="Square">Square</string>
+    <string name="Pear">Pear</string>
+    <string name="Oval">Oval</string>
+    <string name="Sunburn">Sunburn</string>
+    <string name="Angled">Angled</string>
+    <string name="Normal">Normal</string>
+    <string name="Apple">Apple</string>
+    <string name="Full">Full</string>
+    <!-- ________Main to Make up Setting View Layout________-->
+    <!-- ______________________Main to Make up Lip View Layout________________________-->
+
+
+    <!-- ________Main to blemishes Activity________-->
+    <string name="Tapareastoremoveblemishes">Tap areas to remove blemishes</string>
+    <!-- ________Main to blemishes Activity________-->
+
+    <!-- ________Main to Wrinkle & Dark ciecles Activity________-->
+    <string name="Manual">Manual</string>
+    <string name="Eraser">Eraser</string>
+    <!-- ________Main to Wrinkle & Dark ciecles Activity________-->
+
+
+    <!-- ________Main to MakeUp Activity________-->
+    <string name="Detail">Detail</string>
+    <string name="Resize">Resize</string>
+    <!-- ________Main to MakeUp Activity________-->
+
+
+    <!-- ______________________Main Layout________________________-->
+
+    <!-- ______________________Beautify Activity________________________-->
+
+
+    <!-- ______________________Subscriptions Activity________________________-->
+    <string name="Subscriptions">Subscriptions</string>
+    <string name="Discoversubscriptions">Discover subscriptions</string>
+    <string name="subscriptionsCaption">You can sign up for subscriptions in your favourite \napps and games and manage them in Google Play </string>
+    <!-- ______________________Subscriptions Activity________________________-->
+
+
+    <!-- ______________________Resoluction Dialog________________________-->
+    <string name="HighResolution"> High Resolution</string>
+    <string name="HighResolutionCaption">Up to 4096px. It also depends on original resolution and phone memory.</string>
+    <string name="RegularResolution"> Regular Resolution</string>
+    <string name="RegularResolutionCaption">Up to 1920px. Good for sharing on\nsocial network.</string>
+    <!-- ______________________Resoluction Dialog________________________-->
+
+
+    <!-- ______________________FeedBack Dialog________________________-->
+    <string name="FeedbackCaption">Would you mind giving us some\nfeed back ?</string>
+    <string name="Nothanks">No,thanks</string>
+    <string name="sendFeedback">send Feedback</string>
+    <!-- ______________________FeedBack Dialog________________________-->
+
+
+</resources>

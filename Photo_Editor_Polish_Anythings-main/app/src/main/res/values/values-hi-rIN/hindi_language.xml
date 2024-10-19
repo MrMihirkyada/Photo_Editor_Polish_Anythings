@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">पोलिश</string>
+    <string name="Setting">समायोजना</string>
+    <string name="General">सामान्य</string>
+    <string name="Resolution">संकल्प</string>
+    <string name="Language">भाषा</string>
+    <string name="Feedback">प्रतिक्रिया</string>
+    <string name="SavePath">सेवपाथ</string>
+    <string name="Share">शेयर</string>
+    <string name="RemoveAds">विज्ञापन हटाएँ</string>
+    <string name="RestorePurchase">पुनःस्थापन क्रय</string>
+    <string name="ManageSubscription">प्रबंध सदस्यता</string>
+    <string name="FollowUs">हमें फ़ॉलो करें</string>
+    <string name="Instagram">इंस्टाग्राम</string>
+    <string name="About">अबाउट</string>
+    <string name="PrivacyPolicy">गोपनीयता नीति</string>
+    <string name="TermsofUse">उपयोग की शर्तें</string>
+    <string name="GridArt221151">ग्रिडआर्ट २.२१.१५१</string>
+
+<!-- ______________________Dashboard________________________-->
+
+    <string name="Explore">अन्वेषण करना</string>
+    <string name="GridArt">ग्रिड\nआर्ट</string>
+    <string name="Pro">समर्थक</string>
+    <string name="Collage">कोलाज</string>
+    <string name="Template">टेम्पलेट्स</string>
+    <string name="Beautify">सुंदर बनाएं</string>
+    <string name="Camera">कैमरा</string>
+
+    <!-- ______________________Camera________________________-->
+    <string name="ThisappcanonlyaccessPhotoSelected">यह ऐप केवल उन फ़ोटो को एक्सेस कर सकता है जिन्हें आप चुनते हैं</string>
+    <string name="Photos">फोटो</string>
+    <string name="Albums">एल्बम</string>
+    <string name="Recent">हाल ही का</string>
+    <!-- ______________________Camera________________________-->
+
+
+
+    <!-- ______________________Dashboard________________________-->
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+    <string name="Restore">पुनर्स्थापित</string>
+    <string name="JoinFullExperience">पूर्ण अनुभव में शामिल हों</string>
+    <string name="AccessAllfeatures">सभी सुविधाओं तक पहुंच</string>
+    <string name="Newfiltersandeffectaddedweekly">नए फ़िल्टर और प्रभाव साप्ताहिक रूप से जोड़े जाते हैं</string>
+    <string name="Noadsevermore">अब से कोई विज्ञापन नहीं</string>
+    <string name="AccesstoAllFeaturesNoAds">सभी सुविधाओं तक पहुंच।\nकोई विज्ञापन नहीं।</string>
+    <string name="sevenDayFreeTrial">7 दिन की मुफ्त ट्रायल</string>
+    <string name="ThanOneThousandYear">₹१,०००.०० / वर्ष से कम</string>
+    <string name="ThenTwoThousandFiftyOneTimePurchase">फिर ₹२,०५०.०० एक बार की खरीदारी</string>
+    <string name="Caption">यह सब्सक्रिप्शन आपको हमारे ऐप सामग्री पुस्तकालय तक असीमित पहुंच प्रदान करता है।\nयदि आप ट्रायल समाप्त होने से पहले रद्द नहीं करते हैं, तो आपको स्वचालित रूप से\nप्रति वर्ष ₹१,०००.०० चार्ज किया जाएगा जब तक कि आप इसे रद्द न करें। शर्तें और नियम</string>
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+
+    <!-- ______________________EditActivity________________________-->
+
+    <string name="Open">खोलें</string>
+    <string name="More">और</string>
+    <string name="Original">मूल</string>
+    <string name="Bright">उज्ज्वल</string>
+    <string name="Story">कहानी</string>
+    <string name="Natural">प्राकृतिक</string>
+    <string name="Warm">गर्म</string>
+    <string name="Dew">ओस</string>
+    <string name="Gold">सोना</string>
+    <string name="Lomo">लोमो</string>
+    <string name="Pink">गुलाबी</string>
+    <string name="Styles">शैलियाँ</string>
+    <string name="Tools">उपकरण</string>
+    <string name="Export">निर्यात</string>
+
+    <!--    bottom sheet -->
+    <string name="Sticker">स्टिकर</string>
+    <string name="Draw">ड्रा</string>
+    <string name="Layout">लेआउट</string>
+    <string name="Templates">टेम्पलेट्स</string>
+    <string name="Filter">फिल्टर</string>
+    <string name="Adjust">समायोजित करें</string>
+    <string name="Background">पृष्ठभूमि</string>
+    <string name="Text">पाठ</string>
+    <string name="Crop">क्रॉप</string>
+    <!--    bottom sheet -->
+
+    <!-- ______________________EditActivity________________________-->
+
+
+    <!-- ______________________Layout Activity tab________________________-->
+    <string name="tab_ratio">अनुपात</string>
+    <string name="tab_layout">लेआउट</string>
+    <string name="tab_margin">मार्जिन</string>
+    <string name="tab_border">सीमा</string>
+
+    <!--    Ratio Fragment -->
+    <string name="Custom">कस्टम</string>
+    <string name="lG11">लजी 1 : 1</string>
+    <string name="lG45">लजी 4 : 5</string>
+    <string name="A4">A4</string>
+    <string name="Cover">कवर</string>
+    <string name="Device">डिवाइस</string>
+    <string name="Post">पोस्ट</string>
+    <string name="Header">हेडर</string>
+    <!--    Ratio Fragment -->
+
+    <!-- ______________________Layout Activity tab________________________-->
+
+    <!-- ______________________Adjust Activity________________________-->
+    <string name="Brightness">चमक</string>
+    <string name="Contrast">रूपरेखा</string>
+    <string name="Warmth">गर्मी</string>
+    <string name="Saturation">संतृप्ति</string>
+    <string name="Fade">मुरझाना</string>
+    <string name="Highlight">हाइलाइट</string>
+    <string name="Shadow">छाया</string>
+    <string name="Tint">रंग</string>
+    <string name="Hue">रंग</string>
+    <string name="Grain">अनाज</string>
+
+    <!-- ______________________Adjust Activity________________________-->
+
+
+    <!-- ______________________Background Activity________________________-->
+    <string name="Blurbg">पृष्ठभूमि धुंधला</string>
+    <string name="Png">पीएनजी</string>
+    <string name="White">सफेद</string>
+    <!-- ______________________Background Activity________________________-->
+
+    <!-- ______________________Text Activity________________________-->
+    <string name="Keyboard">कीबोर्ड</string>
+    <string name="Font">फॉन्ट</string>
+    <string name="Style">शैली</string>
+    <string name="Preset">प्रीसेट</string>
+    <string name="Add">जोड़ें</string>
+    <!-- ______________________Text Activity________________________-->
+
+    <!-- ______________________Crop Activity________________________-->
+    <string name="Rotate">घुमाना</string>
+    <string name="Perspective">परिप्रेक्ष्य</string>
+    <string name="Left90">बाएँ 90</string>
+    <string name="Right90">दाएँ 90</string>
+    <string name="Horizontal">क्षैतिज</string>
+    <string name="Vertical">लंबवत</string>
+    <!-- ______________________Crop Activity________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+    <string name="Saved">सहेजा गया</string>
+    <string name="MakeAnother">एक और बनाएं</string>
+    <string name="WhatsApp">व्हाट्सएप</string>
+    <string name="Facebook">फेसबुक</string>
+    <string name="Messenger">मैसेंजर</string>
+    <string name="Twitter">ट्विटर</string>
+    <string name="Print">प्रिंट</string>
+    <string name="Email">ईमेल</string>
+
+
+    <!-- ______________________Dialog________________________-->
+    <string name="AreYouEditing">क्या आप संपादन परिणामों से संतुष्ट हैं?</string>
+    <string name="Good">अच्छा</string>
+    <string name="NotReally">सचमुच नहीं</string>
+    <!-- ______________________Dialog________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+
+
+    <!-- ______________________Templates Activity________________________-->
+    <string name="All">सभी</string>
+    <string name="birthday">जन्मदिन</string>
+    <string name="Calendar">कैलेंडर</string>
+    <string name="Christmas">क्रिसमस</string>
+    <string name="Family">परिवार</string>
+    <string name="Frame">फ्रेम</string>
+    <string name="Graduation">स्नातक</string>
+    <string name="Love">प्यार</string>
+    <string name="Motherday">मातृ दिवस</string>
+    <string name="Newyear">नव वर्ष</string>
+    <string name="Pride">गर्व</string>
+    <string name="Schoollife">स्कूल जीवन</string>
+    <string name="Summer">गर्मी</string>
+    <string name="Travel">यात्रा</string>
+    <string name="Winter">सर्दी</string>
+    <!-- ______________________Templates Activity________________________-->
+
+    <!-- ______________________Beautify Activity________________________-->
+    <!-- ______________________Main Layout________________________-->
+    <string name="Face">चेहरा</string>
+    <string name="Retouch">रीटच</string>
+    <string name="Makeup">मेकअप</string>
+    <string name="Blemish">दाग</string>
+    <string name="Wrinkle">झुर्रियाँ</string>
+    <string name="DarkCircles">डार्क\nसर्कल्स</string>
+    <string name="Reshape">आकार बदलें</string>
+
+    <!-- Main to Face Layout -->
+    <string name="Thin">पतला</string>
+    <string name="Width">चौड़ाई</string>
+    <string name="Height">ऊँचाई</string>
+    <string name="Jaw">जबड़ा</string>
+    <string name="Forehead">माथा</string>
+    <string name="Distance">दूरी</string>
+    <string name="Tilt">झुकाव</string>
+    <string name="Size">आकार</string>
+    <string name="Thickness">मोटाई</string>
+    <string name="Tip">नोक</string>
+    <string name="Lift">उठाना</string>
+
+    <!-- Main to Retouch Layout -->
+    <string name="Smooth">चिकना</string>
+    <string name="Brighten">चमकाएं</string>
+    <string name="Sharpen">तीखा</string>
+
+    <!-- Main to Makeup Main View Layout -->
+    <string name="Sets">सेट</string>
+    <string name="LipColor">होंठों का रंग</string>
+    <string name="Blush">ब्लश</string>
+    <string name="Contour">कांटूर</string>
+
+    <!-- Main to Makeup Lip View Layout -->
+    <string name="Ma01">Ma01</string>
+    <string name="Ma02">Ma02</string>
+    <string name="Ma03">Ma03</string>
+    <string name="Ma04">Ma04</string>
+    <string name="Ma05">Ma05</string>
+    <string name="Ma06">Ma06</string>
+    <string name="Ma07">Ma07</string>
+    <string name="Ma08">Ma08</string>
+    <string name="Ma09">Ma09</string>
+
+    <!-- Main to Makeup Setting View Layout -->
+    <string name="Flush">फ्लश</string>
+    <string name="Square">वर्ग</string>
+    <string name="Pear">नाशपाती</string>
+    <string name="Oval">अंडाकार</string>
+    <string name="Sunburn">सूरज की जलन</string>
+    <string name="Angled">कोणीय</string>
+    <string name="Normal">सामान्य</string>
+    <string name="Apple">सेब</string>
+    <string name="Full">पूर्ण</string>
+
+    <!-- Main to Blemishes Activity -->
+    <string name="Tapareastoremoveblemishes">दाग हटाने के लिए क्षेत्र को टैप करें</string>
+
+    <!-- Main to Wrinkle & Dark Circles Activity -->
+    <string name="Manual">मैनुअल</string>
+    <string name="Eraser">इरेज़र</string>
+
+    <!-- Main to Makeup Activity -->
+    <string name="Detail">विस्तार</string>
+    <string name="Resize">आकार बदलें</string>
+    <!-- ________Main to MakeUp Activity________-->
+
+
+    <!-- ______________________Main Layout________________________-->
+
+    <!-- ______________________Beautify Activity________________________-->
+
+
+    <!-- ______________________Subscriptions Activity________________________-->
+    <string name="Subscriptions">सदस्यताएँ</string>
+    <string name="Discoversubscriptions">सदस्यताओं को खोजें</string>
+    <string name="subscriptionsCaption">आप अपने पसंदीदा ऐप्स और गेम्स में \nसदस्यता ले सकते हैं और उन्हें Google Play में प्रबंधित कर सकते हैं</string>
+
+    <!-- ______________________Subscriptions Activity________________________-->
+
+
+    <!-- ______________________Resoluction Dialog________________________-->
+    <string name="HighResolution">उच्च रिज़ॉल्यूशन</string>
+    <string name="HighResolutionCaption">4096px तक। यह मूल रिज़ॉल्यूशन और फोन मेमोरी पर भी निर्भर करता है।</string>
+    <string name="RegularResolution">सामान्य रिज़ॉल्यूशन</string>
+    <string name="RegularResolutionCaption">1920px तक। सामाजिक नेटवर्क पर साझा करने के लिए अच्छा है।</string>
+    <!-- ______________________Resoluction Dialog________________________-->
+
+    <!-- ______________________FeedBack Dialog________________________-->
+    <string name="FeedbackCaption">क्या आप हमें कुछ प्रतिक्रिया देना चाहेंगे?</string>
+    <string name="Nothanks">नहीं, धन्यवाद</string>
+    <string name="sendFeedback">प्रतिक्रिया भेजें</string>
+    <!-- ______________________FeedBack Dialog________________________-->
+
+
+</resources>

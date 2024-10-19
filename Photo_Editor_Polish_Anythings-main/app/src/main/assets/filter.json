@@ -1,0 +1,466 @@
+{
+	"baseUrl": "https://s3.eu-north-1.amazonaws.com/photoeditorbeautycamera.com/photoeditor/filter/",
+    "data": {
+        "Aerochrome": {
+            "Group": {
+                "mainImageUrl": [
+                    "Aerochrome/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Aerochrome/image 197.png",
+                    "Aerochrome/image 198.png",
+                    "Aerochrome/image 199.png",
+                    "Aerochrome/image 200.png",
+                    "Aerochrome/image 201.png",
+                    "Aerochrome/image 202.png"
+                ]
+            }
+        },
+        "Analog": {
+            "Group": {
+                "mainImageUrl": [
+                    "Analog/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Analog/image 203.png",
+                    "Analog/image 204.png",
+                    "Analog/image 205.png",
+                    "Analog/image 206.png"
+                ]
+            }
+        },
+        "Autumn": {
+            "Group": {
+                "mainImageUrl": [
+                    "Autumn/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Autumn/image 180.png",
+                    "Autumn/image 181.png",
+                    "Autumn/image 182.png",
+                    "Autumn/image 183.png"
+                ]
+            }
+        },
+        "Black and White": {
+            "Group": {
+                "mainImageUrl": [
+                    "Black and White/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Black and White/image 193.png",
+                    "Black and White/image 194.png",
+                    "Black and White/image 195.png",
+                    "Black and White/image 196.png",
+                    "Black and White/image 197.png",
+                    "Black and White/image 198.png",
+                    "Black and White/image 199.png",
+                    "Black and White/image 200.png",
+                    "Black and White/image 201.png",
+                    "Black and White/image 202.png",
+                    "Black and White/Rectangle 384 (2).png"
+                ]
+            }
+        },
+        "Bright": {
+            "Group": {
+                "mainImageUrl": [
+                    "Bright/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Bright/image 219.png",
+                    "Bright/image 220.png",
+                    "Bright/image 221.png",
+                    "Bright/image 222.png"
+                ]
+            }
+        },
+        "Cedar": {
+            "Group": {
+                "mainImageUrl": [
+                    "Cedar/image 282.png"
+                ],
+                "subImageUrl": [
+                    "Cedar/image 280.png",
+                    "Cedar/image 281.png"
+                ]
+            }
+        },
+        "Chroma": {
+            "Group": {
+                "mainImageUrl": [
+                    "Chroma/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Chroma/image 156.png",
+                    "Chroma/image 157.png",
+                    "Chroma/image 158.png",
+                    "Chroma/image 159.png",
+                    "Chroma/image 160.png",
+                    "Chroma/image 161.png",
+                    "Chroma/image 162.png"
+                ]
+            }
+        },
+        "Clean Hue": {
+            "Group": {
+                "mainImageUrl": [
+                    "Clean Hue/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Clean Hue/image 145.png",
+                    "Clean Hue/image 146.png",
+                    "Clean Hue/image 147.png",
+                    "Clean Hue/image 148.png",
+                    "Clean Hue/image 149.png"
+                ]
+            }
+        },
+        "Cyberpunk": {
+            "Group": {
+                "mainImageUrl": [
+                    "Cyberpunk/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Cyberpunk/image 290.png",
+                    "Cyberpunk/image 291.png",
+                    "Cyberpunk/image 292.png",
+                    "Cyberpunk/image 293.png",
+                    "Cyberpunk/image 294.png",
+                    "Cyberpunk/image 295.png"
+                ]
+            }
+        },
+        "Diffuse": {
+            "Group": {
+                "mainImageUrl": [
+                    "Diffuse/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Diffuse/image 283.png",
+                    "Diffuse/image 284.png",
+                    "Diffuse/image 285.png",
+                    "Diffuse/image 286.png",
+                    "Diffuse/image 287.png",
+                    "Diffuse/image 288.png",
+                    "Diffuse/image 289.png"
+                ]
+            }
+        },
+        "Duo Tone": {
+            "Group": {
+                "mainImageUrl": [
+                    "Duo Tone/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Duo Tone/image 254.png",
+                    "Duo Tone/image 255.png",
+                    "Duo Tone/image 256.png",
+                    "Duo Tone/image 257.png",
+                    "Duo Tone/image 258.png",
+                    "Duo Tone/image 259.png",
+                    "Duo Tone/image 260.png"
+                ]
+            }
+        },
+        "Film": {
+            "Group": {
+                "mainImageUrl": [
+                    "Film/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Film/image 228.png",
+                    "Film/image 229.png",
+                    "Film/image 230.png",
+                    "Film/image 231.png",
+                    "Film/image 232.png"
+                ]
+            }
+        },
+        "Food": {
+            "Group": {
+                "mainImageUrl": [
+                    "Food/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Food/image 163.png",
+                    "Food/image 165.png",
+                    "Food/image 166.png",
+                    "Food/image 167.png",
+                    "Food/image 168.png",
+                    "Food/image 169.png"
+                ]
+            }
+        },
+        "Foodle": {
+            "Group": {
+                "mainImageUrl": [
+                    "Foodle/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Foodle/image 296.png",
+                    "Foodle/image 297.png",
+                    "Foodle/image 298.png",
+                    "Foodle/image 299.png"
+                ]
+            }
+        },
+        "Fresh": {
+            "Group": {
+                "mainImageUrl": [
+                    "Fresh/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Fresh/image 207.png",
+                    "Fresh/image 208.png",
+                    "Fresh/image 209.png",
+                    "Fresh/image 210.png",
+                    "Fresh/image 211.png",
+                    "Fresh/image 212.png"
+                ]
+            }
+        },
+        "Indie Kid Effect": {
+            "Group": {
+                "mainImageUrl": [
+                    "Indie Kid Effect/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Indie Kid Effect/image 238.png",
+                    "Indie Kid Effect/image 239.png",
+                    "Indie Kid Effect/image 240.png",
+                    "Indie Kid Effect/image 241.png",
+                    "Indie Kid Effect/image 242.png"
+                ]
+            }
+        },
+        "Interior": {
+            "Group": {
+                "mainImageUrl": [
+                    "Interior/Group 374.png"
+                ],
+                "subImageUrl": [
+                    "Interior/image 301.png",
+                    "Interior/image 302.png",
+                    "Interior/image 303.png",
+                    "Interior/image 304.png"
+                ]
+            }
+        },
+        "Lofi": {
+            "Group": {
+                "mainImageUrl": [
+                    "Lofi/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Lofi/image 187.png",
+                    "Lofi/image 188.png",
+                    "Lofi/image 189.png",
+                    "Lofi/image 190.png",
+                    "Lofi/image 191.png",
+                    "Lofi/image 192.png"
+                ]
+            }
+        },
+        "Mood": {
+            "Group": {
+                "mainImageUrl": [
+                    "Mood/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Mood/image 271.png",
+                    "Mood/image 272.png",
+                    "Mood/image 273.png",
+                    "Mood/image 274.png",
+                    "Mood/image 275.png"
+                ]
+            }
+        },
+        "Nostalgia": {
+            "Group": {
+                "mainImageUrl": [
+                    "Nostalgia/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Nostalgia/image 184.png",
+                    "Nostalgia/image 185.png",
+                    "Nostalgia/image 186.png"
+                ]
+            }
+        },
+        "Pop Art": {
+            "Group": {
+                "mainImageUrl": [
+                    "Pop Art/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Pop Art/image 276.png",
+                    "Pop Art/image 277.png",
+                    "Pop Art/image 278.png",
+                    "Pop Art/image 279.png"
+                ]
+            }
+        },
+        "Retro": {
+            "Group": {
+                "mainImageUrl": [
+                    "Retro/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Retro/image 213.png",
+                    "Retro/image 214.png",
+                    "Retro/image 215.png",
+                    "Retro/image 216.png",
+                    "Retro/image 217.png"
+                ]
+            }
+        },
+        "Romance": {
+            "Group": {
+                "mainImageUrl": [
+                    "Romance/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Romance/image 261.png",
+                    "Romance/image 262.png",
+                    "Romance/image 263.png",
+                    "Romance/image 264.png",
+                    "Romance/image 265.png"
+                ]
+            }
+        },
+        "Serene": {
+            "Group": {
+                "mainImageUrl": [
+                    "Serene/Mask group.png"
+                ],
+                "subImageUrl": [
+                    "Serene/image 247.png",
+                    "Serene/image 248.png",
+                    "Serene/image 249.png",
+                    "Serene/image 250.png",
+                    "Serene/image 251.png",
+                    "Serene/image 252.png"
+                ]
+            }
+        },
+        "Split Tone": {
+            "Group": {
+                "mainImageUrl": [
+                    "Split Tone/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Split Tone/image 266.png",
+                    "Split Tone/image 267.png",
+                    "Split Tone/image 268.png",
+                    "Split Tone/image 269.png",
+                    "Split Tone/image 270.png"
+                ]
+            }
+        },
+        "Sporting Life": {
+            "Group": {
+                "mainImageUrl": [
+                    "Sporting Life/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Sporting Life/image 170.png",
+                    "Sporting Life/image 171.png",
+                    "Sporting Life/image 172.png",
+                    "Sporting Life/image 173.png"
+                ]
+            }
+        },
+        "Spring": {
+            "Group": {
+                "mainImageUrl": [
+                    "Spring/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Spring/Rectangle 384 (2).png",
+                    "Spring/image 174.png",
+                    "Spring/image 175.png",
+                    "Spring/image 176.png",
+                    "Spring/image 177.png",
+                    "Spring/image 178.png",
+                    "Spring/image 179.png",
+                    "Spring/image 243.png",
+                    "Spring/image 244.png",
+                    "Spring/image 245.png",
+                    "Spring/image 246.png"
+                ]
+            }
+        },
+        "Toasty Bliss": {
+            "Group": {
+                "mainImageUrl": [
+                    "Toasty Bliss/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Toasty Bliss/image 140.png",
+                    "Toasty Bliss/image 141.png",
+                    "Toasty Bliss/image 142.png",
+                    "Toasty Bliss/image 143.png",
+                    "Toasty Bliss/image 144.png"
+                ]
+            }
+        },
+        "Urban": {
+            "Group": {
+                "mainImageUrl": [
+                    "Urban/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Urban/image 233.png",
+                    "Urban/image 234.png",
+                    "Urban/image 235.png",
+                    "Urban/image 236.png",
+                    "Urban/image 237.png"
+                ]
+            }
+        },
+        "Vintage": {
+            "Group": {
+                "mainImageUrl": [
+                    "Vintage/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Vintage/image 223.png",
+                    "Vintage/image 224.png",
+                    "Vintage/image 225.png",
+                    "Vintage/image 226.png",
+                    "Vintage/image 227.png"
+                ]
+            }
+        },
+        "Wander": {
+            "Group": {
+                "mainImageUrl": [
+                    "Wander/image 305.png"
+                ],
+                "subImageUrl": [
+                    "Wander/image 306.png",
+                    "Wander/image 307.png",
+                    "Wander/image 308.png",
+                    "Wander/image 309.png",
+                    "Wander/Rectangle 384.png"
+                ]
+            }
+        },
+        "Wes Anderson": {
+            "Group": {
+                "mainImageUrl": [
+                    "Wes Anderson/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Wes Anderson/image 150.png",
+                    "Wes Anderson/image 151.png",
+                    "Wes Anderson/image 152.png",
+                    "Wes Anderson/image 153.png",
+                    "Wes Anderson/image 154.png",
+                    "Wes Anderson/image 155.png"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Polish</string>
+    <string name="Setting">Tetapan</string>
+    <string name="General">Umum</string>
+    <string name="Resolution">Resolusi</string>
+    <string name="Language">Bahasa</string>
+    <string name="Feedback">Maklum Balas</string>
+    <string name="SavePath">Laluan Simpan</string>
+    <string name="Share">Kongsi</string>
+    <string name="RemoveAds">Buang Iklan</string>
+    <string name="RestorePurchase">Pulihkan Pembelian</string>
+    <string name="ManageSubscription">Urus Langganan</string>
+    <string name="FollowUs">Ikut Kami</string>
+    <string name="Instagram">Instagram</string>
+    <string name="About">Tentang</string>
+    <string name="PrivacyPolicy">Dasar Privasi</string>
+    <string name="TermsofUse">Syarat Penggunaan</string>
+    <string name="GridArt221151">GridArt 2.21.151</string>
+
+    <!-- ______________________Dashboard________________________-->
+
+    <string name="Explore">Teroka</string>
+    <string name="GridArt">Seni\nGrid</string>
+    <string name="Pro">Pro</string>
+    <string name="Collage">Kolaj</string>
+    <string name="Template">Templat</string>
+    <string name="Beautify">Perindah</string>
+    <string name="Camera">Kamera</string>
+
+    <!-- ______________________Camera________________________-->
+    <string name="ThisappcanonlyaccessPhotoSelected">Apl ini hanya boleh mengakses foto yang anda pilih</string>
+    <string name="Photos">Foto</string>
+    <string name="Albums">Album</string>
+    <string name="Recent">Terbaru</string>
+    <!-- ______________________Camera________________________-->
+
+    <!-- ______________________Dashboard________________________-->
+
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+    <string name="Restore">Pulihkan</string>
+    <string name="JoinFullExperience">Sertai pengalaman penuh.</string>
+    <string name="AccessAllfeatures">Akses semua ciri.</string>
+    <string name="Newfiltersandeffectaddedweekly">Penapis &amp; kesan baru ditambah setiap minggu.</string>
+    <string name="Noadsevermore">Tiada iklan lagi.</string>
+    <string name="AccesstoAllFeaturesNoAds">Akses semua ciri.\nTiada iklan.</string>
+    <string name="sevenDayFreeTrial">Percubaan percuma 7 hari</string>
+    <string name="ThanOneThousandYear">Kurang dari ₹1,000.00 / tahun</string>
+    <string name="ThenTwoThousandFiftyOneTimePurchase">Kemudian ₹2,050.00 pembelian sekali sahaja</string>
+    <string name="Caption">Langganan ini memberikan anda akses tanpa had ke perpustakaan kandungan aplikasi kami.\nJika anda tidak membatalkannya sebelum percubaan berakhir, anda akan dikenakan\n₹1,000.00 setiap tahun sehingga anda membatalkan. Terma dan syarat</string>
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+    <!-- ______________________EditActivity________________________-->
+    <string name="Open">Buka</string>
+    <string name="More">Lebih</string>
+    <string name="Original">Asal</string>
+    <string name="Bright">Cerah</string>
+    <string name="Story">Cerita</string>
+    <string name="Natural">Semula jadi</string>
+    <string name="Warm">Hangat</string>
+    <string name="Dew">Embun</string>
+    <string name="Gold">Emas</string>
+    <string name="Lomo">Lomo</string>
+    <string name="Pink">Merah jambu</string>
+    <string name="Styles">Gaya</string>
+    <string name="Tools">Alat</string>
+    <string name="Export">Eksport</string>
+
+
+    <!--    bottom sheet -->
+    <string name="Sticker">Pelekat</string>
+    <string name="Draw">Lukis</string>
+    <string name="Layout">Tata letak</string>
+    <string name="Templates">Templat</string>
+    <string name="Filter">Penapis</string>
+    <string name="Adjust">Laraskan</string>
+    <string name="Background">Latar belakang</string>
+    <string name="Text">Teks</string>
+    <string name="Crop">Pangkas</string>
+    <!--    bottom sheet -->
+
+    <!-- ______________________EditActivity________________________-->
+
+
+    <!-- ______________________Layout Activity tab________________________-->
+    <string name="tab_ratio">Nisbah</string>
+    <string name="tab_layout">Tata Letak</string>
+    <string name="tab_margin">Margin</string>
+    <string name="tab_border">Sempadan</string>
+
+
+    <!--    Ratio Fragment -->
+    <string name="Custom">Tersuai</string>
+    <string name="lG11">lG 1 : 1</string>
+    <string name="lG45">lG 4 : 5</string>
+    <string name="A4">A4</string>
+    <string name="Cover">Penutup</string>
+    <string name="Device">Peranti</string>
+    <string name="Post">Pos</string>
+    <string name="Header">Header</string>
+    <!--    Ratio Fragment -->
+
+    <!-- ______________________Layout Activity tab________________________-->
+
+    <!-- ______________________Adjust Activity________________________-->
+    <string name="Brightness">Kecerahan</string>
+    <string name="Contrast">Kontras</string>
+    <string name="Warmth">Kepanasan</string>
+    <string name="Saturation">Kepenatan</string>
+    <string name="Fade">Pudar</string>
+    <string name="Highlight">Sorotan</string>
+    <string name="Shadow">Bayangan</string>
+    <string name="Tint">Tint</string>
+    <string name="Hue">Hue</string>
+    <string name="Grain">Butir</string>
+
+    <!-- ______________________Adjust Activity________________________-->
+
+
+    <!-- ______________________Background Activity________________________-->
+    <string name="Blurbg">Kabur latar</string>
+    <string name="Png">Png</string>
+    <string name="White">Putih</string>
+
+    <!-- ______________________Background Activity________________________-->
+
+
+    <!-- ______________________Text Activity________________________-->
+    <string name="Keyboard">Papan Kekunci</string>
+    <string name="Font">Fon</string>
+    <string name="Style">Gaya</string>
+    <string name="Preset">Pra tetapan</string>
+    <string name="Add">Tambah</string>
+    <!-- ______________________Text Activity________________________-->
+
+    <!-- ______________________Crop Activity________________________-->
+    <string name="Rotate">Putar</string>
+    <string name="Perspective">Perspektif</string>
+    <string name="Left90">Kiri 90</string>
+    <string name="Right90">Kanan 90</string>
+    <string name="Horizontal">Mendatar</string>
+    <string name="Vertical">Menegak</string>
+    <!-- ______________________Crop Activity________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+    <string name="Saved">Disimpan</string>
+    <string name="MakeAnother">Buat satu lagi</string>
+    <string name="WhatsApp">WhatsApp</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Messenger">Messenger</string>
+    <string name="Twitter">Twitter</string>
+    <string name="Print">Cetak</string>
+    <string name="Email">E-mel</string>
+
+    <!-- ______________________Dialog________________________-->
+    <string name="AreYouEditing">Adakah anda berpuas hati dengan\n hasil suntingan?</string>
+    <string name="Good">Baik</string>
+    <string name="NotReally">Tidak begitu</string>
+    <!-- ______________________Dialog________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+
+
+    <!-- ______________________Templates Activity________________________-->
+    <string name="All">Semua</string>
+    <string name="birthday">hari lahir</string>
+    <string name="Calendar">Kalendar</string>
+    <string name="Christmas">Krismas</string>
+    <string name="Family">Keluarga</string>
+    <string name="Frame">Bingkai</string>
+    <string name="Graduation">Graduasi</string>
+    <string name="Love">Cinta</string>
+    <string name="Motherday">Hari Ibu</string>
+    <string name="Newyear">Tahun Baru</string>
+    <string name="Pride">Kebanggaan</string>
+    <string name="Schoollife">Kehidupan sekolah</string>
+    <string name="Summer">Musim panas</string>
+    <string name="Travel">Perjalanan</string>
+    <string name="Winter">Musim sejuk</string>
+    <!-- ______________________Templates Activity________________________-->
+
+
+    <!-- ______________________Beautify Activity________________________-->
+    <!-- ______________________Main Layout________________________-->
+    <string name="Face">Muka</string>
+    <string name="Retouch">Retouch</string>
+    <string name="Makeup">Solekan</string>
+    <string name="Blemish">Kecacatan</string>
+    <string name="Wrinkle">Kedut</string>
+    <string name="DarkCircles">Lingkaran\nGelap</string>
+    <string name="Reshape">Bentuk Semula</string>
+
+    <!-- Main to Face Layout -->
+    <string name="Thin">Nipis</string>
+    <string name="Width">Lebar</string>
+    <string name="Height">Tinggi</string>
+    <string name="Jaw">Rahang</string>
+    <string name="Forehead">Dahi</string>
+    <string name="Distance">Jarak</string>
+    <string name="Tilt">Condong</string>
+    <string name="Size">Saiz</string>
+    <string name="Thickness">Ketebalan</string>
+    <string name="Tip">Hujung</string>
+    <string name="Lift">Angkat</string>
+
+    <!-- Main to Retouch Layout -->
+    <string name="Smooth">Lancar</string>
+    <string name="Brighten">Terangkan</string>
+    <string name="Sharpen">Asah</string>
+
+    <!-- Main to Makeup Main View Layout -->
+    <string name="Sets">Set</string>
+    <string name="LipColor">Warna Bibir</string>
+    <string name="Blush">Pemerah Pipi</string>
+    <string name="Contour">Kontur</string>
+
+    <!-- Main to Makeup Lip View Layout -->
+    <string name="Ma01">Ma01</string>
+    <string name="Ma02">Ma02</string>
+    <string name="Ma03">Ma03</string>
+    <string name="Ma04">Ma04</string>
+    <string name="Ma05">Ma05</string>
+    <string name="Ma06">Ma06</string>
+    <string name="Ma07">Ma07</string>
+    <string name="Ma08">Ma08</string>
+    <string name="Ma09">Ma09</string>
+
+    <!-- Main to Makeup Setting View Layout -->
+    <string name="Flush">Flush</string>
+    <string name="Square">Persegi</string>
+    <string name="Pear">Pir</string>
+    <string name="Oval">Bujur</string>
+    <string name="Sunburn">Sunburn</string>
+    <string name="Angled">Bersudut</string>
+    <string name="Normal">Normal</string>
+    <string name="Apple">Epal</string>
+    <string name="Full">Penuh</string>
+
+    <!-- Main to Blemishes Activity -->
+    <string name="Tapareastoremoveblemishes">Ketuk kawasan untuk menghilangkan kecacatan</string>
+
+    <!-- Main to Wrinkle & Dark Circles Activity -->
+    <string name="Manual">Manual</string>
+    <string name="Eraser">Pemadam</string>
+
+    <!-- Main to Makeup Activity -->
+    <string name="Detail">Butiran</string>
+    <string name="Resize">Saiz Semula</string>
+    <!-- ________Main to MakeUp Activity________-->
+
+
+    <!-- ______________________Main Layout________________________-->
+
+    <!-- ______________________Beautify Activity________________________-->
+
+    <!-- ______________________Subscriptions Activity________________________-->
+    <string name="Subscriptions">Langganan</string>
+    <string name="Discoversubscriptions">Temui langganan</string>
+    <string name="subscriptionsCaption">Anda boleh mendaftar untuk langganan dalam \naplikasi dan permainan kegemaran anda dan mengurusnya di Google Play</string>
+
+    <!-- ______________________Subscriptions Activity________________________-->
+
+
+    <!-- ______________________Resoluction Dialog________________________-->
+    <string name="HighResolution">Resolusi Tinggi</string>
+    <string name="HighResolutionCaption">Sehingga 4096px. Ia juga bergantung pada resolusi asal dan memori telefon.</string>
+    <string name="RegularResolution">Resolusi Biasa</string>
+    <string name="RegularResolutionCaption">Sehingga 1920px. Bagus untuk berkongsi di \nrangkaian sosial.</string>
+    <!-- ______________________Resoluction Dialog________________________-->
+
+    <!-- ______________________FeedBack Dialog________________________-->
+    <string name="FeedbackCaption">Adakah anda keberatan memberi kami \nmaklum balas?</string>
+    <string name="Nothanks">Tidak, terima kasih</string>
+    <string name="sendFeedback">Hantar maklum balas</string>
+    <!-- ______________________FeedBack Dialog________________________-->
+
+
+</resources>

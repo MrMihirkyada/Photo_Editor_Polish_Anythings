@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    android:gravity="center"
+    android:id="@+id/maindialog"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:src="@drawable/emoji"/>
+
+    <TextView
+        android:id="@+id/txtAreYouEditing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:gravity="center"
+        android:text="Are you satisfied with the\n editing results?"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13ssp"/>
+
+    <LinearLayout
+        android:id="@+id/lnrGood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:background="@drawable/box6"
+        android:backgroundTint="#284BC4"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtGood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnrNotreally"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:background="@drawable/box6"
+        android:backgroundTint="#284BC4"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtNotReally"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not really"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+    </LinearLayout>
+</LinearLayout>

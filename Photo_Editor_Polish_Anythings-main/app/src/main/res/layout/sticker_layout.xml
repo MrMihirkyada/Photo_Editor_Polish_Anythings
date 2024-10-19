@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/stickerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <!-- Sticker Image -->
+    <ImageView
+        android:id="@+id/stickerImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"/>
+
+    <!-- Delete Button -->
+    <ImageView
+        android:id="@+id/imgDeleteButton"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_gravity="top|start"
+        android:src="@drawable/cancel"/>
+
+    <ImageView
+        android:id="@+id/imgHorizontal"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_gravity="end"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/flip_horizontal"/>
+
+        <!-- Resize/Rotate Button -->
+
+        <!-- Resize/Rotate Button -->
+        <ImageView
+            android:id="@+id/imgResizeButton"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/resize_sticker" />
+
+    <ImageView
+        android:id="@+id/imgCopy"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/copy_sticker"/>
+</FrameLayout>

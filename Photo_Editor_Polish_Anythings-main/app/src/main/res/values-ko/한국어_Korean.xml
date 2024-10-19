@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">폴란드어</string>
+    <string name="Setting">설정</string>
+    <string name="General">일반</string>
+    <string name="Resolution">해상도</string>
+    <string name="Language">언어</string>
+    <string name="Feedback">피드백</string>
+    <string name="SavePath">저장 경로</string>
+    <string name="Share">공유</string>
+    <string name="RemoveAds">광고 제거</string>
+    <string name="RestorePurchase">구매 복원</string>
+    <string name="ManageSubscription">구독 관리</string>
+    <string name="FollowUs">팔로우하기</string>
+    <string name="Instagram">인스타그램</string>
+    <string name="About">정보</string>
+    <string name="PrivacyPolicy">개인정보 보호정책</string>
+    <string name="TermsofUse">이용 약관</string>
+    <string name="GridArt221151">그리드아트 2.21.151</string>
+
+    <!-- ______________________Dashboard________________________-->
+
+    <string name="Explore">탐험</string>
+    <string name="GridArt">그리드\n아트</string>
+    <string name="Pro">프로</string>
+    <string name="Collage">콜라주</string>
+    <string name="Template">템플릿</string>
+    <string name="Beautify">미화</string>
+    <string name="Camera">카메라</string>
+
+    <!-- ______________________Camera________________________-->
+
+    <string name="ThisappcanonlyaccessPhotoSelected">이 앱은 선택한 사진에만 접근할 수 있습니다</string>
+    <string name="Photos">사진</string>
+    <string name="Albums">앨범</string>
+    <string name="Recent">1 - 100개의 사진 선택</string>
+
+    <!-- ______________________Camera________________________-->
+
+
+    <!-- ______________________Dashboard________________________-->
+
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+    <string name="Restore">복원</string>
+    <string name="JoinFullExperience">전체 경험에 참여하세요.</string>
+    <string name="AccessAllfeatures">모든 기능에 접근.</string>
+    <string name="Newfiltersandeffectaddedweekly">매주 새로운 필터 및 효과가 추가됩니다.</string>
+    <string name="Noadsevermore">광고가 없습니다.</string>
+    <string name="AccesstoAllFeaturesNoAds">모든 기능에 접근.\n광고 없음.</string>
+    <string name="sevenDayFreeTrial">7일 무료 체험</string>
+    <string name="ThanOneThousandYear">₹1,000.00 / 연간 미만</string>
+    <string name="ThenTwoThousandFiftyOneTimePurchase">그 후 ₹2,050.00 일회성 구매</string>
+    <string name="Caption">이 구독을 통해 앱 콘텐츠 라이브러리에 무제한으로 액세스할 수 있습니다.\n체험이 끝나기 전에 취소하지 않으면 자동으로\n₹1,000.00이 매년 청구됩니다. 이용 약관</string>
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+    <!-- ______________________EditActivity________________________-->
+    <string name="Open">열기</string>
+    <string name="More">더보기</string>
+    <string name="Original">원본</string>
+    <string name="Bright">밝은</string>
+    <string name="Story">이야기</string>
+    <string name="Natural">자연스러운</string>
+    <string name="Warm">따뜻한</string>
+    <string name="Dew">이슬</string>
+    <string name="Gold">금</string>
+    <string name="Lomo">로모</string>
+    <string name="Pink">핑크</string>
+    <string name="Styles">스타일</string>
+    <string name="Tools">도구</string>
+    <string name="Export">내보내기</string>
+
+    <!--    bottom sheet -->
+    <string name="Sticker">스티커</string>
+    <string name="Draw">그리기</string>
+    <string name="Layout">레이아웃</string>
+    <string name="Templates">템플릿</string>
+    <string name="Filter">필터</string>
+    <string name="Adjust">조정</string>
+    <string name="Background">배경</string>
+    <string name="Text">텍스트</string>
+    <string name="Crop">자르기</string>
+    <!--    bottom sheet -->
+
+    <!-- ______________________EditActivity________________________-->
+
+
+    <!-- ______________________Layout Activity tab________________________-->
+    <string name="tab_ratio">비율</string>
+    <string name="tab_layout">레이아웃</string>
+    <string name="tab_margin">여백</string>
+    <string name="tab_border">테두리</string>
+
+    <!--    Ratio Fragment -->
+    <string name="Custom">사용자 정의</string>
+    <string name="lG11">lG 1 : 1</string>
+    <string name="lG45">lG 4 : 5</string>
+    <string name="A4">A4</string>
+    <string name="Cover">표지</string>
+    <string name="Device">장치</string>
+    <string name="Post">게시물</string>
+    <string name="Header">헤더</string>
+    <!--    Ratio Fragment -->
+
+    <!-- ______________________Layout Activity tab________________________-->
+
+
+    <!-- ______________________Adjust Activity________________________-->
+
+    <string name="Brightness">밝기</string>
+    <string name="Contrast">대비</string>
+    <string name="Warmth">따뜻함</string>
+    <string name="Saturation">채도</string>
+    <string name="Fade">사라지다</string>
+    <string name="Highlight">강조</string>
+    <string name="Shadow">그림자</string>
+    <string name="Tint">틴트</string>
+    <string name="Hue">색조</string>
+    <string name="Grain">입자</string>
+
+    <!-- ______________________Adjust Activity________________________-->
+
+
+    <!-- ______________________Background Activity________________________-->
+    <string name="Blurbg">배경 흐림</string>
+    <string name="Png">Png</string>
+    <string name="White">흰색</string>
+    <!-- ______________________Background Activity________________________-->
+
+    <!-- ______________________Text Activity________________________-->
+    <string name="Keyboard">키보드</string>
+    <string name="Font">글꼴</string>
+    <string name="Style">스타일</string>
+    <string name="Preset">프리셋</string>
+    <string name="Add">추가</string>
+    <!-- ______________________Text Activity________________________-->
+
+    <!-- ______________________Crop Activity________________________-->
+    <string name="Rotate">회전</string>
+    <string name="Perspective">원근법</string>
+    <string name="Left90">왼쪽 90</string>
+    <string name="Right90">오른쪽 90</string>
+    <string name="Horizontal">수평</string>
+    <string name="Vertical">수직</string>
+    <!-- ______________________Crop Activity________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+    <string name="Saved">저장됨</string>
+    <string name="MakeAnother">다른 것을 만들다</string>
+    <string name="WhatsApp">왓츠앱</string>
+    <string name="Facebook">페이스북</string>
+    <string name="Messenger">전령</string>
+    <string name="Twitter">트위터</string>
+    <string name="Print">인쇄</string>
+    <string name="Email">이메일</string>
+
+    <!-- ______________________Dialog________________________-->
+    <string name="AreYouEditing">편집 결과에 만족하십니까?</string>
+    <string name="Good">좋다</string>
+    <string name="NotReally">별로</string>
+    <!-- ______________________Dialog________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+
+    <!-- ______________________Templates Activity________________________-->
+    <string name="All">전체</string>
+    <string name="birthday">생일</string>
+    <string name="Calendar">달력</string>
+    <string name="Christmas">크리스마스</string>
+    <string name="Family">가족</string>
+    <string name="Frame">프레임</string>
+    <string name="Graduation">졸업</string>
+    <string name="Love">사랑</string>
+    <string name="Motherday">어머니의 날</string>
+    <string name="Newyear">새해</string>
+    <string name="Pride">자부심</string>
+    <string name="Schoollife">학교 생활</string>
+    <string name="Summer">여름</string>
+    <string name="Travel">여행</string>
+    <string name="Winter">겨울</string>
+    <!-- ______________________Templates Activity________________________-->
+
+
+    <!-- ______________________Beautify Activity________________________-->
+    <!-- ______________________Main Layout________________________-->
+    <string name="Face">얼굴</string>
+    <string name="Retouch">리터치</string>
+    <string name="Makeup">메이크업</string>
+    <string name="Blemish">결점</string>
+    <string name="Wrinkle">주름</string>
+    <string name="DarkCircles">다크\n서클</string>
+    <string name="Reshape">변형</string>
+
+    <!-- Main to Face Layout -->
+    <string name="Thin">얇게</string>
+    <string name="Width">폭</string>
+    <string name="Height">높이</string>
+    <string name="Jaw">턱</string>
+    <string name="Forehead">이마</string>
+    <string name="Distance">거리</string>
+    <string name="Tilt">기울기</string>
+    <string name="Size">크기</string>
+    <string name="Thickness">두께</string>
+    <string name="Tip">팁</string>
+    <string name="Lift">리프트</string>
+
+    <!-- Main to Retouch Layout -->
+    <string name="Smooth">부드럽게</string>
+    <string name="Brighten">밝게</string>
+    <string name="Sharpen">날카롭게</string>
+
+    <!-- Main to Makeup Main View Layout -->
+    <string name="Sets">세트</string>
+    <string name="LipColor">립 컬러</string>
+    <string name="Blush">블러쉬</string>
+    <string name="Contour">윤곽</string>
+
+    <!-- Main to Makeup Lip View Layout -->
+    <string name="Ma01">Ma01</string>
+    <string name="Ma02">Ma02</string>
+    <string name="Ma03">Ma03</string>
+    <string name="Ma04">Ma04</string>
+    <string name="Ma05">Ma05</string>
+    <string name="Ma06">Ma06</string>
+    <string name="Ma07">Ma07</string>
+    <string name="Ma08">Ma08</string>
+    <string name="Ma09">Ma09</string>
+
+    <!-- Main to Makeup Setting View Layout -->
+    <string name="Flush">홍조</string>
+    <string name="Square">정사각형</string>
+    <string name="Pear">배</string>
+    <string name="Oval">타원형</string>
+    <string name="Sunburn">햇볕에 탐</string>
+    <string name="Angled">각진</string>
+    <string name="Normal">보통</string>
+    <string name="Apple">사과</string>
+    <string name="Full">가득</string>
+
+    <!-- Main to Blemishes Activity -->
+    <string name="Tapareastoremoveblemishes">결점을 제거하려면 영역을 누르세요</string>
+
+    <!-- Main to Wrinkle & Dark Circles Activity -->
+    <string name="Manual">수동</string>
+    <string name="Eraser">지우개</string>
+
+    <!-- Main to Makeup Activity -->
+    <string name="Detail">세부 사항</string>
+    <string name="Resize">크기 조정</string>
+    <!-- ________Main to MakeUp Activity________-->
+
+
+    <!-- ______________________Main Layout________________________-->
+
+    <!-- ______________________Beautify Activity________________________-->
+
+    <!-- ______________________Subscriptions Activity________________________-->
+    <string name="Subscriptions">구독</string>
+    <string name="Discoversubscriptions">구독 발견</string>
+    <string name="subscriptionsCaption">좋아하는 앱과 게임에서 구독하고 \nGoogle Play에서 관리할 수 있습니다</string>
+
+    <!-- ______________________Subscriptions Activity________________________-->
+
+    <!-- ______________________Resoluction Dialog________________________-->
+    <string name="HighResolution">고해상도</string>
+    <string name="HighResolutionCaption">최대 4096px. 원래 해상도 및 전화 메모리에 따라 다릅니다.</string>
+    <string name="RegularResolution">일반 해상도</string>
+    <string name="RegularResolutionCaption">최대 1920px. 소셜 네트워크에서 공유하기에 좋습니다.</string>
+    <!-- ______________________Resoluction Dialog________________________-->
+
+    <!-- ______________________FeedBack Dialog________________________-->
+    <string name="FeedbackCaption">저희에게 피드백을 주실 수 있나요?</string>
+    <string name="Nothanks">아니요, 괜찮습니다</string>
+    <string name="sendFeedback">피드백 보내기</string>
+    <!-- ______________________FeedBack Dialog________________________-->
+
+
+</resources>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ポーランド語</string>
+    <string name="Setting">設定</string>
+    <string name="General">一般</string>
+    <string name="Resolution">解像度</string>
+    <string name="Language">言語</string>
+    <string name="Feedback">フィードバック</string>
+    <string name="SavePath">保存パス</string>
+    <string name="Share">共有</string>
+    <string name="RemoveAds">広告を削除</string>
+    <string name="RestorePurchase">購入の復元</string>
+    <string name="ManageSubscription">サブスクリプション管理</string>
+    <string name="FollowUs">フォローする</string>
+    <string name="Instagram">インスタグラム</string>
+    <string name="About">情報</string>
+    <string name="PrivacyPolicy">プライバシーポリシー</string>
+    <string name="TermsofUse">利用規約</string>
+    <string name="GridArt221151">グリッドアート 2.21.151</string>
+
+    <!-- ______________________Dashboard________________________-->
+
+    <string name="Explore">探検</string>
+    <string name="GridArt">グリッド\nアート</string>
+    <string name="Pro">プロ</string>
+    <string name="Collage">コラージュ</string>
+    <string name="Template">テンプレート</string>
+    <string name="Beautify">美化</string>
+    <string name="Camera">カメラ</string>
+
+    <!-- ______________________Camera________________________-->
+
+    <string name="ThisappcanonlyaccessPhotoSelected">このアプリは、選択した写真のみアクセスできます</string>
+    <string name="Photos">写真</string>
+    <string name="Albums">アルバム</string>
+    <string name="Recent">1 - 100枚の写真を選択</string>
+
+    <!-- ______________________Camera________________________-->
+
+
+    <!-- ______________________Dashboard________________________-->
+
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+    <string name="Restore">復元</string>
+    <string name="JoinFullExperience">フル体験に参加</string>
+    <string name="AccessAllfeatures">すべての機能にアクセス</string>
+    <string name="Newfiltersandeffectaddedweekly">新しいフィルター &amp; エフェクトが毎週追加されます。</string>
+    <string name="Noadsevermore">広告は一切ありません。</string>
+    <string name="AccesstoAllFeaturesNoAds">すべての機能にアクセス。\n広告なし。</string>
+    <string name="sevenDayFreeTrial">7日間の無料トライアル</string>
+    <string name="ThanOneThousandYear">₹1,000.00 / 年未満</string>
+    <string name="ThenTwoThousandFiftyOneTimePurchase">次に ₹2,050.00 一回限りの購入</string>
+    <string name="Caption">このサブスクリプションにより、アプリのコンテンツライブラリに無制限でアクセスできます。\nトライアル終了前にキャンセルしない場合、自動的に\n₹1,000.00 が毎年請求されます。利用規約</string>
+
+
+    <!-- ______________________Polish_Pro_Payment________________________-->
+
+
+    <!-- ______________________EditActivity________________________-->
+    <string name="Open">開く</string>
+    <string name="More">もっと</string>
+    <string name="Original">オリジナル</string>
+    <string name="Bright">明るい</string>
+    <string name="Story">ストーリー</string>
+    <string name="Natural">ナチュラル</string>
+    <string name="Warm">暖かい</string>
+    <string name="Dew">露</string>
+    <string name="Gold">ゴールド</string>
+    <string name="Lomo">ロモ</string>
+    <string name="Pink">ピンク</string>
+    <string name="Styles">スタイル</string>
+    <string name="Tools">ツール</string>
+    <string name="Export">エクスポート</string>
+
+    <!--    bottom sheet -->
+    <string name="Sticker">ステッカー</string>
+    <string name="Draw">描く</string>
+    <string name="Layout">レイアウト</string>
+    <string name="Templates">テンプレート</string>
+    <string name="Filter">フィルター</string>
+    <string name="Adjust">調整</string>
+    <string name="Background">背景</string>
+    <string name="Text">テキスト</string>
+    <string name="Crop">切り抜き</string>
+
+
+    <!--    bottom sheet -->
+
+    <!-- ______________________EditActivity________________________-->
+
+
+    <!-- ______________________Layout Activity tab________________________-->
+    <string name="tab_ratio">比率</string>
+    <string name="tab_layout">レイアウト</string>
+    <string name="tab_margin">マージン</string>
+    <string name="tab_border">境界</string>
+
+    <!--    Ratio Fragment -->
+    <string name="Custom">カスタム</string>
+    <string name="lG11">lG 1 : 1</string>
+    <string name="lG45">lG 4 : 5</string>
+    <string name="A4">A4</string>
+    <string name="Cover">カバー</string>
+    <string name="Device">デバイス</string>
+    <string name="Post">投稿</string>
+    <string name="Header">ヘッダー</string>
+    <!--    Ratio Fragment -->
+
+    <!-- ______________________Layout Activity tab________________________-->
+
+    <!-- ______________________Adjust Activity________________________-->
+    <string name="Brightness">明るさ</string>
+    <string name="Contrast">コントラスト</string>
+    <string name="Warmth">暖かさ</string>
+    <string name="Saturation">彩度</string>
+    <string name="Fade">フェード</string>
+    <string name="Highlight">ハイライト</string>
+    <string name="Shadow">影</string>
+    <string name="Tint">色合い</string>
+    <string name="Hue">色相</string>
+    <string name="Grain">粒子</string>
+
+    <!-- ______________________Adjust Activity________________________-->
+
+    <!-- ______________________Background Activity________________________-->
+    <string name="Blurbg">背景ぼかし</string>
+    <string name="Png">Png</string>
+    <string name="White">白</string>
+    <!-- ______________________Background Activity________________________-->
+
+    <!-- ______________________Text Activity________________________-->
+    <string name="Keyboard">キーボード</string>
+    <string name="Font">フォント</string>
+    <string name="Style">スタイル</string>
+    <string name="Preset">プリセット</string>
+    <string name="Add">追加</string>
+    <!-- ______________________Text Activity________________________-->
+
+    <!-- ______________________Crop Activity________________________-->
+    <string name="Rotate">回転</string>
+    <string name="Perspective">パースペクティブ</string>
+    <string name="Left90">左90度</string>
+    <string name="Right90">右90度</string>
+    <string name="Horizontal">水平</string>
+    <string name="Vertical">垂直</string>
+    <!-- ______________________Crop Activity________________________-->
+
+
+    <!-- ______________________Export Activity________________________-->
+    <string name="Saved">保存済み</string>
+    <string name="MakeAnother">もう一つ作る</string>
+    <string name="WhatsApp">ワッツアップ</string>
+    <string name="Facebook">フェイスブック</string>
+    <string name="Messenger">メッセンジャー</string>
+    <string name="Twitter">ツイッター</string>
+    <string name="Print">印刷</string>
+    <string name="Email">Eメール</string>
+
+    <!-- ______________________Dialog________________________-->
+    <string name="AreYouEditing">編集結果に満足していますか？</string>
+    <string name="Good">良い</string>
+    <string name="NotReally">あまり</string>
+    <!-- ______________________Dialog________________________-->
+
+    <!-- ______________________Export Activity________________________-->
+
+
+    <!-- ______________________Templates Activity________________________-->
+    <string name="All">すべて</string>
+    <string name="birthday">誕生日</string>
+    <string name="Calendar">カレンダー</string>
+    <string name="Christmas">クリスマス</string>
+    <string name="Family">家族</string>
+    <string name="Frame">フレーム</string>
+    <string name="Graduation">卒業</string>
+    <string name="Love">愛</string>
+    <string name="Motherday">母の日</string>
+    <string name="Newyear">新年</string>
+    <string name="Pride">誇り</string>
+    <string name="Schoollife">学校生活</string>
+    <string name="Summer">夏</string>
+    <string name="Travel">旅行</string>
+    <string name="Winter">冬</string>
+    <!-- ______________________Templates Activity________________________-->
+
+    <!-- ______________________Beautify Activity________________________-->
+    <!-- ______________________Main Layout________________________-->
+    <string name="Face">顔</string>
+    <string name="Retouch">レタッチ</string>
+    <string name="Makeup">メイク</string>
+    <string name="Blemish">傷</string>
+    <string name="Wrinkle">しわ</string>
+    <string name="DarkCircles">ダーク\nサークル</string>
+    <string name="Reshape">リシェイプ</string>
+
+    <!-- Main to Face Layout -->
+    <string name="Thin">細い</string>
+    <string name="Width">幅</string>
+    <string name="Height">高さ</string>
+    <string name="Jaw">あご</string>
+    <string name="Forehead">額</string>
+    <string name="Distance">距離</string>
+    <string name="Tilt">傾き</string>
+    <string name="Size">サイズ</string>
+    <string name="Thickness">厚さ</string>
+    <string name="Tip">先端</string>
+    <string name="Lift">リフト</string>
+
+    <!-- Main to Retouch Layout -->
+    <string name="Smooth">滑らか</string>
+    <string name="Brighten">明るく</string>
+    <string name="Sharpen">シャープ</string>
+
+    <!-- Main to Makeup Main View Layout -->
+    <string name="Sets">セット</string>
+    <string name="LipColor">リップカラー</string>
+    <string name="Blush">チーク</string>
+    <string name="Contour">輪郭</string>
+
+    <!-- Main to Makeup Lip View Layout -->
+    <string name="Ma01">Ma01</string>
+    <string name="Ma02">Ma02</string>
+    <string name="Ma03">Ma03</string>
+    <string name="Ma04">Ma04</string>
+    <string name="Ma05">Ma05</string>
+    <string name="Ma06">Ma06</string>
+    <string name="Ma07">Ma07</string>
+    <string name="Ma08">Ma08</string>
+    <string name="Ma09">Ma09</string>
+
+    <!-- Main to Makeup Setting View Layout -->
+    <string name="Flush">フラッシュ</string>
+    <string name="Square">スクエア</string>
+    <string name="Pear">ペア</string>
+    <string name="Oval">オーバル</string>
+    <string name="Sunburn">日焼け</string>
+    <string name="Angled">アングルド</string>
+    <string name="Normal">普通</string>
+    <string name="Apple">アップル</string>
+    <string name="Full">フル</string>
+
+    <!-- Main to Blemishes Activity -->
+    <string name="Tapareastoremoveblemishes">傷を取り除くためにエリアをタップ</string>
+
+    <!-- Main to Wrinkle & Dark Circles Activity -->
+    <string name="Manual">手動</string>
+    <string name="Eraser">消しゴム</string>
+
+    <!-- Main to Makeup Activity -->
+    <string name="Detail">詳細</string>
+    <string name="Resize">サイズ変更</string>
+    <!-- ________Main to MakeUp Activity________-->
+
+
+    <!-- ______________________Main Layout________________________-->
+
+    <!-- ______________________Beautify Activity________________________-->
+
+
+    <!-- ______________________Subscriptions Activity________________________-->
+    <string name="Subscriptions">サブスクリプション</string>
+    <string name="Discoversubscriptions">サブスクリプションを発見</string>
+    <string name="subscriptionsCaption">お気に入りのアプリやゲームでサブスクリプションに\n登録し、Google Playで管理できます</string>
+
+    <!-- ______________________Subscriptions Activity________________________-->
+
+    <!-- ______________________Resoluction Dialog________________________-->
+    <string name="HighResolution">高解像度</string>
+    <string name="HighResolutionCaption">最大4096px。元の解像度と電話のメモリにも依存します。</string>
+    <string name="RegularResolution">通常の解像度</string>
+    <string name="RegularResolutionCaption">最大1920px。ソーシャルネットワークでの \n共有に最適です。</string>
+    <!-- ______________________Resoluction Dialog________________________-->
+
+    <!-- ______________________FeedBack Dialog________________________-->
+    <string name="FeedbackCaption">フィードバックを いただけますか？</string>
+    <string name="Nothanks">いいえ、結構です</string>
+    <string name="sendFeedback">フィードバックを送信</string>
+    <!-- ______________________FeedBack Dialog________________________-->
+
+
+</resources>

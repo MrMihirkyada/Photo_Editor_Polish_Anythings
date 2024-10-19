@@ -1,0 +1,747 @@
+{
+	"baseUrl": "https://s3.eu-north-1.amazonaws.com/photoeditorbeautycamera.com/photoeditor/lightfx/",
+    "data": {
+        "Autumn": {
+            "Group": {
+                "mainImageUrl": [
+                    "Autumn/Mask group-8.png"
+                ],
+                "subImageUrl": [
+                    "Autumn/image 577.png",
+                    "Autumn/image 578.png",
+                    "Autumn/image 579.png",
+                    "Autumn/image 580.png",
+                    "Autumn/image 581.png",
+                    "Autumn/image 582.png",
+                    "Autumn/image 583.png",
+                    "Autumn/image 584.png",
+                    "Autumn/image 585.png"
+                ]
+            }
+        },
+        "Bokeh": {
+            "Group": {
+                "mainImageUrl": [
+                    "Bokeh/image 572.png"
+                ],
+                "subImageUrl": [
+                    "Bokeh/image 573.png",
+                    "Bokeh/image 574.png",
+                    "Bokeh/image 575.png",
+                    "Bokeh/image 576.png",
+                    "Bokeh/Rectangle 384-4.png"
+                ]
+            }
+        },
+        "Broken Glass": {
+            "Group": {
+                "mainImageUrl": [
+                    "Broken Glass/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Broken Glass/image 499.png",
+                    "Broken Glass/image 500.png",
+                    "Broken Glass/image 501.png",
+                    "Broken Glass/image 502.png",
+                    "Broken Glass/image 503.png",
+                    "Broken Glass/image 504.png",
+                    "Broken Glass/image 505.png",
+                    "Broken Glass/image 506.png",
+                    "Broken Glass/image 507.png",
+                    "Broken Glass/image 508.png",
+                    "Broken Glass/image 509.png",
+                    "Broken Glass/image 510.png",
+                    "Broken Glass/Mask group-2.png",
+                    "Broken Glass/Mask group-22.png"
+                ]
+            }
+        },
+        "Bubble": {
+            "Group": {
+                "mainImageUrl": [
+                    "Bubble/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Bubble/image 543.png",
+                    "Bubble/image 544.png",
+                    "Bubble/image 545.png",
+                    "Bubble/image 547.png",
+                    "Bubble/image 548.png",
+                    "Bubble/Mask group-11.png"
+                ]
+            }
+        },
+        "Confetti": {
+            "Group": {
+                "mainImageUrl": [
+                    "Confetti/Mask group-21.png"
+                ],
+                "subImageUrl": [
+                    "Confetti/image 491.png",
+                    "Confetti/image 492.png",
+                    "Confetti/image 493.png",
+                    "Confetti/image 494.png",
+                    "Confetti/image 495.png",
+                    "Confetti/image 496.png",
+                    "Confetti/image 497.png",
+                    "Confetti/image 498.png"
+                ]
+            }
+        },
+        "Diamond": {
+            "Group": {
+                "mainImageUrl": [
+                    "Diamond/Group 509.png"
+                ],
+                "subImageUrl": [
+                    "Diamond/image 354.png",
+                    "Diamond/image 355.png",
+                    "Diamond/image 356.png",
+                    "Diamond/image 357.png",
+                    "Diamond/image 358.png",
+                    "Diamond/image 359.png",
+                    "Diamond/image 360.png",
+                    "Diamond/image 361.png"
+                ]
+            }
+        },
+        "Dreamy light": {
+            "Group": {
+                "mainImageUrl": [
+                    "Dreamy light/Mask group-17.png"
+                ],
+                "subImageUrl": [
+                    "Dreamy light/image 521.png",
+                    "Dreamy light/image 522.png",
+                    "Dreamy light/image 523.png",
+                    "Dreamy light/image 524.png",
+                    "Dreamy light/image 525.png",
+                    "Dreamy light/image 526.png",
+                    "Dreamy light/image 527.png",
+                    "Dreamy light/image 528.png"
+                ]
+            }
+        },
+        "Dust and Scratch": {
+            "Group": {
+                "mainImageUrl": [
+                    "Dust and Scratch/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Dust and Scratch/image 474.png",
+                    "Dust and Scratch/image 475.png",
+                    "Dust and Scratch/image 476.png",
+                    "Dust and Scratch/image 477.png",
+                    "Dust and Scratch/image 478.png",
+                    "Dust and Scratch/image 480.png",
+                    "Dust and Scratch/Mask group-1.png"
+                ]
+            }
+        },
+        "Dust and Sunlight": {
+            "Group": {
+                "mainImageUrl": [
+                    "Dust and Sunlight/Rectangle 384-1.png"
+                ],
+                "subImageUrl": [
+                    "Dust and Sunlight/image 339.png",
+                    "Dust and Sunlight/image 340.png",
+                    "Dust and Sunlight/image 341.png",
+                    "Dust and Sunlight/image 342.png",
+                    "Dust and Sunlight/image 343.png",
+                    "Dust and Sunlight/image 344.png",
+                    "Dust and Sunlight/image 345.png",
+                    "Dust and Sunlight/image 346.png"
+                ]
+            }
+        },
+        "Explosion": {
+            "Group": {
+                "mainImageUrl": [
+                    "Explosion/Mask group.png"
+                ],
+                "subImageUrl": [
+                    "Explosion/image 443.png",
+                    "Explosion/image 444.png",
+                    "Explosion/image 445.png",
+                    "Explosion/image 446.png",
+                    "Explosion/image 447.png",
+                    "Explosion/image 448.png"
+                ]
+            }
+        },
+        "face Shadow": {
+            "Group": {
+                "mainImageUrl": [
+                    "face Shadow/Rectangle 384-6.png"
+                ],
+                "subImageUrl": [
+                    "face Shadow/image 347.png",
+                    "face Shadow/image 348.png",
+                    "face Shadow/image 349.png",
+                    "face Shadow/image 350.png",
+                    "face Shadow/image 351.png",
+                    "face Shadow/image 352.png",
+                    "face Shadow/image 353.png"
+                ]
+            }
+        },
+        "Fantasy": {
+            "Group": {
+                "mainImageUrl": [
+                    "Fantasy/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Fantasy/Group 512.png",
+                    "Fantasy/image 401.png",
+                    "Fantasy/image 402.png",
+                    "Fantasy/image 403.png",
+                    "Fantasy/image 404.png",
+                    "Fantasy/image 405.png",
+                    "Fantasy/image 406.png"
+                ]
+            }
+        },
+        "Film Leak": {
+            "Group": {
+                "mainImageUrl": [
+                    "Film Leak/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Film Leak/image 555.png",
+                    "Film Leak/image 556.png",
+                    "Film Leak/image 557.png",
+                    "Film Leak/image 558.png",
+                    "Film Leak/image 559.png",
+                    "Film Leak/image 560.png",
+                    "Film Leak/Mask group-13.png"
+                ]
+            }
+        },
+        "Fire": {
+            "Group": {
+                "mainImageUrl": [
+                    "Fire/Mask group-3.png"
+                ],
+                "subImageUrl": [
+                    "Fire/image 536.png",
+                    "Fire/image 537.png",
+                    "Fire/image 538.png",
+                    "Fire/image 539.png",
+                    "Fire/image 540.png",
+                    "Fire/image 541.png",
+                    "Fire/image 542.png"
+                ]
+            }
+        },
+        "Fireworks": {
+            "Group": {
+                "mainImageUrl": [
+                    "Fireworks/Rectangle 384-2.png"
+                ],
+                "subImageUrl": [
+                    "Fireworks/image 605.png",
+                    "Fireworks/image 607.png",
+                    "Fireworks/image 608.png",
+                    "Fireworks/image 609.png",
+                    "Fireworks/image 610.png",
+                    "Fireworks/image 611.png",
+                    "Fireworks/image 612.png",
+                    "Fireworks/image 613.png",
+                    "Fireworks/image 614.png",
+                    "Fireworks/image 615.png",
+                    "Fireworks/Mask group-6.png",
+                    "Fireworks/Rectangle 384.png"
+                ]
+            }
+        },
+        "Flurries": {
+            "Group": {
+                "mainImageUrl": [
+                    "Flurries/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Flurries/image 586.png",
+                    "Flurries/image 587.png",
+                    "Flurries/image 588.png",
+                    "Flurries/image 589.png",
+                    "Flurries/image 590.png",
+                    "Flurries/image 591.png",
+                    "Flurries/image 592.png",
+                    "Flurries/Mask group-9.png"
+                ]
+            }
+        },
+        "Fog Overlay": {
+            "Group": {
+                "mainImageUrl": [
+                    "Fog Overlay/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Fog Overlay/Group 510.png",
+                    "Fog Overlay/image 362.png",
+                    "Fog Overlay/image 363.png",
+                    "Fog Overlay/image 364.png",
+                    "Fog Overlay/image 365.png",
+                    "Fog Overlay/image 366.png",
+                    "Fog Overlay/image 368.png"
+                ]
+            }
+        },
+        "Glitch": {
+            "Group": {
+                "mainImageUrl": [
+                    "Glitch/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Glitch/image 515.png",
+                    "Glitch/image 516.png",
+                    "Glitch/image 517.png",
+                    "Glitch/image 518.png",
+                    "Glitch/image 519.png",
+                    "Glitch/Mask group-16.png"
+                ]
+            }
+        },
+        "Grain Splash": {
+            "Group": {
+                "mainImageUrl": [
+                    "Grain Splash/Rectangle 384-9.png"
+                ],
+                "subImageUrl": [
+                    "Grain Splash/image 329.png",
+                    "Grain Splash/image 330.png",
+                    "Grain Splash/image 331.png",
+                    "Grain Splash/image 332.png",
+                    "Grain Splash/image 333.png"
+                ]
+            }
+        },
+        "Halloween": {
+            "Group": {
+                "mainImageUrl": [
+                    "Halloween/Mask group-7.png"
+                ],
+                "subImageUrl": [
+                    "Halloween/image 617.png",
+                    "Halloween/image 618.png",
+                    "Halloween/image 619.png",
+                    "Halloween/image 620.png",
+                    "Halloween/image 621.png",
+                    "Halloween/image 622.png",
+                    "Halloween/image 623.png"
+                ]
+            }
+        },
+        "Halo": {
+            "Group": {
+                "mainImageUrl": [
+                    "Halo/Rectangle 384-5.png"
+                ],
+                "subImageUrl": [
+                    "Halo/image 469.png",
+                    "Halo/image 470.png",
+                    "Halo/image 471.png",
+                    "Halo/image 472.png",
+                    "Halo/image 473.png"
+                ]
+            }
+        },
+        "Heart": {
+            "Group": {
+                "mainImageUrl": [
+                    "Heart/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Heart/image 456.png",
+                    "Heart/image 457.png",
+                    "Heart/image 458.png",
+                    "Heart/image 460.png",
+                    "Heart/Mask group-24.png"
+                ]
+            }
+        },
+        "Holi": {
+            "Group": {
+                "mainImageUrl": [
+                    "Holi/Rectangle 384-3.png"
+                ],
+                "subImageUrl": [
+                    "Holi/image 384.png",
+                    "Holi/image 385.png",
+                    "Holi/image 386.png",
+                    "Holi/image 387.png",
+                    "Holi/image 388.png",
+                    "Holi/image 389.png",
+                    "Holi/image 390.png",
+                    "Holi/image 391.png",
+                    "Holi/image 392.png",
+                    "Holi/Rectangle 384.png"
+                ]
+            }
+        },
+        "Leaks": {
+            "Group": {
+                "mainImageUrl": [
+                    "Leaks/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Leaks/image 549.png",
+                    "Leaks/image 550.png",
+                    "Leaks/image 551.png",
+                    "Leaks/image 552.png",
+                    "Leaks/image 553.png",
+                    "Leaks/Mask group-12.png"
+                ]
+            }
+        },
+        "lens flares": {
+            "Group": {
+                "mainImageUrl": [
+                    "lens flares/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "lens flares/image 561.png",
+                    "lens flares/image 562.png",
+                    "lens flares/image 563.png",
+                    "lens flares/image 564.png",
+                    "lens flares/image 565.png",
+                    "lens flares/image 566.png"
+                ]
+            }
+        },
+        "Light and Shadow": {
+            "Group": {
+                "mainImageUrl": [
+                    "Light and Shadow/Mask group-25.png"
+                ],
+                "subImageUrl": [
+                    "Light and Shadow/image 461.png",
+                    "Light and Shadow/image 462.png",
+                    "Light and Shadow/image 463.png",
+                    "Light and Shadow/image 464.png",
+                    "Light and Shadow/image 465.png",
+                    "Light and Shadow/image 466.png",
+                    "Light and Shadow/image 467.png",
+                    "Light and Shadow/image 468.png"
+                ]
+            }
+        },
+        "Light Leaks": {
+            "Group": {
+                "mainImageUrl": [
+                    "Light Leaks/Mask group-26.png"
+                ],
+                "subImageUrl": [
+                    "Light Leaks/image 422.png",
+                    "Light Leaks/image 423.png",
+                    "Light Leaks/image 424.png",
+                    "Light Leaks/image 425.png",
+                    "Light Leaks/image 426.png",
+                    "Light Leaks/image 427.png"
+                ]
+            }
+        },
+        "Lightning": {
+            "Group": {
+                "mainImageUrl": [
+                    "Lightning/Mask group-23.png"
+                ],
+                "subImageUrl": [
+                    "Lightning/image 449.png",
+                    "Lightning/image 450.png",
+                    "Lightning/image 451.png",
+                    "Lightning/image 452.png",
+                    "Lightning/image 453.png",
+                    "Lightning/image 454.png",
+                    "Lightning/image 455.png"
+                ]
+            }
+        },
+        "Love": {
+            "Group": {
+                "mainImageUrl": [
+                    "Love/Rectangle 384-7.png"
+                ],
+                "subImageUrl": [
+                    "Love/image 319.png",
+                    "Love/image 320.png",
+                    "Love/image 321.png",
+                    "Love/image 322.png",
+                    "Love/image 323.png",
+                    "Love/image 324.png",
+                    "Love/image 325.png"
+                ]
+            }
+        },
+        "Miracle Light": {
+            "Group": {
+                "mainImageUrl": [
+                    "Miracle Light/Group 516.png"
+                ],
+                "subImageUrl": [
+                    "Miracle Light/image 415.png",
+                    "Miracle Light/image 416.png",
+                    "Miracle Light/image 417.png",
+                    "Miracle Light/image 418.png",
+                    "Miracle Light/image 419.png",
+                    "Miracle Light/image 420.png",
+                    "Miracle Light/image 421.png"
+                ]
+            }
+        },
+        "Neon": {
+            "Group": {
+                "mainImageUrl": [
+                    "Neon/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Neon/image 384.png",
+                    "Neon/image 385.png",
+                    "Neon/image 386.png",
+                    "Neon/image 387.png",
+                    "Neon/image 388.png",
+                    "Neon/image 389.png",
+                    "Neon/image 390.png",
+                    "Neon/image 391.png",
+                    "Neon/image 392.png",
+                    "Neon/image 485.png",
+                    "Neon/image 486.png",
+                    "Neon/image 487.png",
+                    "Neon/image 488.png",
+                    "Neon/image 489.png",
+                    "Neon/image 490.png",
+                    "Neon/Mask group-20.png",
+                    "Neon/Mask group-28.png"
+                ]
+            }
+        },
+        "Plastic Wrap": {
+            "Group": {
+                "mainImageUrl": [
+                    "Plastic Wrap/Mask group-18.png"
+                ],
+                "subImageUrl": [
+                    "Plastic Wrap/image 529.png",
+                    "Plastic Wrap/image 530.png",
+                    "Plastic Wrap/image 531.png",
+                    "Plastic Wrap/image 532.png",
+                    "Plastic Wrap/image 533.png",
+                    "Plastic Wrap/image 534.png",
+                    "Plastic Wrap/image 535.png"
+                ]
+            }
+        },
+        "Powder explosion": {
+            "Group": {
+                "mainImageUrl": [
+                    "Powder explosion/Group 515.png"
+                ],
+                "subImageUrl": [
+                    "Powder explosion/image 407.png",
+                    "Powder explosion/image 408.png",
+                    "Powder explosion/image 409.png",
+                    "Powder explosion/image 410.png",
+                    "Powder explosion/image 411.png",
+                    "Powder explosion/image 412.png",
+                    "Powder explosion/image 413.png",
+                    "Powder explosion/image 414.png"
+                ]
+            }
+        },
+        "Rainbow": {
+            "Group": {
+                "mainImageUrl": [
+                    "Rainbow/Mask group-19.png"
+                ],
+                "subImageUrl": [
+                    "Rainbow/image 481.png",
+                    "Rainbow/image 482.png",
+                    "Rainbow/image 483.png",
+                    "Rainbow/image 484.png",
+                    "Rainbow/Rectangle 384.png"
+                ]
+            }
+        },
+        "Rainy Day": {
+            "Group": {
+                "mainImageUrl": [
+                    "Rainy Day/Group 513.png"
+                ],
+                "subImageUrl": [
+                    "Rainy Day/image 393.png",
+                    "Rainy Day/image 394.png",
+                    "Rainy Day/image 395.png",
+                    "Rainy Day/image 396.png",
+                    "Rainy Day/image 397.png",
+                    "Rainy Day/image 398.png",
+                    "Rainy Day/image 399.png",
+                    "Rainy Day/image 400.png",
+                    "Rainy Day/Rectangle 384.png"
+                ]
+            }
+        },
+        "Rusty effects": {
+            "Group": {
+                "mainImageUrl": [
+                    "Rusty effects/Group 514.png"
+                ],
+                "subImageUrl": [
+                    "Rusty effects/image 378.png",
+                    "Rusty effects/image 379.png",
+                    "Rusty effects/image 380.png",
+                    "Rusty effects/image 381.png",
+                    "Rusty effects/image 382.png",
+                    "Rusty effects/image 383.png"
+                ]
+            }
+        },
+        "shape Bokeh": {
+            "Group": {
+                "mainImageUrl": [
+                    "shape Bokeh/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "shape Bokeh/image 567.png",
+                    "shape Bokeh/image 568.png",
+                    "shape Bokeh/image 569.png",
+                    "shape Bokeh/image 570.png",
+                    "shape Bokeh/image 571.png",
+                    "shape Bokeh/Mask group-4.png"
+                ]
+            }
+        },
+        "Smoke": {
+            "Group": {
+                "mainImageUrl": [
+                    "Smoke/Group 511.png"
+                ],
+                "subImageUrl": [
+                    "Smoke/image 334.png",
+                    "Smoke/image 335.png",
+                    "Smoke/image 336.png",
+                    "Smoke/image 337.png",
+                    "Smoke/image 338.png"
+                ]
+            }
+        },
+        "Speed Lines": {
+            "Group": {
+                "mainImageUrl": [
+                    "Speed Lines/Mask group-15.png"
+                ],
+                "subImageUrl": [
+                    "Speed Lines/image 511.png",
+                    "Speed Lines/image 512.png",
+                    "Speed Lines/image 513.png",
+                    "Speed Lines/image 514.png"
+                ]
+            }
+        },
+        "Splash": {
+            "Group": {
+                "mainImageUrl": [
+                    "Splash/Rectangle 384-8.png"
+                ],
+                "subImageUrl": [
+                    "Splash/image 326.png",
+                    "Splash/image 327.png",
+                    "Splash/image 328.png",
+                    "Splash/Rectangle 384.png"
+                ]
+            }
+        },
+        "Spring": {
+            "Group": {
+                "mainImageUrl": [
+                    "Spring/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Spring/image 310.png",
+                    "Spring/image 311.png",
+                    "Spring/image 312.png",
+                    "Spring/image 313.png",
+                    "Spring/image 314.png",
+                    "Spring/image 315.png",
+                    "Spring/image 316.png",
+                    "Spring/image 317.png",
+                    "Spring/image 318.png"
+                ]
+            }
+        },
+        "String Lights": {
+            "Group": {
+                "mainImageUrl": [
+                    "String Lights/Mask group-27.png"
+                ],
+                "subImageUrl": [
+                    "String Lights/image 436.png",
+                    "String Lights/image 437.png",
+                    "String Lights/image 438.png",
+                    "String Lights/image 439.png",
+                    "String Lights/image 440.png",
+                    "String Lights/image 441.png",
+                    "String Lights/image 442.png"
+                ]
+            }
+        },
+        "Torn Paper": {
+            "Group": {
+                "mainImageUrl": [
+                    "Torn Paper/Mask group-29.png"
+                ],
+                "subImageUrl": [
+                    "Torn Paper/image 369.png",
+                    "Torn Paper/image 370.png",
+                    "Torn Paper/image 371.png",
+                    "Torn Paper/image 372.png",
+                    "Torn Paper/image 373.png",
+                    "Torn Paper/image 374.png",
+                    "Torn Paper/image 375.png",
+                    "Torn Paper/image 376.png",
+                    "Torn Paper/image 377.png"
+                ]
+            }
+        },
+        "Wrinkle Paper": {
+            "Group": {
+                "mainImageUrl": [
+                    "Wrinkle Paper/Group 517.png"
+                ],
+                "subImageUrl": [
+                    "Wrinkle Paper/image 429.png",
+                    "Wrinkle Paper/image 430.png",
+                    "Wrinkle Paper/image 431.png",
+                    "Wrinkle Paper/image 432.png",
+                    "Wrinkle Paper/image 433.png",
+                    "Wrinkle Paper/image 434.png",
+                    "Wrinkle Paper/image 435.png"
+                ]
+            }
+        },
+        "Xmas Spakle": {
+            "Group": {
+                "mainImageUrl": [
+                    "Xmas Spakle/Rectangle 384.png"
+                ],
+                "subImageUrl": [
+                    "Xmas Spakle/image 593.png",
+                    "Xmas Spakle/image 594.png",
+                    "Xmas Spakle/image 595.png",
+                    "Xmas Spakle/image 596.png",
+                    "Xmas Spakle/image 597.png",
+                    "Xmas Spakle/image 598.png",
+                    "Xmas Spakle/image 599.png",
+                    "Xmas Spakle/image 600.png",
+                    "Xmas Spakle/image 601.png",
+                    "Xmas Spakle/image 602.png",
+                    "Xmas Spakle/image 603.png",
+                    "Xmas Spakle/image 604.png",
+                    "Xmas Spakle/Mask group-5.png",
+                    "Xmas Spakle/Mask group-10.png",
+                    "Xmas Spakle/Rectangle 384 (2).png"
+                ]
+            }
+        }
+    }
+}

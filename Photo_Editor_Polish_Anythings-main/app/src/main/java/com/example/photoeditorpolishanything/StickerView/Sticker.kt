@@ -25,7 +25,7 @@ class Sticker @JvmOverloads constructor(
     private var rotationAngle = 0f
 
     init {
-        inflate(context, R.layout.sticker_layout, this) // Inflate sticker layout
+        inflate(context, R.layout.sticker_view_layout, this) // Inflate sticker layout
         initViews()
     }
 

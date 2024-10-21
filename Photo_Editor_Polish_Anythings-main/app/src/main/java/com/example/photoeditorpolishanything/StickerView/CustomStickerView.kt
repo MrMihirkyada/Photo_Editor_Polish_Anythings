@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -14,6 +15,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.photoeditorpolishanything.R
 
+@SuppressLint("ResourceType")
 class CustomStickerView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     FrameLayout(context, attrs) {
 
@@ -39,8 +41,16 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
 
 
     init {
+
+        // Dynamically create views instead of using XML
+        stickerImageView = ImageView(context).apply {
+            layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
+            scaleType = ImageView.ScaleType.FIT_CENTER
+        }
+        addView(stickerImageView)
+
         // Inflate the sticker layout
-        LayoutInflater.from(context).inflate(R.layout.sticker_layout, this, true)
+        LayoutInflater.from(context).inflate(R.id.stickerLayout, this, true)
         stickerLayout = findViewById(R.id.stickerLayout)
         stickerImageView = findViewById(R.id.stickerImageView)
         deleteButton = findViewById(R.id.imgDeleteButton)
@@ -54,21 +64,34 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
     @SuppressLint("ClickableViewAccessibility")
     private fun setupListeners() {
         // Delete sticker
-        deleteButton.setOnClickListener {
-            // Cast the parent of the current sticker view to FrameLayout (or any parent layout)
-            val parentLayout = parent as? FrameLayout
+        deleteButton.setOnClickListener { view ->
+            // Retrieve the sticker layout (which is the parent of deleteButton)
+            val stickerLayout = view.parent as? FrameLayout
 
-            // Check if the parent layout is not null
-            if (parentLayout != null) {
-                // Remove the entire parent layout (which includes the sticker and buttons)
-//                (parentLayout.parent as? ViewGroup)?.removeView(parentLayout)
-                (parentLayout.parent as? ViewGroup)?.visibility = View.GONE
+            // Check if the stickerLayout exists
+            if (stickerLayout != null) {
+                // Retrieve the parent of the stickerLayout (usually the main container holding all stickers)
+                val parentViewGroup = stickerLayout.parent as? ViewGroup
+
+                // Check if the parent ViewGroup exists and contains the stickerLayout
+                if (parentViewGroup != null) {
+                    // Remove the sticker layout from the parent
+                    parentViewGroup.removeView(stickerLayout)
+
+                    // Optionally, clear any references (like tags) to avoid memory leaks
+                    stickerLayout.tag = null
+                } else {
+                    Log.e("StickerRemoval", "Parent ViewGroup is null or doesn't contain stickerLayout.")
+                }
+            } else {
+                Log.e("StickerRemoval", "StickerLayout is null.")
             }
         }
 
         // Implement resize logic
         resizeButton.setOnTouchListener { _, event ->
-            when (event.action) {
+            when (event.action)
+            {
                 MotionEvent.ACTION_DOWN -> {
                     // Record the initial touch position and size
                     initialTouchX = event.rawX
@@ -76,6 +99,7 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
                     initialWidth = stickerImageView.width.toFloat()
                     initialHeight = stickerImageView.height.toFloat()
                 }
+
                 MotionEvent.ACTION_MOVE -> {
                     // Calculate the new width and height based on the drag distance
                     val deltaX = event.rawX - initialTouchX
@@ -109,6 +133,8 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
         // Implement copy sticker logic
         copyButton.setOnClickListener {
             // Copy logic here
+
+            copySticker()
         }
 
         // Implement flip sticker logic
@@ -226,6 +252,64 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
     fun setStickerImage(bitmap: Bitmap) {
         stickerImageView.setImageBitmap(bitmap)
     }
+
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun copySticker() {
+        // Create a new instance of CustomStickerView
+        val newStickerView = CustomStickerView(context)
+
+        // Copy the current sticker image
+        val currentStickerBitmap = getStickerImage()
+        newStickerView.setStickerImage(currentStickerBitmap)
+
+        // Get the current layout parameters of the original sticker
+        val layoutParams = this.layoutParams as FrameLayout.LayoutParams
+
+        // Set the new sticker's layout params to the same as the original one
+        val newLayoutParams = FrameLayout.LayoutParams(
+            layoutParams.width, layoutParams.height
+        )
+
+        // Set the same position as the original sticker
+        newLayoutParams.leftMargin = layoutParams.leftMargin
+        newLayoutParams.topMargin = layoutParams.topMargin
+
+        // Assign the layout params to the new sticker
+        newStickerView.layoutParams = newLayoutParams
+
+        // Get the parent layout (where the sticker views are added)
+        val parentLayout = parent as ViewGroup
+
+        // Add the new sticker to the parent layout
+        parentLayout.addView(newStickerView)
+
+        // Optionally, you can reset or update any properties of the new sticker if needed
+        newStickerView.resetSticker()
+
+        // Dragging logic for the entire CustomStickerView (the whole sticker view moves)
+        newStickerView.setOnTouchListener { v, event ->
+            if (isStickerRemoved) return@setOnTouchListener true // Prevent interaction if removed
+
+            when (event.action) {
+
+                MotionEvent.ACTION_DOWN -> {
+                    dX = v.x - event.rawX
+                    dY = v.y - event.rawY
+                }
+
+                MotionEvent.ACTION_MOVE -> {
+                    v.animate()
+                        .x(event.rawX + dX)
+                        .y(event.rawY + dY)
+                        .setDuration(0)
+                        .start()
+                }
+            }
+            true
+        }
+    }
+
 }
 
 

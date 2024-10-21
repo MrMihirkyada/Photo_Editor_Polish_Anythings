@@ -5,47 +5,56 @@
     android:layout_height="match_parent"
     android:layout_gravity="center">
 
-    <!-- Sticker Image -->
-    <ImageView
-        android:id="@+id/stickerImageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="fitCenter"
-        android:layout_gravity="center"/>
 
-    <!-- Delete Button -->
-    <ImageView
-        android:id="@+id/imgDeleteButton"
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
-        android:layout_gravity="top|start"
-        android:src="@drawable/cancel"/>
+    <FrameLayout
+        android:id="@+id/stickerLayoutContainer"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center">
 
-    <ImageView
-        android:id="@+id/imgHorizontal"
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
-        android:layout_gravity="end"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/flip_horizontal"/>
+        <!-- Sticker Image -->
+        <ImageView
+            android:id="@+id/stickerImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"/>
+
+        <!-- Delete Button -->
+        <ImageView
+            android:id="@+id/imgDeleteButton"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_gravity="top|start"
+            android:src="@drawable/cancel"/>
+
+        <ImageView
+            android:id="@+id/imgHorizontal"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:src="@drawable/flip_horizontal"/>
 
         <!-- Resize/Rotate Button -->
 
         <!-- Resize/Rotate Button -->
         <ImageView
             android:id="@+id/imgResizeButton"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom|end"
             android:src="@drawable/resize_sticker" />
 
-    <ImageView
-        android:id="@+id/imgCopy"
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
-        android:layout_gravity="bottom"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/copy_sticker"/>
+        <ImageView
+            android:id="@+id/imgCopy"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:src="@drawable/copy_sticker" />
+
+    </FrameLayout>
 </FrameLayout>

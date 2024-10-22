@@ -46,16 +46,15 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener , StickerCl
     private lateinit var datas: String
     private lateinit var mainImageUrl: String
     var stickerLayout: FrameLayout? = null
-    private var currentStickerView: CustomStickerView? =
-        null // Track the currently displayed sticker
+    private var currentStickerView: CustomStickerView? = null // Track the currently displayed sticker
+    private var stickerCounter = 0 // To track number of stickers
 
 
     companion object {
         private const val ARG_DATA = "data"
         private const val ARG_COLOR = "navigation_bar_color"
         private const val ARG_MAIN_IMAGE_URL = "main_image_url"
-        private const val ARG_TEXT_CATEGORY =
-            "https://s3.eu-north-1.amazonaws.com/photoeditorbeautycamera.com/photoeditor/sticker/"
+        private const val ARG_TEXT_CATEGORY = "https://s3.eu-north-1.amazonaws.com/photoeditorbeautycamera.com/photoeditor/sticker/"
 
         var context: Context? = null
 
@@ -98,6 +97,7 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener , StickerCl
         val data: ArrayList<String>? = intent.getStringArrayListExtra(ARG_DATA)
         val textCategory: String? = intent.getStringExtra(ARG_TEXT_CATEGORY)
         val mainImageUrl: String? = intent.getStringExtra(ARG_MAIN_IMAGE_URL)
+
 
         initializeEmojiCompat()
         initView()
@@ -256,112 +256,92 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener , StickerCl
         binding.rcvStikers.adapter = groupAdapter
 
         // Make the second RecyclerView visible
-        binding.rcvStikers.visibility = View.GONE
+        binding.rcvStikers.visibility = View.VISIBLE
     }
 
     // This method will be called when an item is clicked in the second RecyclerView
     override fun onStickerSelected(imageUrl: String)
     {
-////         Remove the existing sticker view if it exists
-//        currentStickerView?.let {
-//            val stickerLayout = findViewById<FrameLayout>(R.id.stickerLayout)
-//            stickerLayout.removeView(it)
-//        }
+//      Remove the existing sticker view if it exists
+        currentStickerView?.let {
+            val stickerLayout = findViewById<FrameLayout>(R.id.stickerLayout)
+            stickerLayout.removeView(it)
+        }
 
         // Create a new instance of your CustomStickerView
         val newStickerView = CustomStickerView(this)
 
-        val frameLayout = findViewById<FrameLayout>(R.id.stickerLayoutContainer)
-
-        // Load image using Glide and set it as background for FrameLayout
-        Glide.with(this)
-            .load(imageUrl)
-            .into(object : CustomTarget<Drawable>() {
-                override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                    // Set the downloaded image as the background of FrameLayout
-                    frameLayout.background = resource
-                }
-
-                override fun onLoadCleared(placeholder: Drawable?) {
-                    // Handle clearing the background when needed (optional)
-                }
-            })
-
-
-        // Load the sticker image into the custom view's ImageView
-        Glide.with(this)
-            .load(imageUrl)
-            .into(newStickerView.findViewById(R.id.stickerImageView))  // Assuming your sticker layout has an ImageView with this ID
-
-        // Set the layout parameters for the new sticker view's initial position and size
-        val layoutParams = FrameLayout.LayoutParams(
-            FrameLayout.LayoutParams.WRAP_CONTENT,
-            FrameLayout.LayoutParams.WRAP_CONTENT
-        )
+        val layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT)
 
         newStickerView.layoutParams = layoutParams
 
         // Make the CustomStickerView visible if needed
         binding.stvStickerView.visibility = View.VISIBLE
 
-//      Add the new sticker view to your sticker layout
-        val stickerLayout = findViewById<FrameLayout>(R.id.stickerLayout)
-        stickerLayout.addView(newStickerView)
+        Glide.with(this)
+            .load(imageUrl)
+            .into(newStickerView.findViewById(R.id.stickerImageView))
 
-        // Update the reference to the current sticker view
-        //        currentStickerView = newStickerView
 
-//        val frameLayout = findViewById<FrameLayout>(R.id.stickerLayout)
-//
-//        // Dynamically create an ImageView
-//        val imageView = ImageView(this)
-//
-//
-//        // Set layout parameters for the ImageView (optional, adjust as needed)
-//        val layoutParams = FrameLayout.LayoutParams(
-//            FrameLayout.LayoutParams.MATCH_PARENT, // width
-//            FrameLayout.LayoutParams.MATCH_PARENT  // height
-//        )
-//        imageView.layoutParams = layoutParams
-//
-//
-//
-//        // Optionally set a scale type
-//        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-//
-//        // Add the ImageView to the FrameLayout
-//        frameLayout.addView(imageView)
-//
-//        // Load the image into the ImageView using Glide
 //        Glide.with(this)
-//            .load(imageUrl) // Replace with your image URL
-//            .into(frameLayout.getChildAt(0) as ImageView)
+//            .load(imageUrl)
+//            .into(object : CustomTarget<Drawable>()
+//            {
+//                override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?)
+//                {
+//                    frameLayout.setDrawable(resource)
+//                }
+//
+//                override fun onLoadCleared(placeholder: Drawable?)
+//                {
+//                    frameLayout.setDrawable(null)
+//                }
+//            })
+
+
+        //      Add the new sticker view to your sticker layout
+        val stickerLayout = findViewById<FrameLayout>(R.id.stvStickerView)
+        stickerLayout.addView(newStickerView)
     }
 
-//    fun createStickerView(sticker: String): View {
-//        // Inflate or create the sticker view dynamically
-//        val stickerView = ImageView(this)
-//        stickerView.layoutParams = FrameLayout.LayoutParams(
-//            150.dpToPx(), // Convert dp to px
-//            150.dpToPx()
-//        )
-////        stickerView.setImageDrawable(sticker) // Set the sticker image
-//
-//        // Add any additional setup, like touch listeners, to the sticker view if needed
-//        return stickerView
-//    }
-//
-//    fun addNewSticker(stickerView: View, frameLayoutContainer: FrameLayout) {
-//        // Check if the container still exists and is valid before adding
-//        if (frameLayoutContainer != null && frameLayoutContainer.parent != null) {
-//            frameLayoutContainer.addView(stickerView) // Add new sticker view
-//        } else {
-//            Log.e("AddSticker", "Container is null or not attached to a parent.")
-//            // Handle the case where the container is not available
+
+//    override fun onStickerSelected(imageUrl: String) {
+//        // Create a new sticker view instance
+//        val newStickerView = CustomStickerView(this).apply {
+//            id = View.generateViewId() // Generate unique ID for each sticker
+//            tag = "sticker_${stickerCounter++}" // Unique tag for identification
 //        }
+//
+//        // Set layout parameters for the new sticker
+//        val layoutParams = FrameLayout.LayoutParams(
+//            FrameLayout.LayoutParams.WRAP_CONTENT,
+//            FrameLayout.LayoutParams.WRAP_CONTENT
+//        ).apply {
+//            // Set initial position (you can adjust these values)
+//            leftMargin = 100
+//            topMargin = 100
+//        }
+//
+//        // Load the image into the new sticker view
+//        Glide.with(this)
+//            .asBitmap()
+//            .load(imageUrl)
+//            .into(newStickerView.findViewById(R.id.stickerImageView))/*object : CustomTarget<Bitmap>() {
+//                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+//                    newStickerView.setStickerImage(resource)
+//                }
+//
+//                override fun onLoadCleared(placeholder: Drawable?) {
+//                    // Handle cleared state if needed
+//                }
+//            })*/
+//
+////        // Add the new sticker view to the main container
+////        stickerLayout!!.addView(newStickerView, layoutParams)
+//
+//        //Add the new sticker view to your sticker layout
+//        val stickerLayout = findViewById<FrameLayout>(R.id.stickerLayout)
+//        stickerLayout.addView(newStickerView)
 //    }
-//
-//
-//    fun Int.dpToPx(): Int = (this * resources.displayMetrics.density).toInt()
 
 }

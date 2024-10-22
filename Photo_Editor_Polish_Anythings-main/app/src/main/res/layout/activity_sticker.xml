@@ -23,12 +23,21 @@
             android:adjustViewBounds="true"
             android:scaleType="fitCenter" />
 
-        <com.example.photoeditorpolishanything.StickerView.CustomStickerView
+<!--        <com.example.photoeditorpolishanything.StickerView.CustomStickerView-->
+<!--            android:id="@+id/stvStickerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:visibility="gone"-->
+<!--            android:background="@android:color/transparent"/>-->
+
+
+        <FrameLayout
             android:id="@+id/stvStickerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
-            tools:ignore="ChildInNonViewGroup"/>
+            android:background="@android:color/transparent"/>
+
 
         <!--        <com.example.photoeditorpolishanything.StickerView.CustomStickerView-->
         <!--            android:id="@+id/stvStickerView"-->

@@ -6,19 +6,14 @@
     android:layout_gravity="center">
 
 
-    <FrameLayout
-        android:id="@+id/stickerLayoutContainer"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center">
 
-        <!-- Sticker Image -->
-        <ImageView
-            android:id="@+id/stickerImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:scaleType="fitCenter"/>
+<!--         Sticker Image -->
+<!--        <ImageView-->
+<!--            android:id="@+id/stickerImageView"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:scaleType="fitCenter"/>-->
 
         <!-- Delete Button -->
         <ImageView
@@ -35,8 +30,6 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="end"
             android:src="@drawable/flip_horizontal"/>
-
-        <!-- Resize/Rotate Button -->
 
         <!-- Resize/Rotate Button -->
         <ImageView
@@ -56,5 +49,5 @@
             android:layout_gravity="bottom"
             android:src="@drawable/copy_sticker" />
 
-    </FrameLayout>
+<!--    </FrameLayout>-->
 </FrameLayout>

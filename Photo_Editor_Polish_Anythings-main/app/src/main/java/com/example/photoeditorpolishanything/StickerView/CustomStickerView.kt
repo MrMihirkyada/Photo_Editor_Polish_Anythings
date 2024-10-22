@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,7 +20,7 @@ import com.example.photoeditorpolishanything.R
 class CustomStickerView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     FrameLayout(context, attrs) {
 
-    private var stickerLayout : FrameLayout
+    private var stickerLayout : View
     private var stickerImageView: ImageView
     private var deleteButton: ImageView
     private var resizeButton: ImageView
@@ -39,6 +40,9 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
     private var initialWidth = 0f
     private var initialHeight = 0f
 
+    private lateinit var stickerContainer: FrameLayout
+
+
 
     init {
 
@@ -50,42 +54,84 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
         addView(stickerImageView)
 
         // Inflate the sticker layout
-        LayoutInflater.from(context).inflate(R.id.stickerLayout, this, true)
+        LayoutInflater.from(context).inflate(R.layout.sticker_layout, this, true)
         stickerLayout = findViewById(R.id.stickerLayout)
-        stickerImageView = findViewById(R.id.stickerImageView)
         deleteButton = findViewById(R.id.imgDeleteButton)
         resizeButton = findViewById(R.id.imgResizeButton)
         copyButton = findViewById(R.id.imgCopy)
         flipButton = findViewById(R.id.imgHorizontal)
 
+
+        LayoutInflater.from(context).inflate(R.layout.sticker_view_layout, this, true)
+        stickerImageView = findViewById(R.id.stickerImageView)
+
+
+
+        stickerContainer = findViewById(R.id.stickerLayout)
+
+
+
+
+//        initializeView()
         setupListeners()
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun setupListeners() {
+    private fun setupListeners()
+    {
+
+//        stickerImageView.setOnClickListener {
+//            // Show the layout if it is hidden, otherwise hide it
+//            if (deleteButton.visibility == View.GONE  &&
+//                resizeButton.visibility == View.GONE &&
+//                copyButton.visibility == View.GONE &&
+//                flipButton.visibility == View.GONE)
+//            {
+//                deleteButton.visibility = View.VISIBLE
+//                resizeButton.visibility = View.VISIBLE
+//                copyButton.visibility = View.VISIBLE
+//                flipButton.visibility = View.VISIBLE
+//            } else {
+//                deleteButton.visibility = View.GONE
+//                resizeButton.visibility = View.GONE
+//                copyButton.visibility = View.GONE
+//                flipButton.visibility = View.GONE
+//            }
+//        }
+
+
+
         // Delete sticker
         deleteButton.setOnClickListener { view ->
             // Retrieve the sticker layout (which is the parent of deleteButton)
             val stickerLayout = view.parent as? FrameLayout
 
             // Check if the stickerLayout exists
-            if (stickerLayout != null) {
+            if (stickerLayout != null)
+            {
                 // Retrieve the parent of the stickerLayout (usually the main container holding all stickers)
                 val parentViewGroup = stickerLayout.parent as? ViewGroup
 
                 // Check if the parent ViewGroup exists and contains the stickerLayout
-                if (parentViewGroup != null) {
+                if (parentViewGroup != null)
+                {
                     // Remove the sticker layout from the parent
                     parentViewGroup.removeView(stickerLayout)
 
                     // Optionally, clear any references (like tags) to avoid memory leaks
                     stickerLayout.tag = null
-                } else {
+                }
+                else
+                {
                     Log.e("StickerRemoval", "Parent ViewGroup is null or doesn't contain stickerLayout.")
                 }
-            } else {
+            }
+            else
+            {
                 Log.e("StickerRemoval", "StickerLayout is null.")
             }
+
+
         }
 
         // Implement resize logic
@@ -146,7 +192,7 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
             stickerImageView.scaleX = if (isFlippedHorizontally) -1f else 1f // Flip horizontally
         }
 
-        // Dragging logic for the entire CustomStickerView (the whole sticker view moves)
+//         Dragging logic for the entire CustomStickerView (the whole sticker view moves)
         this.setOnTouchListener { v, event ->
             if (isStickerRemoved) return@setOnTouchListener true // Prevent interaction if removed
 
@@ -188,54 +234,12 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
     }
 
 
-//    // Function to create a new sticker and display it in a new layout
-//    private fun createNewSticker() {
-//        // Create a new container (FrameLayout) for the new sticker
-//        val newStickerContainer = FrameLayout(context).apply {
-//            layoutParams = FrameLayout.LayoutParams(
-//                FrameLayout.LayoutParams.WRAP_CONTENT,
-//                FrameLayout.LayoutParams.WRAP_CONTENT
-//            )
-//        }
-//    }
-
-
-//    // Function to create a new layout for each sticker
-//    private fun createNewStickerLayout(imageUrl: String)
-//    {
-//        // Create a new FrameLayout or RelativeLayout for the new sticker
-//        val newStickerLayout = FrameLayout(context).apply {
-//            layoutParams = FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-//        }
-//
-////        // Create a new CustomStickerView for the sticker
-////        val newStickerView = CustomStickerView(context)
-//
-//        // Load the sticker image into the new CustomStickerView
-//        Glide.with(this).load(imageUrl).into(newStickerView.findViewById(R.id.stickerImageView))  // Assuming the ImageView ID is stickerImageView
-//
-//        // Add the new sticker to the newly created layout
-//        newStickerLayout.addView(newStickerView)
-//
-//        // Add the new layout (which contains the sticker) to the parent layout
-//        val parentLayout = findViewById<FrameLayout>(R.id.stickerLayout) // The main parent layout that holds all sticker layouts
-//        parentLayout.addView(newStickerLayout)
-//
-//        // Optionally set position or other properties of the new layout
-//        newStickerLayout.x = 100f // Example x-position
-//        newStickerLayout.y = 200f // Example y-position
-//
-//        // If needed, you can update the reference for the latest sticker view
-//        currentStickerView = newStickerView
-//    }
-
     private fun getStickerImage(): Bitmap  {
         // Check if the ImageView has a drawable
         val drawable = stickerImageView.drawable
         if (drawable != null) {
             // Create a Bitmap from the drawable
-            val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight,
-                Bitmap.Config.ARGB_8888)
+            val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
 
             val canvas = Canvas(bitmap)
             drawable.setBounds(0, 0, canvas.width, canvas.height)
@@ -255,7 +259,8 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
 
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun copySticker() {
+    private fun copySticker()
+    {
         // Create a new instance of CustomStickerView
         val newStickerView = CustomStickerView(context)
 
@@ -264,12 +269,10 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
         newStickerView.setStickerImage(currentStickerBitmap)
 
         // Get the current layout parameters of the original sticker
-        val layoutParams = this.layoutParams as FrameLayout.LayoutParams
+        val layoutParams = this.layoutParams as LayoutParams
 
         // Set the new sticker's layout params to the same as the original one
-        val newLayoutParams = FrameLayout.LayoutParams(
-            layoutParams.width, layoutParams.height
-        )
+        val newLayoutParams = LayoutParams(layoutParams.width, layoutParams.height)
 
         // Set the same position as the original sticker
         newLayoutParams.leftMargin = layoutParams.leftMargin
@@ -291,8 +294,8 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
         newStickerView.setOnTouchListener { v, event ->
             if (isStickerRemoved) return@setOnTouchListener true // Prevent interaction if removed
 
-            when (event.action) {
-
+            when (event.action)
+            {
                 MotionEvent.ACTION_DOWN -> {
                     dX = v.x - event.rawX
                     dY = v.y - event.rawY
@@ -308,6 +311,29 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
             }
             true
         }
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean
+    {
+        // If touch event occurs outside the sticker, hide the sticker layout
+        if (event.action == MotionEvent.ACTION_DOWN)
+        {
+            if (!isTouchInsideSticker(event))
+            {
+                deleteButton.visibility = View.GONE // Hide layout if clicked outside
+                resizeButton.visibility = View.GONE // Hide layout if clicked outside
+                copyButton.visibility = View.GONE // Hide layout if clicked outside
+                flipButton.visibility = View.GONE // Hide layout if clicked outside
+            }
+        }
+        return super.onTouchEvent(event)
+    }
+
+    // Helper function to check if the touch was inside the sticker
+    private fun isTouchInsideSticker(event: MotionEvent): Boolean {
+        val stickerBounds = Rect()
+        this.getHitRect(stickerBounds)
+        return stickerBounds.contains(event.x.toInt(), event.y.toInt())
     }
 
 }

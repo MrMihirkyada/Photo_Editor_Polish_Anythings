@@ -1,5 +1,6 @@
 package com.example.photoeditorpolishanything
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
@@ -171,6 +172,7 @@ class Sticker_Activity : AppCompatActivity(), OnStickerClickListener , StickerCl
         Log.e("imageUrlList", "initView: " + imageUrlList)
     }
 
+    @SuppressLint("MissingInflatedId")
     private fun createNewSticker(bitmap: Bitmap) {
         // Inflate the sticker layout
         val stickerView = layoutInflater.inflate(R.layout.sticker_layout, null)

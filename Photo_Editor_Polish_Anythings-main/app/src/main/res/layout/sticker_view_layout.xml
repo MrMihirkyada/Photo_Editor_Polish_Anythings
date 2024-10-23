@@ -3,7 +3,7 @@
     android:id="@+id/sticker_main_layout"
     android:layout_width="100dp"
     android:layout_height="100dp"
-    android:padding="@dimen/_10sdp">
+    android:layout_margin="@dimen/_15sdp">
 
     <ImageView
         android:id="@+id/stickerImageView"
@@ -11,4 +11,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:scaleType="fitCenter"/>
+
 </FrameLayout>

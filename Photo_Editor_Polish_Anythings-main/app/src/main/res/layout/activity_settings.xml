@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".SettingsActivity">
 
+
     <LinearLayout
         android:id="@+id/lnrSetting"
         android:layout_width="match_parent"

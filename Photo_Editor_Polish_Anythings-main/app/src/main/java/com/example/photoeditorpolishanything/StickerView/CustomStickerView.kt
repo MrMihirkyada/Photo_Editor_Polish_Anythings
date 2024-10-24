@@ -12,8 +12,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.core.view.size
 import androidx.core.view.updateLayoutParams
 import com.example.photoeditorpolishanything.R
+import com.example.photoeditorpolishanything.Sticker_Activity.Companion.binding
 import kotlin.math.atan2
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -23,6 +25,7 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
     FrameLayout(context, attrs) {
 
     private var stickerLayout : View
+    private var stickerLayoutView : FrameLayout
     private var stickerImageView: ImageView
     private var deleteButton: ImageView
     private var resizeButton: ImageView
@@ -62,6 +65,7 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
     private var originalHeight = 0f
 
     var currentRotation = 0f // Track current rotation angle
+    private var lastTouchAngle = 0f
     var initialRotation = 0f // Store initial rotation angle
     var initialFingerDistance = 0f // Store the distance between fingers when rotation starts
 
@@ -76,6 +80,8 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
     private var pivotX = 0f
     private var pivotY = 0f
 
+
+    private var isRotating = false
 
     private lateinit var stickerContainer: FrameLayout
 
@@ -94,6 +100,7 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
         // Inflate the sticker layout
         LayoutInflater.from(context).inflate(R.layout.sticker_layout, this, true)
         stickerLayout = findViewById(R.id.stickerLayout)
+        stickerLayoutView = findViewById(R.id.stickerLayoutview)
         deleteButton = findViewById(R.id.imgDeleteButton)
         resizeButton = findViewById(R.id.imgResizeButton)
         copyButton = findViewById(R.id.imgCopy)
@@ -104,6 +111,8 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
 
         stickerContainer = findViewById(R.id.stickerLayout)
 
+
+
 //        initializeView()
         setupListeners()
     }
@@ -111,31 +120,77 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
     @SuppressLint("ClickableViewAccessibility")
     private fun setupListeners()
     {
+        stickerMainLayout = findViewById(R.id.sticker_main_layout)
+        stickerMainLayout = findViewById(R.id.sticker_main_layout)
 
-//        stickerImageView.setOnClickListener {
-//            // Show the layout if it is hidden, otherwise hide it
-//            if (deleteButton.visibility == View.GONE  &&
-//                resizeButton.visibility == View.GONE &&
-//                copyButton.visibility == View.GONE &&
-//                flipButton.visibility == View.GONE)
+
+//        //      Dragging logic for the entire CustomStickerView (the whole sticker view moves)
+//        this.setOnTouchListener { v, event ->
+//            if (isStickerRemoved) return@setOnTouchListener true // Prevent interaction if removed
+//
+////            stickerImageView.setOnTouchListener {
+////            }
+//            when (event.action)
 //            {
-//                deleteButton.visibility = View.VISIBLE
-//                resizeButton.visibility = View.VISIBLE
-//                copyButton.visibility = View.VISIBLE
-//                flipButton.visibility = View.VISIBLE
-//            } else {
-//                deleteButton.visibility = View.GONE
-//                resizeButton.visibility = View.GONE
-//                copyButton.visibility = View.GONE
-//                flipButton.visibility = View.GONE
+//                MotionEvent.ACTION_DOWN -> {
+//                    dX = v.x - event.rawX
+//                    dY = v.y - event.rawY
+//                }
+//
+//                MotionEvent.ACTION_MOVE -> {
+//                    v.animate()
+//                        .x(event.rawX + dX)
+//                        .y(event.rawY + dY)
+//                        .setDuration(0)
+//                        .start()
+//                }
 //            }
+//            true
 //        }
 
 
+        val stickerContainer: ViewGroup = findViewById(R.id.stickerLayoutview) // Replace with your actual container ID
 
+        binding.imgEditSelectImagess.setOnClickListener {
+            // Iterate through all children of stickerContainer
+            for (i in 0 until stickerContainer.childCount) {
+                // Get the sticker layout at index i
+                val stickerLayout = stickerContainer.getChildAt(i)
+                // Set its visibility to GONE
+                stickerLayout.visibility = View.GONE
+            }
+        }
+
+
+        binding.imgEditSelectImagess.setOnClickListener {
+            stickerLayoutView.visibility = View.GONE // Hide each sticker layout
+        }
+
+
+        stickerMainLayout.setOnClickListener {
+            if(stickerLayoutView.visibility == View.GONE)
+            {
+                stickerLayoutView.visibility = View.VISIBLE
+            }
+            else
+            {
+                stickerLayoutView.visibility = View.GONE
+            }
+        }
+
+
+
+//        stickerMainLayout.setOnClickListener {
 //
-
-
+//            if(stickerLayoutView.visibility == View.GONE)
+//            {
+//                stickerLayoutView.visibility = View.VISIBLE
+//            }
+//            else
+//            {
+//                stickerLayoutView.visibility = View.GONE
+//            }
+//        }
 
 
         // Delete sticker with extended touch area
@@ -189,138 +244,69 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
             }
         }
 
-        /*{
-            // Retrieve the sticker layout (which is the parent of deleteButton)
-            val stickerLayout = view.parent as? FrameLayout
-
-            // Check if the stickerLayout exists
-            if (stickerLayout != null)
-            {
-                // Retrieve the parent of the stickerLayout (usually the main container holding all stickers)
-                val parentViewGroup = stickerLayout.parent as? ViewGroup
-
-                // Check if the parent ViewGroup exists and contains the stickerLayout
-                if (parentViewGroup != null)
-                {
-                    // Set stickerImageView visibility to GONE (or remove it if necessary)
-                    stickerImageView.visibility = View.GONE // This hides the stickerImageView
-
-                    // Alternatively, if you want to completely remove it, use:
-                    // stickerLayout.removeView(stickerImageView)  // This will remove the image from the layout
-
-                    // Now remove the sticker layout from the parent
-                    parentViewGroup.removeView(stickerLayout)
-
-                    // Optionally, clear any references (like tags) to avoid memory leaks
-                    stickerLayout.tag = null
-                }
-                else
-                {
-                    Log.e("StickerRemoval", "Parent ViewGroup is null or doesn't contain stickerLayout.")
-                }
-            }
-            else
-            {
-                Log.e("StickerRemoval", "StickerLayout is null.")
-            }
-
-            // Determine the center of the divider
-            val dividerCenterX = deleteButton.x + deleteButton.width / 2
-
-            // Check if touch is within the wider touch area (30 pixels on each side of the divider)
-            if (event.rawX in (dividerCenterX - 60)..(dividerCenterX + 60)) { // 60 pixels on either side
-                dX = dividerHandle.x - event.rawX
-                return true
-            }
-
-        }*/
-
-        stickerMainLayout = findViewById(R.id.sticker_main_layout)
-
-//        resizeButton.setOnTouchListener { _, event ->
-//            when (event.action) {
-//                MotionEvent.ACTION_DOWN -> {
-//                    // Record initial values
-//                    initialTouchX = event.rawX
-//                    initialTouchY = event.rawY
-//                    initialLayoutWidth = stickerMainLayout.width.toFloat()
-//                    initialLayoutHeight = stickerMainLayout.height.toFloat()
-//                    initialAspectRatio = initialLayoutWidth / initialLayoutHeight
+//        {
+//            // Retrieve the sticker layout (which is the parent of deleteButton)
+//            val stickerLayout = view.parent as? FrameLayout
 //
-//                    // Store original dimensions if not already stored
-//                    if (originalWidth == 0f) {
-//                        originalWidth = initialLayoutWidth
-//                        originalHeight = initialLayoutHeight
-//                    }
+//            // Check if the stickerLayout exists
+//            if (stickerLayout != null)
+//            {
+//                // Retrieve the parent of the stickerLayout (usually the main container holding all stickers)
+//                val parentViewGroup = stickerLayout.parent as? ViewGroup
+//
+//                // Check if the parent ViewGroup exists and contains the stickerLayout
+//                if (parentViewGroup != null)
+//                {
+//                    // Set stickerImageView visibility to GONE (or remove it if necessary)
+//                    stickerImageView.visibility = View.GONE // This hides the stickerImageView
+//
+//                    // Alternatively, if you want to completely remove it, use:
+//                    // stickerLayout.removeView(stickerImageView)  // This will remove the image from the layout
+//
+//                    // Now remove the sticker layout from the parent
+//                    parentViewGroup.removeView(stickerLayout)
+//
+//                    // Optionally, clear any references (like tags) to avoid memory leaks
+//                    stickerLayout.tag = null
 //                }
-//
-//                MotionEvent.ACTION_MOVE -> {
-//                    // Calculate drag distance
-//                    val deltaX = event.rawX - initialTouchX
-//                    val deltaY = event.rawY - initialTouchY
-//
-//                    // Determine which dimension should drive the resize
-//                    val horizontalScale = (initialLayoutWidth + deltaX) / initialLayoutWidth
-//                    val verticalScale = (initialLayoutHeight + deltaY) / initialLayoutHeight
-//
-//                    // Use the larger scale factor to maintain aspect ratio
-//                    val scale = maxOf(horizontalScale, verticalScale)
-//
-//                    // Calculate the current scale relative to original size
-//                    var currentScale = (initialLayoutWidth * scale) / originalWidth
-//
-//                    // Clamp the scale within limits
-//                    currentScale = currentScale.coerceIn(MIN_SCALE, MAX_SCALE)
-//
-//                    // Calculate new dimensions based on clamped scale
-//                    var newWidth = (originalWidth * currentScale).coerceAtLeast(50f)
-//                    var newHeight = (newWidth / initialAspectRatio).coerceAtLeast(50f)
-//
-//                    // If height-driven resize would exceed minimum width, recalculate based on width
-//                    if (newHeight < 50f) {
-//                        newHeight = 50f
-//                        newWidth = newHeight * initialAspectRatio
-//                    }
-//
-//                    // Optional: Add visual feedback for scale limits
-//                    if (currentScale >= MAX_SCALE || currentScale <= MIN_SCALE) {
-//                        // You could add a subtle animation or color change here
-//                        resizeButton.alpha = 0.5f
-//                    } else {
-//                        resizeButton.alpha = 1.0f
-//                    }
-//
-//                    // Update main layout
-//                    stickerMainLayout.updateLayoutParams<LayoutParams> {
-//                        width = newWidth.toInt()
-//                        height = newHeight.toInt()
-//                    }
-//
-//                    // Update image view to match
-//                    stickerImageView.updateLayoutParams<LayoutParams> {
-//                        width = newWidth.toInt()
-//                        height = newHeight.toInt()
-//                    }
-//                }
-//
-//                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-//                    // Reset any visual feedback
-//                    resizeButton.alpha = 1.0f
+//                else
+//                {
+//                    Log.e("StickerRemoval", "Parent ViewGroup is null or doesn't contain stickerLayout.")
 //                }
 //            }
-//            true
+//            else
+//            {
+//                Log.e("StickerRemoval", "StickerLayout is null.")
+//            }
+//
+//            // Determine the center of the divider
+//            val dividerCenterX = deleteButton.x + deleteButton.width / 2
+//
+//            // Check if touch is within the wider touch area (30 pixels on each side of the divider)
+//            if (event.rawX in (dividerCenterX - 60)..(dividerCenterX + 60)) { // 60 pixels on either side
+//                dX = dividerHandle.x - event.rawX
+//                return true
+//            }
+//
 //        }
 
 
         resizeButton.setOnTouchListener { _, event ->
-            when (event.action) {
+            when (event.actionMasked) {
                 MotionEvent.ACTION_DOWN -> {
-                    // Record initial values
+                    // Record initial values for resize and rotation
                     initialTouchX = event.rawX
                     initialTouchY = event.rawY
                     initialLayoutWidth = stickerMainLayout.width.toFloat()
                     initialLayoutHeight = stickerMainLayout.height.toFloat()
                     initialAspectRatio = initialLayoutWidth / initialLayoutHeight
+
+                    // Calculate the center of the sticker for rotation
+                    val centerX = stickerMainLayout.x + stickerMainLayout.width / 2
+                    val centerY = stickerMainLayout.y + stickerMainLayout.height / 2
+
+                    // Calculate initial angle between touch point and center
+                    lastTouchAngle = getAngleFromPoint(centerX, centerY, event.rawX, event.rawY)
 
                     // Store original dimensions if not already stored
                     if (originalWidth == 0f)
@@ -329,79 +315,76 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
                         originalHeight = initialLayoutHeight
                     }
 
-                    // Determine the center of the divider
-                    val dividerCenterX = stickerMainLayout.x + stickerMainLayout.width / 2
-
-                    // Check if touch is within the wider touch area (30 pixels on each side of the divider)
-                    if (event.rawX in (dividerCenterX - 60)..(dividerCenterX + 60)) { // 60 pixels on either side
-                        dX = stickerMainLayout.x - event.rawX
-                    }
+                    // Start rotation mode
+                    isRotating = true
                 }
 
                 MotionEvent.ACTION_MOVE -> {
-                    if (event.pointerCount == 1) {
-                        // Existing resize logic
-                        val deltaX = event.rawX - initialTouchX
-                        val deltaY = event.rawY - initialTouchY
+                    if (isRotating) {
+                        // Calculate the center of the sticker for rotation
+                        val centerX = stickerMainLayout.x + stickerMainLayout.width / 2
+                        val centerY = stickerMainLayout.y + stickerMainLayout.height / 2
 
-                        // Determine which dimension should drive the resize
-                        val horizontalScale = (initialLayoutWidth + deltaX) / initialLayoutWidth
-                        val verticalScale = (initialLayoutHeight + deltaY) / initialLayoutHeight
+                        // Get the current angle between the touch point and the sticker's center
+                        val currentTouchAngle = getAngleFromPoint(centerX, centerY, event.rawX, event.rawY)
 
-                        // Use the larger scale factor to maintain aspect ratio
-                        val scale = maxOf(horizontalScale, verticalScale)
+                        // Calculate the angle difference for smooth 360-degree rotation
+                        val rotationDelta = currentTouchAngle - lastTouchAngle
 
-                        // Calculate the current scale relative to original size
-                        var currentScale = (initialLayoutWidth * scale) / originalWidth
+                        // Update the current rotation
+                        currentRotation += rotationDelta
 
-                        // Clamp the scale within limits
-                        currentScale = currentScale.coerceIn(MIN_SCALE, MAX_SCALE)
+                        // Normalize the rotation to keep it within 0 to 360 degrees
+                        currentRotation = (currentRotation + 360) % 360
 
-                        // Calculate new dimensions based on clamped scale
-                        var newWidth = (originalWidth * currentScale).coerceAtLeast(50f)
-                        var newHeight = (newWidth / initialAspectRatio).coerceAtLeast(50f)
-
-                        // If height-driven resize would exceed minimum width, recalculate based on width
-                        if (newHeight < 50f)
-                        {
-                            newHeight = 50f
-                            newWidth = newHeight * initialAspectRatio
-                        }
-
-                        // Optional: Add visual feedback for scale limits
-                        resizeButton.alpha = if (currentScale >= MAX_SCALE || currentScale <= MIN_SCALE) 0.5f else 1.0f
-
-                        // Update main layout
-                        stickerMainLayout.updateLayoutParams<LayoutParams>
-                        {
-                            width = newWidth.toInt()
-                            height = newHeight.toInt()
-                        }
-
-                        // Update image view to match
-                        stickerImageView.updateLayoutParams<LayoutParams>
-                        {
-                            width = newWidth.toInt()
-                            height = newHeight.toInt()
-                        }
-                    }
-                    else if (event.pointerCount == 2)
-                    {
-                        // Handle rotation with two fingers
-                        val rotationAngle = calculateRotation(event)
-                        currentRotation += rotationAngle
+                        // Apply the rotation to both the layout and image view (sticker)
                         stickerMainLayout.rotation = currentRotation
+                        stickerLayoutView.rotation = currentRotation
+
+                        // Save the current angle for the next calculation
+                        lastTouchAngle = currentTouchAngle
+                    }
+
+                    // Handle resizing logic simultaneously as before
+                    val deltaX = event.rawX - initialTouchX
+                    val deltaY = event.rawY - initialTouchY
+
+                    val horizontalScale = (initialLayoutWidth + deltaX) / initialLayoutWidth
+                    val verticalScale = (initialLayoutHeight + deltaY) / initialLayoutHeight
+                    val scale = maxOf(horizontalScale, verticalScale)
+
+                    var currentScale = (initialLayoutWidth * scale) / originalWidth
+                    currentScale = currentScale.coerceIn(MIN_SCALE, MAX_SCALE)
+
+                    var newWidth = (originalWidth * currentScale).coerceAtLeast(50f)
+                    var newHeight = (newWidth / initialAspectRatio).coerceAtLeast(50f)
+
+                    if (newHeight < 50f)
+                    {
+                        newHeight = 50f
+                        newWidth = newHeight * initialAspectRatio
+                    }
+
+                    // Apply the new dimensions
+                    stickerMainLayout.updateLayoutParams<LayoutParams>
+                    {
+                        width = newWidth.toInt()
+                        height = newHeight.toInt()
+                    }
+
+                    stickerImageView.updateLayoutParams<LayoutParams>
+                    {
+                        width = newWidth.toInt()
+                        height = newHeight.toInt()
                     }
                 }
 
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    // Reset any visual feedback
-                    resizeButton.alpha = 1.0f
+                    isRotating = false
                 }
             }
             true
         }
-
 
 
 
@@ -421,15 +404,17 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
             stickerImageView.scaleX = if (isFlippedHorizontally) -1f else 1f // Flip horizontally
         }
 
-//         Dragging logic for the entire CustomStickerView (the whole sticker view moves)
+//      Dragging logic for the entire CustomStickerView (the whole sticker view moves)
         this.setOnTouchListener { v, event ->
             if (isStickerRemoved) return@setOnTouchListener true // Prevent interaction if removed
 
-            when (event.action) {
+            when (event.action)
+            {
                 MotionEvent.ACTION_DOWN -> {
                     dX = v.x - event.rawX
                     dY = v.y - event.rawY
                 }
+
                 MotionEvent.ACTION_MOVE -> {
                     v.animate()
                         .x(event.rawX + dX)
@@ -440,11 +425,6 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
             }
             true
         }
-
-//        // Click listener to create a new sticker
-//        stickerImageView.setOnClickListener {
-//            createNewSticker()
-//        }
     }
 
 
@@ -600,6 +580,17 @@ class CustomStickerView @JvmOverloads constructor(context: Context, attrs: Attri
         return degrees.toFloat()
     }
 
+    // Add this helper function to calculate angle
+    private fun getAngleFromPoint(centerX: Float, centerY: Float, touchX: Float, touchY: Float): Float {
+        val deltaX = touchX - centerX
+        val deltaY = touchY - centerY
+        val radians = kotlin.math.atan2(deltaY, deltaX)
+        var degrees = Math.toDegrees(radians.toDouble()).toFloat()
+        if (degrees < 0) {
+            degrees += 360f
+        }
+        return degrees
+    }
 }
 
 
